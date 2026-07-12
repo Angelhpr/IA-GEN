@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 
+from app.api.routes import router
+from app.core.config import settings
+
 app = FastAPI(
-    title="IA-GEN API",
+    title=settings.APP_NAME,
     description="Backend oficial del Instituto IA-GEN",
-    version="0.1.0"
+    version="1.0.0"
 )
 
-
-@app.get("/")
-def root():
-    return {
-        "message": "Bienvenido a IA-GEN API"
-    }
+app.include_router(router)
