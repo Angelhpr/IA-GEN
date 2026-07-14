@@ -8,6 +8,9 @@ app = FastAPI(
     version="0.1.0",
 )
 
+# Registrar los manejadores de excepciones
+register_exception_handlers(app)
+
 app.include_router(router)
 
 
