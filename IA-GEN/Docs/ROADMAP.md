@@ -8,7 +8,7 @@
 
 **Proyecto:** IA-GEN
 
-**Versión actual:** **v0.4.0**
+**Versión actual:** **v0.5.0**
 
 **Estado:** 🟢 Desarrollo activo
 
@@ -35,20 +35,20 @@ La plataforma estará compuesta por:
 
 # Estado general
 
-| Módulo               | Estado           |
-| -------------------- | ---------------- |
-| Documentación        | ✅ Completado     |
-| Arquitectura         | ✅ Completado     |
-| Backend Base         | ✅ Completado     |
-| Motor IA             | ✅ Completado     |
-| Sistema RAG          | ✅ Completado     |
-| Ingestión automática | ✅ Completado     |
-| API REST             | 🟡 En desarrollo |
-| Frontend             | ⏳ Pendiente      |
-| PostgreSQL           | ⏳ Pendiente      |
-| Autenticación        | ⏳ Pendiente      |
-| Docker               | ⏳ Pendiente      |
-| Oracle Cloud         | ⏳ Pendiente      |
+| Módulo | Estado |
+|---------|--------|
+| Documentación | ✅ Completado |
+| Arquitectura | ✅ Completado |
+| Backend Base | ✅ Completado |
+| Motor IA | ✅ Completado |
+| Sistema RAG | ✅ Completado |
+| Ingestión automática | ✅ Completado |
+| API REST | 🟡 En desarrollo (80%) |
+| Frontend | ⏳ Pendiente |
+| PostgreSQL | ⏳ Pendiente |
+| Autenticación | ⏳ Pendiente |
+| Docker | ⏳ Pendiente |
+| Oracle Cloud | ⏳ Pendiente |
 
 ---
 
@@ -56,11 +56,11 @@ La plataforma estará compuesta por:
 
 ## v0.1.0 — Fundación del proyecto ✅
 
-Objetivo:
+### Objetivo
 
 Construir la base del proyecto.
 
-Completado:
+### Completado
 
 * Configuración del entorno.
 * Python.
@@ -75,11 +75,11 @@ Completado:
 
 ## v0.2.0 — Arquitectura Backend ✅
 
-Objetivo:
+### Objetivo
 
 Crear la estructura profesional del backend.
 
-Completado:
+### Completado
 
 * Organización de carpetas.
 * Configuración del proyecto.
@@ -92,11 +92,11 @@ Completado:
 
 ## v0.3.0 — Motor de Inteligencia Artificial ✅
 
-Objetivo:
+### Objetivo
 
 Integrar Google Gemini dentro del proyecto.
 
-Completado:
+### Completado
 
 * Gemini Client.
 * Embeddings.
@@ -109,11 +109,9 @@ Completado:
 
 ## v0.4.0 — Sistema RAG ✅
 
-Objetivo:
+### Objetivo
 
 Construir el sistema Retrieval-Augmented Generation.
-
-Completado:
 
 ### Ingestión
 
@@ -144,31 +142,78 @@ Completado:
 * Contexto dinámico.
 * Integración completa con Gemini.
 
-Resultado:
+### Resultado
 
 El asistente IA puede responder preguntas utilizando información almacenada en la base vectorial.
 
 ---
 
-# Próxima versión
+## v0.5.0 — API REST 🚧
 
-## v0.5.0 — API REST (En desarrollo)
+### Objetivo
 
-Objetivo:
+Exponer el sistema RAG mediante una API REST profesional desarrollada con FastAPI.
 
-Exponer todas las funcionalidades mediante FastAPI.
+### Completado
 
-Incluye:
+#### Infraestructura
 
-* Endpoint raíz.
-* Endpoint Health.
-* Endpoint Chat.
-* Endpoint Ingest.
-* Endpoint Documents.
-* Modelos Pydantic.
+* FastAPI configurado.
 * Organización por routers.
-* Swagger.
-* Manejo profesional de errores.
+* Configuración centralizada.
+* Sistema profesional de logging.
+* Manejo global de excepciones.
+* Variables de entorno.
+* Dependency Injection.
+* Configuración desacoplada.
+
+#### Endpoints
+
+* Endpoint raíz (`/`)
+* Endpoint Health (`/health`)
+* Endpoint Chat (`/api/chat`)
+
+#### Modelos
+
+* ChatRequest.
+* ChatResponse.
+* Validaciones con Pydantic.
+* Documentación automática.
+
+#### Documentación
+
+* Swagger UI.
+* OpenAPI.
+* Descripciones profesionales.
+* Ejemplos de uso.
+
+#### Integración IA
+
+* ChatService conectado mediante Dependency Injection.
+* Integración completa con Gemini.
+* Integración completa con ChromaDB.
+* Integración completa con Retriever.
+* Prompt Builder integrado.
+
+#### Pruebas realizadas
+
+* Compilación completa del proyecto.
+* Inicio correcto de FastAPI.
+* Health Check.
+* Endpoint raíz.
+* Swagger UI.
+* Endpoint Chat.
+* Comunicación con Gemini.
+* Recuperación de contexto desde ChromaDB.
+* Manejo de errores (503 de Gemini).
+* Logs completos del flujo de ejecución.
+
+### Pendiente para cerrar v0.5.0
+
+* Endpoint `/api/ingest`.
+* Endpoint `/api/documents`.
+* Eliminación de documentos.
+* Reindexación mediante API.
 
 ---
 
@@ -176,13 +221,13 @@ Incluye:
 
 ## v0.6.0 — Frontend
 
-Tecnologías:
+### Tecnologías
 
 * Next.js
 * TypeScript
 * Tailwind CSS
 
-Objetivos:
+### Objetivos
 
 * Landing Page.
 * Página de cursos.
@@ -195,7 +240,7 @@ Objetivos:
 
 ## v0.7.0 — Usuarios y Autenticación
 
-Objetivos:
+### Objetivos
 
 * Registro.
 * Inicio de sesión.
@@ -207,7 +252,7 @@ Objetivos:
 
 ## v0.8.0 — PostgreSQL
 
-Objetivos:
+### Objetivos
 
 * Usuarios.
 * Cursos.
@@ -219,7 +264,7 @@ Objetivos:
 
 ## v0.9.0 — Infraestructura
 
-Objetivos:
+### Objetivos
 
 * Docker Backend.
 * Docker Frontend.
@@ -231,7 +276,7 @@ Objetivos:
 
 ## v1.0.0 — Primera versión estable
 
-Objetivos:
+### Objetivos
 
 * Oracle Cloud Infrastructure.
 * HTTPS.
@@ -292,6 +337,6 @@ Cada módulo debe cumplir los siguientes criterios antes de considerarse termina
 
 # Próximo objetivo
 
-**Versión v0.5.0 — API REST**
+**Finalizar la versión v0.5.0 — API REST**
 
-La siguiente etapa consiste en convertir el motor RAG desarrollado en una API REST profesional utilizando FastAPI para que posteriormente pueda ser consumida por el frontend desarrollado en Next.js.
+Los siguientes pasos serán implementar los endpoints de administración del sistema RAG (`/api/ingest` y `/api/documents`) para completar la API antes de comenzar el desarrollo del frontend con Next.js.
