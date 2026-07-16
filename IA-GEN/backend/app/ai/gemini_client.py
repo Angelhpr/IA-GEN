@@ -15,16 +15,28 @@ class GeminiClient:
 
         try:
 
+            logger.info(
+                f"Generando respuesta con {settings.MODEL_NAME}"
+            )
+
             response = self.client.models.generate_content(
                 model=settings.MODEL_NAME,
                 contents=prompt
             )
 
-            return response.text
+            if not response.text:
+
+                raise RuntimeError(
+                    "Gemini no devolvió ningún contenido."
+                )
+
+            return response.text.strip()
 
         except Exception as e:
 
-            logger.exception("Error comunicándose con Gemini")
+            logger.exception(
+                "Error comunicándose con Gemini"
+            )
 
             raise RuntimeError(
                 "No fue posible comunicarse con Gemini."

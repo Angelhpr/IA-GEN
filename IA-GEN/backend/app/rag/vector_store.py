@@ -3,6 +3,8 @@ from pathlib import Path
 from chromadb import PersistentClient
 from chromadb.config import Settings
 
+from app.core.config import settings
+
 from app.core.logger import logger
 
 
@@ -10,7 +12,7 @@ class VectorStore:
 
     def __init__(self):
 
-        db_path = Path("data/vector_db")
+        db_path = Path(settings.VECTOR_DB_PATH)
 
         db_path.mkdir(parents=True, exist_ok=True)
 

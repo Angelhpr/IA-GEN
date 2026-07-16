@@ -5,12 +5,14 @@ from app.rag.prompt_builder import PromptBuilder
 
 class ChatService:
 
-    def __init__(self):
+    def __init__(
+            self
+     ):
         self.gemini = GeminiClient()
         self.retriever = Retriever()
         self.prompt_builder = PromptBuilder()
 
-    def chat(self, message: str):
+    def chat(self, message: str) -> dict:
 
         logger.info(f"Mensaje recibido: {message}")
 
@@ -20,7 +22,7 @@ class ChatService:
            
             results = self.retriever.search(message)
 
-            logger.info(f"Contexto recuperado correctamente")
+            logger.info("Contexto recuperado correctamente")
 
             logger.info("Construyendo prompt...")
 
@@ -41,6 +43,8 @@ class ChatService:
 
         except Exception:
 
-            logger.exception("Error en ChatService")
+            logger.exception(
+                f"Error en ChatService"
+            )
 
             raise
