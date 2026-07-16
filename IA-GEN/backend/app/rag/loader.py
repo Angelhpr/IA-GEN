@@ -4,6 +4,7 @@ from langchain_core.documents import Document
 
 from app.core.logger import logger
 
+from app.core.hashing import calculate_file_hash
 
 class DocumentLoader:
 
@@ -37,8 +38,11 @@ class DocumentLoader:
         return Document(
             page_content=text,
             metadata={
-                "source": str(path),
-                "filename": path.name
+                "source": str(path.resolve()),
+                "filename": path.name,
+                "content_hash": calculate_file_hash(
+                    str(path.resolve())
+                )
             }
         )
 

@@ -1,306 +1,297 @@
-# IA-GEN - Roadmap
+# IA-GEN — Roadmap de Desarrollo
 
 > **"La IA no llegó a reemplazarte, sino a ayudarte a crear lo imposible."**
 
 ---
 
-# Estado del Proyecto
+# Estado del proyecto
 
-**Versión actual:** v0.1.0
+**Proyecto:** IA-GEN
 
-Estado: 🟢 En desarrollo
+**Versión actual:** **v0.4.0**
 
-Actualmente estamos construyendo la base técnica y arquitectónica de IA-GEN antes de comenzar el desarrollo del software.
+**Estado:** 🟢 Desarrollo activo
 
-Nuestro objetivo es crear una plataforma moderna de aprendizaje sobre Inteligencia Artificial con un asistente basado en RAG y desplegarla completamente en Oracle Cloud Infrastructure.
+IA-GEN es una plataforma educativa impulsada por Inteligencia Artificial cuyo objetivo es enseñar programación, IA y tecnologías cloud mediante proyectos reales.
 
----
-
-# Objetivo General
-
-Desarrollar una plataforma web moderna donde los estudiantes puedan:
-
-- Registrarse e iniciar sesión.
-- Explorar cursos relacionados con Inteligencia Artificial.
-- Consultar información mediante un Agente IA basado en RAG.
-- Gestionar su perfil.
-- Aprender mediante proyectos prácticos.
-- Acceder a contenido educativo actualizado.
+Este roadmap representa el plan oficial de desarrollo del proyecto y servirá como referencia para conocer el estado actual del software, las funcionalidades implementadas y las siguientes fases de desarrollo.
 
 ---
 
-# Roadmap del Proyecto
+# Objetivo del proyecto
 
-## ✅ Fase 1 — Preparación del entorno
+Construir una plataforma Full Stack moderna que permita a estudiantes aprender Inteligencia Artificial mediante una experiencia completamente práctica.
 
-Estado: Finalizada
+La plataforma estará compuesta por:
 
-Objetivos:
+* Frontend moderno con Next.js.
+* Backend REST desarrollado con FastAPI.
+* Sistema RAG basado en Gemini.
+* Base de datos PostgreSQL.
+* Base de datos vectorial ChromaDB.
+* Despliegue profesional en Oracle Cloud Infrastructure.
 
-- Instalar Python
-- Instalar Node.js
-- Configurar Visual Studio Code
-- Configurar Git
-- Crear el repositorio
-- Primer commit
+---
+
+# Estado general
+
+| Módulo               | Estado           |
+| -------------------- | ---------------- |
+| Documentación        | ✅ Completado     |
+| Arquitectura         | ✅ Completado     |
+| Backend Base         | ✅ Completado     |
+| Motor IA             | ✅ Completado     |
+| Sistema RAG          | ✅ Completado     |
+| Ingestión automática | ✅ Completado     |
+| API REST             | 🟡 En desarrollo |
+| Frontend             | ⏳ Pendiente      |
+| PostgreSQL           | ⏳ Pendiente      |
+| Autenticación        | ⏳ Pendiente      |
+| Docker               | ⏳ Pendiente      |
+| Oracle Cloud         | ⏳ Pendiente      |
+
+---
+
+# Historial de versiones
+
+## v0.1.0 — Fundación del proyecto ✅
+
+Objetivo:
+
+Construir la base del proyecto.
+
+Completado:
+
+* Configuración del entorno.
+* Python.
+* Node.js.
+* Visual Studio Code.
+* Git.
+* GitHub.
+* Repositorio inicial.
+* Documentación principal.
+
+---
+
+## v0.2.0 — Arquitectura Backend ✅
+
+Objetivo:
+
+Crear la estructura profesional del backend.
+
+Completado:
+
+* Organización de carpetas.
+* Configuración del proyecto.
+* Sistema de logging.
+* Variables de entorno.
+* Configuración base.
+* Servicios.
+
+---
+
+## v0.3.0 — Motor de Inteligencia Artificial ✅
+
+Objetivo:
+
+Integrar Google Gemini dentro del proyecto.
+
+Completado:
+
+* Gemini Client.
+* Embeddings.
+* Prompt Builder.
+* Chat Service.
+* Generación de respuestas.
+* Logging de inferencias.
+
+---
+
+## v0.4.0 — Sistema RAG ✅
+
+Objetivo:
+
+Construir el sistema Retrieval-Augmented Generation.
+
+Completado:
+
+### Ingestión
+
+* DocumentLoader.
+* Chunking.
+* Embeddings.
+* IngestionPipeline.
+* IngestionService.
+
+### Base vectorial
+
+* ChromaDB.
+* VectorStore.
+* Retriever.
+
+### Automatización
+
+* Hash SHA-256 de documentos.
+* IDs determinísticos para chunks.
+* Evitar documentos duplicados.
+* Detección de cambios.
+* Reindexación automática.
+* Actualización inteligente del índice.
+
+### Prompts
+
+* Prompt Builder.
+* Contexto dinámico.
+* Integración completa con Gemini.
 
 Resultado:
 
-Tenemos un entorno profesional listo para comenzar el desarrollo.
+El asistente IA puede responder preguntas utilizando información almacenada en la base vectorial.
 
 ---
 
-## 🟢 Fase 2 — Diseño del Proyecto
+# Próxima versión
 
-Estado: En progreso
+## v0.5.0 — API REST (En desarrollo)
 
-Objetivos:
+Objetivo:
 
-- Definir la visión del proyecto
-- Diseñar la arquitectura
-- Crear la documentación
-- Definir el sistema de diseño
-- Planificar la base de datos
+Exponer todas las funcionalidades mediante FastAPI.
 
-Documentos:
+Incluye:
 
-- PROJECT_VISION.md
-- ROADMAP.md
-- ARCHITECTURE.md
-- DESIGN_SYSTEM.md
-- DATABASE.md
+* Endpoint raíz.
+* Endpoint Health.
+* Endpoint Chat.
+* Endpoint Ingest.
+* Endpoint Documents.
+* Modelos Pydantic.
+* Organización por routers.
+* Swagger.
+* Manejo profesional de errores.
 
 ---
 
-## ⏳ Fase 3 — Desarrollo del Frontend
+# Próximas versiones
+
+## v0.6.0 — Frontend
 
 Tecnologías:
 
-- Next.js
-- TypeScript
-- Tailwind CSS
+* Next.js
+* TypeScript
+* Tailwind CSS
 
 Objetivos:
 
-- Landing Page
-- Navbar
-- Hero Section
-- Filosofía del instituto
-- Cursos
-- Footer
-- Login
-- Registro
-- Dashboard
+* Landing Page.
+* Página de cursos.
+* Chat IA.
+* Dashboard.
+* Navegación.
+* Diseño responsive.
 
 ---
 
-## ⏳ Fase 4 — Desarrollo del Backend
-
-Tecnologías:
-
-- Python
-- FastAPI
+## v0.7.0 — Usuarios y Autenticación
 
 Objetivos:
 
-- API REST
-- CRUD de usuarios
-- CRUD de cursos
-- CRUD de conversaciones
-- JWT Authentication
-- Documentación Swagger
+* Registro.
+* Inicio de sesión.
+* JWT.
+* Roles.
+* Perfil del estudiante.
 
 ---
 
-## ⏳ Fase 5 — Base de Datos
-
-Tecnologías:
-
-- PostgreSQL
+## v0.8.0 — PostgreSQL
 
 Objetivos:
 
-- Diseño de tablas
-- Relaciones
-- Migraciones
-- Persistencia de usuarios
-- Historial de conversaciones
+* Usuarios.
+* Cursos.
+* Conversaciones.
+* Historial.
+* Persistencia.
 
 ---
 
-## ⏳ Fase 6 — Inteligencia Artificial
-
-Tecnologías:
-
-- Gemini
-- LangChain
+## v0.9.0 — Infraestructura
 
 Objetivos:
 
-- Integración del modelo
-- Gestión de prompts
-- Conversaciones
-- Historial
+* Docker Backend.
+* Docker Frontend.
+* Docker Compose.
+* Variables de entorno.
+* Producción.
 
 ---
 
-## ⏳ Fase 7 — Sistema RAG
-
-Tecnologías:
-
-- ChromaDB
-- Embeddings
+## v1.0.0 — Primera versión estable
 
 Objetivos:
 
-- Indexar documentos del instituto
-- Búsquedas semánticas
-- Recuperación de contexto
-- Respuestas fundamentadas
+* Oracle Cloud Infrastructure.
+* HTTPS.
+* Dominio.
+* CI/CD.
+* Producción.
+* Documentación completa.
 
 ---
 
-## ⏳ Fase 8 — Docker
-
-Objetivos:
-
-- Dockerfile Backend
-- Dockerfile Frontend
-- Docker Compose
-- Contenedores
-
----
-
-## ⏳ Fase 9 — Oracle Cloud
-
-Objetivos:
-
-- Despliegue del Backend
-- Despliegue del Frontend
-- Base de datos
-- HTTPS
-- Dominio
-- Producción
-
----
-
-# Tecnologías del Proyecto
+# Tecnologías
 
 ## Frontend
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+* Next.js
+* TypeScript
+* Tailwind CSS
 
 ## Backend
 
-- FastAPI
-- Python
+* Python
+* FastAPI
 
 ## Inteligencia Artificial
 
-- Gemini
-- LangChain
+* Google Gemini
+* LangChain
 
-## Base de datos
+## Bases de datos
 
-- PostgreSQL
-- ChromaDB
+* PostgreSQL
+* ChromaDB
 
 ## DevOps
 
-- Docker
-- Git
-- GitHub
-- Oracle Cloud Infrastructure
+* Docker
+* Git
+* GitHub
+* Oracle Cloud Infrastructure
 
 ---
 
-# Versiones
+# Filosofía de desarrollo
 
-## v0.1.0
+IA-GEN se desarrolla siguiendo principios de ingeniería de software profesional.
 
-Documentación inicial.
+Cada módulo debe cumplir los siguientes criterios antes de considerarse terminado:
 
-## v0.2.0
-
-Frontend funcional.
-
-## v0.3.0
-
-Sistema de autenticación.
-
-## v0.4.0
-
-Backend operativo.
-
-## v0.5.0
-
-Base de datos integrada.
-
-## v0.6.0
-
-Gemini integrado.
-
-## v0.7.0
-
-Sistema RAG.
-
-## v0.8.0
-
-Docker.
-
-## v0.9.0
-
-Pruebas finales.
-
-## v1.0.0
-
-Primera versión estable desplegada en Oracle Cloud.
-
----
-
-# Futuras versiones
-
-## v2.0
-
-- Panel para profesores
-- Panel administrativo
-- Gestión de certificados
-- Gestión de matrículas
-
-## v3.0
-
-- Recomendador inteligente de cursos
-- Generación automática de rutas de aprendizaje
-- Analítica del progreso
-- IA personalizada para cada estudiante
-
----
-
-# Estado actual
-
-Actualmente nos encontramos desarrollando la arquitectura del proyecto y la documentación técnica.
-
-La siguiente etapa será diseñar la arquitectura general del sistema antes de comenzar el desarrollo del frontend.
-
----
-
-# Filosofía del Proyecto
-
-IA-GEN no es únicamente una plataforma educativa.
-
-Es un proyecto diseñado para demostrar cómo construir una aplicación Full Stack moderna utilizando Inteligencia Artificial, buenas prácticas de ingeniería de software y servicios Cloud.
-
-Cada fase representa una oportunidad para aprender una nueva tecnología mientras se construye un producto real.
+* Código limpio.
+* Arquitectura desacoplada.
+* Documentación actualizada.
+* Pruebas funcionales.
+* Logging profesional.
+* Escalabilidad.
+* Mantenibilidad.
 
 ---
 
 # Próximo objetivo
 
-Completar el documento:
+**Versión v0.5.0 — API REST**
 
-ARCHITECTURE.md
-
-Una vez finalizado comenzará el desarrollo del Frontend con Next.js.
+La siguiente etapa consiste en convertir el motor RAG desarrollado en una API REST profesional utilizando FastAPI para que posteriormente pueda ser consumida por el frontend desarrollado en Next.js.
