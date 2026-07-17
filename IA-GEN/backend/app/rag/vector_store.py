@@ -4,7 +4,6 @@ from chromadb import PersistentClient
 from chromadb.config import Settings
 
 from app.core.config import settings
-
 from app.core.logger import logger
 
 
@@ -129,3 +128,25 @@ class VectorStore:
     def show_all(self):
 
         return self.collection.get()
+    
+    def list_documents(self):
+
+        results = self.collection.get()
+
+        if not results["metadatas"]:
+            return []
+
+        filenames = {
+            metadata["filename"]
+            for metadata in results["metadatas"]
+        }
+
+        return sorted(filenames)
+    
+    def get_document_by_filename(self, filename: str):
+
+        return self.collection.get(
+            where={
+                "filename": filename
+            }
+        )

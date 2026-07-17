@@ -13,7 +13,53 @@ class IngestionService:
         self.pipeline = IngestionPipeline()
         self.vector_store = VectorStore()
 
+    def ingest_file(self, file_path: str):
+        """Procesa un único documento y actualiza la base vectorial si ha cambiado."""
+
+        file = Path(file_path)
+
+        logger.info(
+            f"Procesando: {file.name}"
+        )
+
+        content_hash = calculate_file_hash(
+            file_path 
+        )
+
+        if not self.vector_store.needs_update(
+            file_path,
+            content_hash
+        ):
+
+            logger.info(
+                f"{file.name} no ha cambiado. Se omite."
+            )
+
+            return
+
+        if self.vector_store.get_document(
+            file_path
+        )["ids"]:
+
+            logger.info(
+                f"{file.name} fue modificado. Actualizando..."
+            )
+
+            self.vector_store.delete_document(
+                file_path
+            )
+
+        chunks, embeddings = self.pipeline.run(
+            file_path
+        )
+
+        self.vector_store.add_documents(
+            chunks,
+            embeddings
+        )
+
     def ingest_folder(self, folder: str):
+        """Procesa todos los archivos TXT de una carpeta."""
 
         folder_path = Path(folder)
 
@@ -29,43 +75,18 @@ class IngestionService:
         )
 
         for file in txt_files:
+            self.ingest_file(str(file))
 
-            logger.info(
-                f"Procesando: {file.name}"
-            )
+    def list_documents(self):
+        """Devuelve los documentos indexados."""
 
-            content_hash = calculate_file_hash(
-                str(file)
-            )
-
-            if not self.vector_store.needs_update(
-                str(file),
-                content_hash
-            ):
-
-                logger.info(
-                    f"{file.name} no ha cambiado. Se omite."
-                )
-
-                continue
-
-            if self.vector_store.get_document(
-                str(file)
-            )["ids"]:
-
-                logger.info(
-                    f"{file.name} fue modificado. Actualizando..."
-                )
-
-                self.vector_store.delete_document(
-                    str(file)
-                )
-
-            chunks, embeddings = self.pipeline.run(
-                str(file)
-            )
-
-            self.vector_store.add_documents(
-                chunks,
-                embeddings
-            )
+        return self.vector_store.list_documents()
+    
+    def get_document_by_filename(
+        self,
+        filename: str
+    ):
+        
+        return self.vector_store.get_document_by_filename(
+            filename
+        )
