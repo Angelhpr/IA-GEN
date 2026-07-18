@@ -1,17 +1,21 @@
+import Navbar from "../components/layout/Navbar";
+import Hero from "../components/home/Hero";
+import CoursesSection from "../components/courses/CoursesSection";
+import FeaturesSection from "../components/features/FeaturesSection";
+import AboutSection from "../components/about/AboutSection";
+import ContactSection from "../components/contact/ContactSection";
+import Footer from "../components/footer/Footer";
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-slate-950 text-white px-6">
-      <h1 className="text-6xl font-bold text-cyan-400">
-        IA-GEN
-      </h1>
-
-      <p className="mt-6 text-xl text-center max-w-3xl">
-        Instituto de Inteligencia Artificial para la nueva generación.
-      </p>
-
-      <p className="mt-4 text-center text-gray-300 italic max-w-2xl">
-        "La IA no llegó a reemplazarte, sino a ayudarte a crear lo imposible."
-      </p>
+    <main className="min-h-screen bg-slate-950 text-white">
+      <Navbar />
+      <Hero />
+      <CoursesSection />
+      <FeaturesSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </main>
   );
 }

@@ -8,7 +8,7 @@
 
 **Proyecto:** IA-GEN
 
-**Versión actual:** **v0.5.1**
+**Versión actual:** **v0.6.0**
 
 **Estado:** 🟢 Desarrollo activo
 
@@ -35,20 +35,20 @@ La plataforma estará compuesta por:
 
 # Estado general
 
-| Módulo | Estado |
-|---------|--------|
-| Documentación | ✅ Completado |
-| Arquitectura | ✅ Completado |
-| Backend Base | ✅ Completado |
-| Motor IA | ✅ Completado |
-| Sistema RAG | ✅ Completado |
+| Módulo               | Estado        |
+| -------------------- | ------------- |
+| Documentación        | ✅ Completado |
+| Arquitectura         | ✅ Completado |
+| Backend Base         | ✅ Completado |
+| Motor IA             | ✅ Completado |
+| Sistema RAG          | ✅ Completado |
 | Ingestión automática | ✅ Completado |
-| API REST | ✅ Completado |
-| Frontend | ⏳ Pendiente |
-| PostgreSQL | ⏳ Pendiente |
-| Autenticación | ⏳ Pendiente |
-| Docker | ⏳ Pendiente |
-| Oracle Cloud | ⏳ Pendiente |
+| API REST             | ✅ Completado |
+| Frontend             | ✅ Completado |
+| PostgreSQL           | ⏳ Pendiente  |
+| Autenticación        | ⏳ Pendiente  |
+| Docker               | ⏳ Pendiente  |
+| Oracle Cloud         | ⏳ Pendiente  |
 
 ---
 
@@ -158,8 +158,6 @@ El asistente IA ya puede responder preguntas utilizando información almacenada 
 
 Exponer todas las capacidades del sistema RAG mediante una API REST desarrollada con FastAPI.
 
----
-
 ### Infraestructura
 
 - FastAPI configurado.
@@ -171,8 +169,6 @@ Exponer todas las capacidades del sistema RAG mediante una API REST desarrollada
 - Manejo de excepciones.
 - Swagger UI.
 - OpenAPI.
-
----
 
 ### Modelos Pydantic
 
@@ -191,59 +187,25 @@ Exponer todas las capacidades del sistema RAG mediante una API REST desarrollada
 - DocumentsResponse.
 - DocumentInfoResponse.
 
----
-
 ### Endpoints implementados
 
 #### Sistema
 
-- `GET /`
-- `GET /health`
+- GET /
+- GET /health
 
 #### Chat IA
 
-- `POST /api/chat`
-
-Permite consultar al asistente utilizando el sistema RAG completo.
-
----
+- POST /api/chat
 
 #### Ingestión
 
-- `POST /api/ingest`
-
-Procesa automáticamente todos los documentos de una carpeta.
-
-Incluye:
-
-- generación de embeddings;
-- detección de cambios mediante SHA-256;
-- actualización automática del índice;
-- prevención de duplicados.
-
----
+- POST /api/ingest
 
 #### Administración de documentos
 
-##### `GET /api/documents`
-
-Devuelve todos los documentos actualmente indexados en ChromaDB.
-
-##### `GET /api/documents/{filename}`
-
-Devuelve información detallada de un documento:
-
-- nombre;
-- cantidad de chunks;
-- hash SHA-256;
-- ruta original del documento.
-
-Además incorpora manejo profesional de errores mediante:
-
-- HTTP 404 cuando el documento no existe;
-- respuestas tipadas mediante Pydantic.
-
----
+- GET /api/documents
+- GET /api/documents/{filename}
 
 ### Integraciones completadas
 
@@ -256,334 +218,394 @@ Además incorpora manejo profesional de errores mediante:
 - IngestionService.
 - VectorStore.
 
----
+### Resultado
 
-### Pruebas realizadas
-
-Se verificó correctamente el funcionamiento de:
-
-- Inicio del servidor.
-- Swagger UI.
-- OpenAPI.
-- Endpoint raíz.
-- Health Check.
-- Chat IA.
-- Recuperación de contexto desde ChromaDB.
-- Ingestión automática.
-- Listado de documentos.
-- Consulta individual de documentos.
-- Manejo de errores HTTP.
-- Logging completo del flujo de ejecución.
+IA-GEN dispone de una API REST completamente funcional para interactuar con el sistema RAG, administrar documentos y consultar información desde aplicaciones externas.
 
 ---
+
+## v0.6.0 — Frontend IA-GEN ✅
+
+### Objetivo
+
+Construir una interfaz moderna, responsive y escalable utilizando Next.js, TypeScript y Tailwind CSS para servir como base visual de toda la plataforma IA-GEN.
+
+### Tecnologías
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+
+### Arquitectura
+
+- Organización modular de componentes.
+- Separación por dominios (`hero`, `courses`, `features`, `about`, `contact`, `footer`, `layout`, `ui`).
+- Sistema de componentes reutilizables.
+- Arquitectura preparada para consumir APIs REST.
+- Sistema de datos desacoplado mediante la carpeta `data/`.
+
+### Landing Page
+
+- Hero principal.
+- Hero Illustration.
+- Navbar responsive.
+- Menú móvil.
+- Sección de cursos.
+- Sección "¿Por qué IA-GEN?".
+- Sección "Sobre IA-GEN".
+- Call To Action.
+- Footer completo.
+
+### Sistema de componentes
+
+- Button reutilizable.
+- Badge.
+- FloatingCard.
+- CourseCard.
+- FeatureCard.
+- StatCard.
+- Logo.
+- HamburgerButton.
+- MobileMenu.
+
+### Responsive
+
+- Diseño adaptado para móvil, tablet y escritorio.
+- Navbar responsive.
+- Hero responsive.
+- Ilustración adaptativa.
+- Grid responsive en todas las secciones.
+- Footer responsive.
+- Eliminación de solapamientos visuales.
+- Ajustes de tipografía y espaciados para pantallas pequeñas.
+
+### Calidad del código
+
+- Componentes reutilizables.
+- Eliminación de código duplicado.
+- Renderizado mediante `map()`.
+- Separación entre datos y presentación.
+- Arquitectura preparada para integración con FastAPI.
 
 ### Resultado
 
-IA-GEN dispone ahora de una API REST completamente funcional para interactuar con el sistema RAG, administrar documentos y consultar información desde aplicaciones externas.
+IA-GEN dispone ahora de un Frontend completamente funcional, responsive y preparado para integrarse con toda la infraestructura Backend desarrollada previamente.
+
 ---
 
 # Próximas versiones
 
 ---
 
-## v0.6.0 — Frontend
+## v0.7.0 — Integración Frontend + Backend 🚧
 
 ### Objetivo
 
-Construir la interfaz moderna de IA-GEN utilizando Next.js.
+Conectar toda la interfaz desarrollada en Next.js con la API REST creada en FastAPI para convertir IA-GEN en una plataforma completamente funcional.
 
-### Tecnologías
+### Integración de APIs
 
-- Next.js
-- TypeScript
-- Tailwind CSS
+- Consumir la API REST desde Next.js.
+- Cliente HTTP centralizado.
+- Manejo global de errores.
+- Variables de entorno para Frontend.
+- Configuración por entornos.
 
-### Objetivos principales
+### Chat IA
 
-#### Landing Page
-
-- Página principal.
-- Presentación del proyecto.
-- Sección de cursos.
-- Filosofía IA-GEN.
-- Call To Action.
-
-#### Chat IA
-
-- Interfaz moderna.
-- Comunicación con `/api/chat`.
-- Historial de conversación.
+- Integrar el chatbot dentro de la Landing Page.
+- Conectar el formulario del chat con `/api/chat`.
+- Mostrar respuestas generadas por Gemini.
 - Indicador de carga.
-- Manejo de errores.
+- Manejo de errores de conexión.
+- Historial de conversación durante la sesión.
+- Auto-scroll del chat.
 
-#### Navegación
+### Cursos
 
-- Navbar.
-- Footer.
-- Diseño responsive.
-- Navegación entre páginas.
+- Obtener cursos desde la API.
+- Sustituir datos estáticos por datos dinámicos.
+- Preparar la interfaz para futuras ampliaciones.
 
-#### Dashboard
+### Estadísticas
 
-- Panel inicial.
-- Visualización de cursos.
-- Acceso al asistente IA.
-- Diseño reutilizable.
+- Consumir estadísticas desde el backend.
+- Actualización automática de indicadores.
 
-#### Integración
+### Documentación
 
-- Consumo completo de la API REST.
-- Manejo de estados.
-- Componentes reutilizables.
+- Documentar la integración Frontend ↔ Backend.
 
----
+### Resultado esperado
 
-## v0.7.0 — Usuarios y Autenticación
-
-### Objetivo
-
-Agregar autenticación segura y gestión de usuarios.
-
-### Funcionalidades
-
-- Registro.
-- Inicio de sesión.
-- JWT.
-- Refresh Tokens.
-- Roles.
-- Perfil del estudiante.
-- Protección de rutas.
-- Persistencia de sesión.
+El usuario podrá conversar con el asistente IA directamente desde la web utilizando el sistema RAG desarrollado durante las fases anteriores.
 
 ---
 
-## v0.8.0 — PostgreSQL
+## v0.8.0 — Base de datos y autenticación
 
 ### Objetivo
 
-Persistir toda la información de la plataforma.
+Persistir la información del sistema y permitir que cada usuario tenga su propio espacio dentro de IA-GEN.
 
-### Entidades
+### PostgreSQL
 
-- Usuarios.
-- Cursos.
-- Conversaciones.
-- Historial.
-- Progreso.
-- Configuración.
-
-### Objetivos
-
+- Configuración de PostgreSQL.
 - SQLAlchemy.
 - Alembic.
 - Migraciones.
-- Relaciones.
-- Repositorios.
-- Servicios desacoplados.
+- Modelado de entidades.
+
+### Usuarios
+
+- Registro.
+- Inicio de sesión.
+- Recuperación de contraseña.
+- Perfil del usuario.
+
+### Autenticación
+
+- JWT.
+- Refresh Tokens.
+- Protección de rutas.
+- Middleware de autenticación.
+
+### Chat
+
+- Guardado del historial de conversaciones.
+- Conversaciones por usuario.
+- Recuperación del historial.
+
+### Cursos
+
+- Progreso del estudiante.
+- Cursos iniciados.
+- Cursos completados.
+
+### Resultado esperado
+
+Cada estudiante dispondrá de una cuenta propia con su progreso y su historial de conversaciones almacenados de forma permanente.
 
 ---
 
-## v0.9.0 — Infraestructura
+## v0.9.0 — Plataforma educativa
 
 ### Objetivo
 
-Preparar IA-GEN para producción.
+Transformar IA-GEN en una plataforma completa de aprendizaje.
 
-### DevOps
+### Panel del estudiante
 
-- Docker Backend.
-- Docker Frontend.
+- Dashboard.
+- Progreso.
+- Cursos activos.
+- Historial IA.
+- Perfil.
+
+### Cursos
+
+- Sistema de módulos.
+- Lecciones.
+- Recursos descargables.
+- Ejercicios.
+- Evaluaciones.
+
+### Inteligencia Artificial
+
+- Tutor personalizado.
+- Explicaciones dinámicas.
+- Recomendación de contenidos.
+- Seguimiento del aprendizaje.
+
+### Administración
+
+- Panel administrativo.
+- Gestión de cursos.
+- Gestión de documentos RAG.
+- Gestión de usuarios.
+
+### Resultado esperado
+
+IA-GEN funcionará como una plataforma educativa completa impulsada por Inteligencia Artificial.
+
+---
+
+## v1.0.0 — Despliegue profesional
+
+### Objetivo
+
+Publicar IA-GEN en producción utilizando Oracle Cloud Infrastructure.
+
+### Infraestructura
+
+- Docker.
 - Docker Compose.
+- Reverse Proxy.
+- HTTPS.
+- Certificados SSL.
+
+### Oracle Cloud
+
+- Máquina virtual.
+- Despliegue automático.
 - Variables de entorno.
-- Configuración de producción.
+- Firewall.
+- Monitorización.
+
+### Optimización
+
+- Caché.
+- Compresión.
+- Optimización de consultas.
+- Optimización de imágenes.
+- Mejoras de rendimiento.
 
 ### Calidad
 
-- Optimización.
-- Logs centralizados.
-- Configuración segura.
-- Preparación para despliegue.
-
----
-
-## v1.0.0 — Primera versión estable
-
-### Objetivo
-
-Publicar la primera versión oficial de IA-GEN.
-
-### Infraestructura Cloud
-
-- Oracle Cloud Infrastructure.
-- HTTPS.
-- Dominio propio.
-- Despliegue automatizado.
-- CI/CD.
-- Monitorización.
-
-### Plataforma
-
-- Plataforma completamente funcional.
-- Sistema RAG en producción.
-- Frontend moderno.
-- Backend escalable.
-- Base de datos persistente.
+- Testing.
 - Documentación final.
+- Revisión completa del proyecto.
 
----
+### Resultado esperado
 
-# Arquitectura del proyecto
+## Publicación oficial de IA-GEN como plataforma Full Stack basada en Inteligencia Artificial.
 
-```
-                Frontend (Next.js)
-                        │
-                        ▼
-                FastAPI REST API
-                        │
-        ┌───────────────┴───────────────┐
-        ▼                               ▼
-   ChatService                  IngestionService
-        │                               │
-        ▼                               ▼
-    Retriever                    IngestionPipeline
-        │                               │
-        └───────────────┬───────────────┘
-                        ▼
-                   VectorStore
-                        │
-                   ChromaDB
-                        │
-                        ▼
-               Google Gemini API
-```
+# Estado actual del desarrollo
 
----
+## ✅ Completado
 
-# Tecnologías
+### Documentación
 
-## Frontend
+- README profesional.
+- Arquitectura del proyecto.
+- Roadmap actualizado.
+- Organización de fases.
+- Decisiones técnicas documentadas.
 
-- Next.js
-- TypeScript
-- Tailwind CSS
+### Backend
 
----
-
-## Backend
-
-- Python
-- FastAPI
-- Pydantic
-
----
-
-## Inteligencia Artificial
-
-- Google Gemini
-- LangChain
-
----
-
-## Retrieval-Augmented Generation
-
-- ChromaDB
-- Embeddings
-- Retriever
-- Prompt Builder
-
----
-
-## Bases de datos
-
-- PostgreSQL
-- ChromaDB
-
----
-
-## DevOps
-
-- Docker
-- Git
-- GitHub
-- Oracle Cloud Infrastructure
-
----
-
-# Filosofía de desarrollo
-
-IA-GEN se desarrolla siguiendo principios de ingeniería de software profesional.
-
-Cada módulo debe cumplir los siguientes criterios antes de considerarse terminado:
-
-- Código limpio.
+- FastAPI.
+- API REST.
+- Google Gemini.
+- Sistema RAG.
+- Ingestión automática.
+- ChromaDB.
+- Embeddings.
+- Prompt Builder.
+- Sistema de logging.
 - Arquitectura desacoplada.
-- Responsabilidad única.
-- Documentación actualizada.
-- Pruebas funcionales.
-- Logging profesional.
-- Escalabilidad.
-- Mantenibilidad.
-- Reutilización.
-- Buenas prácticas de desarrollo.
+
+### Frontend
+
+- Landing Page completa.
+- Navbar responsive.
+- Hero responsive.
+- Hero Illustration.
+- Sección de cursos.
+- Sección de características.
+- Sección "Sobre IA-GEN".
+- Call To Action.
+- Footer.
+- Componentes reutilizables.
+- Sistema de datos desacoplado.
+- Responsive para móvil, tablet y escritorio.
 
 ---
 
-# Estado actual del proyecto
+## 🚧 En desarrollo
 
-Actualmente IA-GEN dispone de:
+Actualmente IA-GEN entra en su siguiente gran etapa:
 
-✅ Arquitectura profesional.
+### Integración Frontend + Backend
 
-✅ Backend desacoplado.
+Durante esta fase se conectará toda la interfaz desarrollada en Next.js con la API REST creada en FastAPI.
 
-✅ Integración completa con Google Gemini.
-
-✅ Sistema RAG completamente funcional.
-
-✅ Base vectorial mediante ChromaDB.
-
-✅ Ingestión inteligente de documentos.
-
-✅ API REST completamente documentada.
-
-✅ Swagger UI.
-
-✅ Dependency Injection.
-
-✅ Modelos Pydantic.
-
-✅ Manejo profesional de errores.
-
-El siguiente gran paso será comenzar el desarrollo del Frontend utilizando Next.js para ofrecer una interfaz moderna conectada con toda la infraestructura ya construida.
+El objetivo es que el usuario pueda interactuar con el asistente inteligente directamente desde la página web utilizando el sistema RAG construido durante las fases anteriores.
 
 ---
 
-# Próximo objetivo
+## 📅 Próximo gran objetivo
 
-## v0.6.0 — Frontend Next.js
+Convertir IA-GEN en una aplicación Full Stack completamente funcional.
 
-Los primeros objetivos serán:
+Las siguientes metas son:
 
-- Conectar el Frontend con la API REST.
-- Crear la Landing Page.
-- Construir la interfaz del chat IA.
-- Consumir los endpoints del Backend.
-- Crear componentes reutilizables.
-- Implementar una interfaz responsive.
-- Mantener la arquitectura modular del proyecto.
+- Integración del chatbot IA.
+- Consumo de APIs desde el Frontend.
+- Persistencia con PostgreSQL.
+- Autenticación mediante JWT.
+- Panel del estudiante.
+- Despliegue en Oracle Cloud Infrastructure.
 
 ---
 
-# Visión del proyecto
+# Filosofía del proyecto
 
-IA-GEN no pretende ser únicamente un chatbot.
+IA-GEN no pretende ser únicamente una plataforma para realizar consultas a un modelo de Inteligencia Artificial.
 
-El objetivo es construir una plataforma educativa moderna donde los estudiantes aprendan Inteligencia Artificial desarrollando proyectos reales, utilizando las mismas herramientas que emplea la industria del software.
+Su objetivo es convertirse en un entorno donde cualquier estudiante pueda:
 
-Cada versión acerca el proyecto a esa visión.
+- aprender programación;
+- aprender Inteligencia Artificial;
+- construir proyectos reales;
+- desarrollar un portafolio profesional;
+- prepararse para el mercado laboral utilizando tecnologías modernas.
+
+Cada decisión técnica tomada durante el desarrollo sigue una filosofía clara:
+
+> Construir una aplicación escalable, mantenible y preparada para evolucionar sin necesidad de rehacer su arquitectura.
+
+---
+
+# Objetivo final
+
+La versión **v1.0.0** representará el lanzamiento oficial de IA-GEN como plataforma educativa impulsada por Inteligencia Artificial.
+
+El proyecto incluirá:
+
+- Frontend moderno con Next.js.
+- Backend profesional con FastAPI.
+- Sistema RAG basado en Gemini.
+- PostgreSQL.
+- ChromaDB.
+- Autenticación de usuarios.
+- Panel del estudiante.
+- Cursos dinámicos.
+- Chat inteligente.
+- Despliegue en Oracle Cloud Infrastructure.
+
+---
+
+# Estado del proyecto
+
+```text
+████████████████████████████████████████
+
+Documentación              ✅ 100%
+Arquitectura               ✅ 100%
+Backend                    ✅ 100%
+Sistema RAG                ✅ 100%
+API REST                   ✅ 100%
+Frontend                   ✅ 100%
+
+Integración Front + Back   🚧 0%
+PostgreSQL                 ⏳
+Autenticación              ⏳
+Panel del alumno           ⏳
+Despliegue OCI             ⏳
+```
+
+---
+
+# Próximo hito
+
+🎯 **Frontend v1 finalizado**
+
+El siguiente objetivo consiste en conectar toda la infraestructura Backend desarrollada previamente con la interfaz creada en Next.js para que IA-GEN se convierta en una plataforma completamente funcional.
 
 ---
 
 > **"La IA no llegó a reemplazarte, sino a ayudarte a crear lo imposible."**
 
-**— Proyecto IA-GEN**
+**Proyecto IA-GEN**  
+Desarrollado con ❤️ utilizando Next.js, FastAPI, Gemini, ChromaDB y Oracle Cloud.
