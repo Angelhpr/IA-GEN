@@ -1,6 +1,8 @@
 from google import genai
+from google.genai import errors as genai_errors
 
 from app.core.config import settings
+from app.core.exceptions import AIServiceUnavailableError
 from app.core.logger import logger
 
 
@@ -14,30 +16,61 @@ class GeminiClient:
     def generate(self, prompt: str) -> str:
 
         try:
-
             logger.info(
-                f"Generando respuesta con {settings.MODEL_NAME}"
+                "Generando respuesta con %s",
+                settings.MODEL_NAME,
             )
 
             response = self.client.models.generate_content(
                 model=settings.MODEL_NAME,
-                contents=prompt
+                contents=prompt,
             )
 
             if not response.text:
-
-                raise RuntimeError(
-                    "Gemini no devolvió ningún contenido."
+                raise AIServiceUnavailableError(
+                    "El asistente no generó una respuesta válida.",
+                    code="AI_EMPTY_RESPONSE",
+                    retryable=True,
                 )
 
             return response.text.strip()
 
-        except Exception as e:
+        except AIServiceUnavailableError:
+            raise
 
-            logger.exception(
-                "Error comunicándose con Gemini"
+        except genai_errors.ClientError as exc:
+            status_code = getattr(
+                exc,
+                "status_code",
+                None,
             )
 
-            raise RuntimeError(
-                "No fue posible comunicarse con Gemini."
-            ) from e
+            if status_code == 429:
+                raise AIServiceUnavailableError(
+                    (
+                        "El asistente alcanzó temporalmente "
+                        "su límite de solicitudes."
+                    ),
+                    code="AI_RATE_LIMITED",
+                    retryable=True,
+                ) from exc
+
+            if status_code in {401, 403}:
+                raise AIServiceUnavailableError(
+                    "El asistente no está disponible temporalmente.",
+                    code="AI_CONFIGURATION_ERROR",
+                    retryable=False,
+                ) from exc
+
+            raise AIServiceUnavailableError(
+                "No fue posible comunicarse con el asistente.",
+                code="AI_PROVIDER_ERROR",
+                retryable=True,
+            ) from exc
+
+        except Exception as exc:
+            raise AIServiceUnavailableError(
+                "No fue posible comunicarse con el asistente.",
+                code="AI_SERVICE_UNAVAILABLE",
+                retryable=True,
+            ) from exc
