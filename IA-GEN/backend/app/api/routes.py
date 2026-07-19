@@ -24,11 +24,12 @@ router = APIRouter(
 @router.post(
     "/chat",
     response_model=ChatResponse,
-    summary="Consultar al asistente IA",
-    description=(
-        "Recibe una pregunta del usuario y devuelve una respuesta "
-        "utilizando el sistema RAG de IA-GEN."
-    )
+)
+
+
+@router.post(
+    "/chat",
+    response_model=ChatResponse,
 )
 def chat(
     request: ChatRequest,
@@ -107,7 +108,7 @@ def get_document(
             status_code=404,
             detail=f"Documento no encontrado: {filename}"
     )
-    
+
     metadata = result["metadatas"][0]
 
     return DocumentInfoResponse(
