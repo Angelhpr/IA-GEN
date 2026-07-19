@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import type { Message } from "../../types/message";
+import TypingIndicator from "./TypingIndicator";
 interface ChatMessagesProps {
   messages: Message[];
   isLoading: boolean;
@@ -8,15 +10,24 @@ export default function ChatMessages({
   messages,
   isLoading,
 }: ChatMessagesProps) {
-  console.log("6. Render ChatMessages:", messages);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
   return (
     <div
+      ref={chatContainerRef}
       className="
-        flex-1
-        space-y-6
-        overflow-y-auto
-        p-6
-      "
+      min-h-0
+      flex-1
+      space-y-6
+      overflow-y-auto
+      p-6
+    "
     >
       {messages.map((message, index) => (
         <div
@@ -27,10 +38,10 @@ export default function ChatMessages({
         >
           <div
             className={`
-        max-w-[85%]
-        rounded-2xl
-        px-5
-        py-4
+          max-w-[85%]
+          rounded-2xl
+          px-5
+          py-4
         ${
           message.role === "user"
             ? "rounded-tr-sm bg-cyan-500 text-slate-950"
@@ -42,24 +53,7 @@ export default function ChatMessages({
           </div>
         </div>
       ))}
-      {isLoading && (
-        <div className="flex justify-start">
-          <div
-            className="
-                max-w-[85%]
-                rounded-2xl
-                rounded-tl-sm
-                bg-slate-800
-                px-5
-                py-4
-              "
-          >
-            <p className="animate-pulse text-slate-300">
-              🤖 IA-GEN está escribiendo...
-            </p>
-          </div>
-        </div>
-      )}
+      {isLoading && <TypingIndicator />}
     </div>
   );
 }
