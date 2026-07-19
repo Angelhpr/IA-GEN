@@ -22,6 +22,8 @@ export default function ChatCard() {
     },
   ]);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   function appendMessage(role: Message["role"], content: string) {
     setMessages((prev) => [
       ...prev,
@@ -35,7 +37,11 @@ export default function ChatCard() {
   async function handleUserMessage(content: string) {
     appendMessage("user", content);
 
+    setIsLoading(true);
+
     const answer = await sendMessage(content);
+
+    setIsLoading(false);
 
     appendMessage("assistant", answer);
   }
@@ -74,7 +80,7 @@ export default function ChatCard() {
         <div className="text-3xl">🤖</div>
       </div>
       {/* Aquí irán los mensajes */}
-      <ChatMessages messages={messages} />
+      <ChatMessages messages={messages} isLoading={isLoading} />
       {/* Input */}
       <ChatInput onSend={handleUserMessage} />
     </div>

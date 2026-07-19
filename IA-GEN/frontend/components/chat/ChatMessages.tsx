@@ -1,9 +1,13 @@
 import type { Message } from "../../types/message";
 interface ChatMessagesProps {
   messages: Message[];
+  isLoading: boolean;
 }
 
-export default function ChatMessages({ messages }: ChatMessagesProps) {
+export default function ChatMessages({
+  messages,
+  isLoading,
+}: ChatMessagesProps) {
   console.log("6. Render ChatMessages:", messages);
   return (
     <div
@@ -38,6 +42,24 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
           </div>
         </div>
       ))}
+      {isLoading && (
+        <div className="flex justify-start">
+          <div
+            className="
+                max-w-[85%]
+                rounded-2xl
+                rounded-tl-sm
+                bg-slate-800
+                px-5
+                py-4
+              "
+          >
+            <p className="animate-pulse text-slate-300">
+              🤖 IA-GEN está escribiendo...
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
