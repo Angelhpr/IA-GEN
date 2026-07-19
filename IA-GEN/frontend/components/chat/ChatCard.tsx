@@ -1,9 +1,58 @@
 "use client";
-import { useState } from "react";
-import ChatMessages from "./ChatMessages";
-import ChatInput from "./ChatInput";
-import type { Message } from "../../types/message";
+
+import { useRef, useState } from "react";
+
+import { ApiError } from "../../lib/api";
 import { sendMessage } from "../../services/Chat.services";
+import type { Message } from "../../types/message";
+
+import ChatInput from "./ChatInput";
+import ChatMessages from "./ChatMessages";
+
+function getChatErrorMessage(error: unknown): string {
+  if (error instanceof ApiError) {
+    switch (error.code) {
+      case "AI_RATE_LIMITED":
+        return (
+          "He alcanzado temporalmente el límite de solicitudes. " +
+          "Inténtalo de nuevo más tarde."
+        );
+
+      case "AI_EMPTY_RESPONSE":
+        return "No pude generar una respuesta válida. " + "Inténtalo de nuevo.";
+
+      case "AI_CONFIGURATION_ERROR":
+        return (
+          "El asistente no está disponible en este momento. " +
+          "El equipo técnico ya puede revisar el problema."
+        );
+
+      case "AI_PROVIDER_ERROR":
+      case "AI_SERVICE_UNAVAILABLE":
+        return (
+          "Ahora mismo el asistente no está disponible. " +
+          "Inténtalo de nuevo más tarde."
+        );
+
+      default:
+        if (error.status >= 500) {
+          return (
+            "El servidor tuvo un problema al procesar tu pregunta. " +
+            "Inténtalo nuevamente."
+          );
+        }
+    }
+  }
+
+  if (error instanceof TypeError) {
+    return (
+      "No pude conectarme con el servidor. " +
+      "Comprueba tu conexión e inténtalo nuevamente."
+    );
+  }
+
+  return "Ocurrió un problema inesperado. " + "Inténtalo nuevamente.";
+}
 
 export default function ChatCard() {
   const [messages, setMessages] = useState<Message[]>([
@@ -24,9 +73,11 @@ export default function ChatCard() {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const requestInFlightRef = useRef(false);
+
   function appendMessage(role: Message["role"], content: string) {
-    setMessages((prev) => [
-      ...prev,
+    setMessages((previousMessages) => [
+      ...previousMessages,
       {
         role,
         content,
@@ -34,16 +85,29 @@ export default function ChatCard() {
     ]);
   }
 
-  async function handleUserMessage(content: string) {
-    appendMessage("user", content);
+  async function handleUserMessage(content: string): Promise<void> {
+    if (requestInFlightRef.current) {
+      return;
+    }
+
+    requestInFlightRef.current = true;
+
+    appendMessage("user", content.trim());
 
     setIsLoading(true);
 
-    const answer = await sendMessage(content);
+    try {
+      const answer = await sendMessage(content);
 
-    setIsLoading(false);
+      appendMessage("assistant", answer);
+    } catch (error: unknown) {
+      console.error("Error al enviar el mensaje:", error);
 
-    appendMessage("assistant", answer);
+      appendMessage("assistant", getChatErrorMessage(error));
+    } finally {
+      requestInFlightRef.current = false;
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -59,7 +123,6 @@ export default function ChatCard() {
         shadow-2xl
       "
     >
-      {/* Header */}
       <div
         className="
           flex
@@ -79,10 +142,10 @@ export default function ChatCard() {
 
         <div className="text-3xl">🤖</div>
       </div>
-      {/* Aquí irán los mensajes */}
+
       <ChatMessages messages={messages} isLoading={isLoading} />
-      {/* Input */}
-      <ChatInput onSend={handleUserMessage} />
+
+      <ChatInput onSend={handleUserMessage} isLoading={isLoading} />
     </div>
   );
 }
