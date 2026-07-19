@@ -1,15 +1,18 @@
-interface ButtonProps {
-  children: React.ReactNode;
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
-  onClick?: () => void;
 }
 
 export default function Button({
   children,
   variant = "primary",
   size = "md",
-  onClick,
+  type = "button",
+  className = "",
+  ...buttonProps
 }: ButtonProps) {
   const styles = {
     primary: "bg-cyan-500 text-slate-950 hover:bg-cyan-400",
@@ -26,14 +29,19 @@ export default function Button({
 
   return (
     <button
-      onClick={onClick}
+      {...buttonProps}
+      type={type}
       className={`
         rounded-xl
         font-semibold
         transition-colors
         duration-300
+        disabled:pointer-events-none
+        disabled:cursor-not-allowed
+        disabled:opacity-50
         ${sizes[size]}
         ${styles[variant]}
+        ${className}
       `}
     >
       {children}

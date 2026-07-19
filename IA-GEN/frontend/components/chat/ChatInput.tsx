@@ -1,31 +1,32 @@
 "use client";
 
 import { useState } from "react";
+
 import Button from "../ui/Button";
 
 interface ChatInputProps {
-  onSend: (message: string) => void;
+  onSend: (message: string) => void | Promise<void>;
+  isLoading: boolean;
 }
 
-export default function ChatInput({ onSend }: ChatInputProps) {
+export default function ChatInput({ onSend, isLoading }: ChatInputProps) {
   const [message, setMessage] = useState("");
 
   function handleSend() {
-    console.log("1. handleSend ejecutado");
+    const normalizedMessage = message.trim();
 
-    if (!message.trim()) return;
-
-    console.log("2. Mensaje:", message);
-
-    onSend(message);
-
-    console.log("3. onSend ejecutado");
+    if (isLoading || !normalizedMessage) {
+      return;
+    }
 
     setMessage("");
+
+    void onSend(normalizedMessage);
   }
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      event.preventDefault();
       handleSend();
     }
   }
@@ -41,9 +42,13 @@ export default function ChatInput({ onSend }: ChatInputProps) {
       <div className="flex gap-4">
         <input
           type="text"
-          placeholder="Escribe tu pregunta..."
+          aria-label="Pregunta para el asistente IA-GEN"
+          placeholder={
+            isLoading ? "Esperando respuesta..." : "Escribe tu pregunta..."
+          }
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          disabled={isLoading}
+          onChange={(event) => setMessage(event.target.value)}
           onKeyDown={handleKeyDown}
           className="
             flex-1
@@ -57,10 +62,14 @@ export default function ChatInput({ onSend }: ChatInputProps) {
             outline-none
             transition
             focus:border-cyan-400
+            disabled:cursor-not-allowed
+            disabled:opacity-60
           "
         />
 
-        <Button onClick={handleSend}>Enviar</Button>
+        <Button onClick={handleSend} disabled={isLoading}>
+          {isLoading ? "Enviando..." : "Enviar"}
+        </Button>
       </div>
     </div>
   );
