@@ -2,12 +2,14 @@ interface ButtonProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
+  onClick?: () => void;
 }
 
 export default function Button({
   children,
   variant = "primary",
   size = "md",
+  onClick,
 }: ButtonProps) {
   const styles = {
     primary: "bg-cyan-500 text-slate-950 hover:bg-cyan-400",
@@ -24,6 +26,7 @@ export default function Button({
 
   return (
     <button
+      onClick={onClick}
       className={`
         rounded-xl
         font-semibold
