@@ -2,26 +2,28 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import router
+from app.core.config import settings
 from app.core.exceptions import register_exception_handlers
 
+
 app = FastAPI(
-    title="IA-GEN API",
+    title=settings.APP_NAME,
     description="Backend oficial del Instituto IA-GEN",
-    version="0.4.0-dev",
+    version=settings.APP_VERSION,
     openapi_tags=[
         {
             "name": "General",
-            "description": "Endpoints generales del sistema."
+            "description": "Endpoints generales del sistema.",
         },
         {
             "name": "Chat",
-            "description": "Comunicación con el asistente IA."
+            "description": "Comunicación con el asistente IA.",
         },
         {
             "name": "Admin",
-            "description": "Administración del sistema."
-        }
-    ]
+            "description": "Administración del sistema.",
+        },
+    ],
 )
 
 app.add_middleware(
@@ -34,7 +36,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Registrar los manejadores de excepciones
 register_exception_handlers(app)
 
 app.include_router(router)
@@ -43,12 +44,12 @@ app.include_router(router)
 @app.get("/")
 def root():
     return {
-        "message": "Bienvenido a IA-GEN API"
+        "message": "Bienvenido a IA-GEN API",
     }
 
 
 @app.get("/health")
 def health():
     return {
-        "status": "healthy"
+        "status": "healthy",
     }
