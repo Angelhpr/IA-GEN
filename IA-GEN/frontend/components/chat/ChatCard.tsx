@@ -137,7 +137,7 @@ export default function ChatCard() {
         <div>
           <h3 className="font-semibold text-cyan-400">Asistente IA-GEN</h3>
 
-          <p className="text-sm text-green-400">● En línea</p>
+          <p className="text-sm text-green-400">● Listo para ayudarte</p>
         </div>
 
         <div className="text-3xl">🤖</div>
