@@ -1,23 +1,24 @@
 from fastapi import APIRouter, Depends, HTTPException
 
+from app.core.config import settings
 from app.dependencies.services import (
+    get_authorized_ingestion_service,
     get_chat_service,
     get_ingestion_service,
 )
 from app.schemas.chat import ChatRequest, ChatResponse
 from app.schemas.ingestion import (
-    IngestionRequest,
-    IngestionResponse,
-    DocumentsResponse,
     DocumentInfoResponse,
+    DocumentsResponse,
+    IngestionResponse,
 )
-
 from app.services.chat_service import ChatService
 from app.services.ingestion_service import IngestionService
 
+
 router = APIRouter(
     prefix="/api",
-    tags=["IA-GEN API"]
+    tags=["IA-GEN API"],
 )
 
 
@@ -40,23 +41,24 @@ def chat(
     response_model=IngestionResponse,
     summary="Indexar documentos",
     description=(
-        "Procesa todos los documentos de una carpeta y los "
-        "almacena en la base vectorial."
-    )
+        "Procesa los documentos de la carpeta configurada "
+        "por el servidor. Requiere acceso administrativo."
+    ),
+    include_in_schema=settings.INGESTION_ENABLED,
 )
 def ingest(
-    request: IngestionRequest,
     ingestion_service: IngestionService = Depends(
-        get_ingestion_service
+        get_authorized_ingestion_service
     ),
 ):
 
-    ingestion_service.ingest_folder(request.folder)
+    ingestion_service.ingest_configured_source()
 
     return IngestionResponse(
         success=True,
-        message="Documentos indexados correctamente."
+        message="Documentos indexados correctamente.",
     )
+
 
 @router.get(
     "/documents",
@@ -65,7 +67,7 @@ def ingest(
     description=(
         "Devuelve la lista de documentos actualmente "
         "almacenados en la base vectorial."
-    )
+    ),
 )
 def list_documents(
     ingestion_service: IngestionService = Depends(
@@ -78,14 +80,15 @@ def list_documents(
         documents=documents
     )
 
+
 @router.get(
     "/documents/{filename}",
     response_model=DocumentInfoResponse,
     summary="Consultar documento",
     description=(
-        "Devuelve la información de un documento "
+        "Devuelve la informacion de un documento "
         "almacenado en la base vectorial."
-    )
+    ),
 )
 def get_document(
     filename: str,
@@ -100,8 +103,8 @@ def get_document(
     if not result["ids"]:
         raise HTTPException(
             status_code=404,
-            detail=f"Documento no encontrado: {filename}"
-    )
+            detail=f"Documento no encontrado: {filename}",
+        )
 
     metadata = result["metadatas"][0]
 

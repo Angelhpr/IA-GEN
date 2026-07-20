@@ -1,19 +1,17 @@
+from app.core.config import settings
+from app.rag.vector_store import VectorStore
 from app.services.ingestion_service import IngestionService
 
-service = IngestionService()
 
-service.ingest_folder(
-    "data/documentos"
+service = IngestionService(
+    source_path=settings.resolved_ingestion_source_path
 )
 
-print("Ingestión completada correctamente.")
+service.ingest_configured_source()
 
-from app.rag.vector_store import VectorStore
+print("Ingestion completada correctamente.")
 
 store = VectorStore()
 
 print(f"Documentos en ChromaDB: {store.count()}")
-
-store = VectorStore()
-
 print(store.show_all())

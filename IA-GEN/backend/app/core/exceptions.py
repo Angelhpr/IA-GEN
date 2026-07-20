@@ -23,6 +23,27 @@ class AIServiceUnavailableError(RuntimeError):
         self.retryable = retryable
 
 
+class IngestionSourceUnavailableError(RuntimeError):
+    """
+    Error controlado cuando la fuente documental configurada
+    no existe o no es un directorio accesible.
+    """
+
+    def __init__(
+        self,
+        message: str = (
+            "La fuente documental configurada no esta disponible."
+        ),
+        *,
+        code: str = "INGESTION_SOURCE_UNAVAILABLE",
+        retryable: bool = False,
+    ):
+        super().__init__(message)
+
+        self.code = code
+        self.retryable = retryable
+
+
 def register_exception_handlers(app: FastAPI):
     """Registra los manejadores globales de excepciones de la API."""
 
@@ -45,6 +66,29 @@ def register_exception_handlers(app: FastAPI):
             exc.code,
             request.url.path,
             provider_status,
+        )
+
+        return JSONResponse(
+            status_code=503,
+            content={
+                "success": False,
+                "error": {
+                    "code": exc.code,
+                    "message": str(exc),
+                    "retryable": exc.retryable,
+                },
+            },
+        )
+
+    @app.exception_handler(IngestionSourceUnavailableError)
+    async def ingestion_source_unavailable_handler(
+        request: Request,
+        exc: IngestionSourceUnavailableError,
+    ):
+        logger.error(
+            "Fuente de ingestion no disponible. code=%s path=%s",
+            exc.code,
+            request.url.path,
         )
 
         return JSONResponse(
