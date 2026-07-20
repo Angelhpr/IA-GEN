@@ -27,8 +27,8 @@ export default function Hero() {
           </p>
 
           <p className="mt-4 max-w-lg italic text-slate-300 text-sm sm:text-base">
-            "La IA no llegó a reemplazarte, sino a ayudarte a crear lo
-            imposible."
+            &ldquo;La IA no llegó a reemplazarte, sino a ayudarte a crear lo
+            imposible.&rdquo;
           </p>
 
           <div
