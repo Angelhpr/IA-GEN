@@ -25,12 +25,6 @@ router = APIRouter(
     "/chat",
     response_model=ChatResponse,
 )
-
-
-@router.post(
-    "/chat",
-    response_model=ChatResponse,
-)
 def chat(
     request: ChatRequest,
     chat_service: ChatService = Depends(get_chat_service),
