@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     APP_VERSION: str
     DEBUG: bool = False
     LOG_LEVEL: str = "INFO"
+    CORS_ORIGINS: str = "http://localhost:3000"
 
     VECTOR_DB_PATH: str = "data/vector_db"
 
@@ -27,6 +28,14 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
+    @property
+    def cors_origins(self) -> list[str]:
+        return [
+            origin.strip()
+            for origin in self.CORS_ORIGINS.split(",")
+            if origin.strip()
+        ]
 
     @property
     def resolved_ingestion_source_path(self) -> Path:
