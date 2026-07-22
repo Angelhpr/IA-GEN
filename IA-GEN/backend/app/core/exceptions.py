@@ -52,11 +52,19 @@ def register_exception_handlers(app: FastAPI):
         request: Request,
         exc: AIServiceUnavailableError,
     ):
+        provider_error = exc.__cause__
         provider_status = getattr(
-            exc.__cause__,
-            "status_code",
+            provider_error,
+            "code",
             None,
         )
+
+        if provider_status is None:
+            provider_status = getattr(
+                provider_error,
+                "status_code",
+                None,
+            )
 
         logger.warning(
             (
