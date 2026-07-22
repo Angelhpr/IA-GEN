@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     APP_NAME: str
     GEMINI_API_KEY: str
     MODEL_NAME: str
+    FALLBACK_MODEL_NAME: str | None = (
+        "gemini-3.5-flash-lite"
+    )
     APP_VERSION: str
     DEBUG: bool = False
     LOG_LEVEL: str = "INFO"
