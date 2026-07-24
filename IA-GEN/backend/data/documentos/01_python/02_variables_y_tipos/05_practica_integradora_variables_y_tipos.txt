@@ -1,0 +1,700 @@
+---
+id: python_variables_tipos_practica_integradora
+title: Práctica integradora de variables y tipos
+course: python
+module: variables_y_tipos
+lesson: practica_integradora_variables_y_tipos
+topic: practica_variables_tipos
+level: principiante
+document_type: exercise
+language: es
+version: 1.0
+status: published
+prerequisites: python_operadores_aritmeticos
+estimated_minutes: 60
+keywords: python, practica, variables, tipos, input, conversiones, operadores
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Práctica integradora de variables y tipos
+
+## Propósito
+
+Esta práctica reúne los conocimientos estudiados durante el módulo:
+
+- Variables.
+- Asignación y reasignación.
+- Tipos de datos básicos.
+- Entrada de datos con `input()`.
+- Conversiones con `int()`, `float()` y `str()`.
+- Operadores aritméticos.
+- Precedencia de operadores.
+- Asignación aumentada.
+- Uso de `type()`.
+
+El objetivo es construir programas pequeños que reciban información, realicen cálculos y muestren resultados claros.
+
+## Recomendaciones
+
+Antes de comenzar:
+
+1. Crea una carpeta para guardar los ejercicios.
+2. Utiliza nombres descriptivos para los archivos.
+3. Ejecuta cada programa después de escribirlo.
+4. Lee cuidadosamente cualquier mensaje de error.
+5. Comprueba los tipos de datos cuando sea necesario.
+6. Utiliza nombres de variables en `snake_case`.
+7. Guarda los archivos con extensión `.py`.
+
+## Actividad 1: ficha de estudiante
+
+Crea un archivo llamado:
+
+~~~text
+ficha_estudiante.py
+~~~
+
+El programa debe almacenar:
+
+- Nombre del estudiante.
+- Edad.
+- País.
+- Nombre del curso.
+- Número del módulo.
+- Promedio.
+- Estado del curso.
+- Calificación final todavía no disponible.
+
+Utiliza los tipos de datos correctos.
+
+Ejemplo:
+
+~~~python
+nombre_estudiante = "Ana"
+edad = 20
+pais = "Honduras"
+nombre_curso = "Python desde cero"
+numero_modulo = 2
+promedio = 91.5
+curso_activo = True
+calificacion_final = None
+
+print("Nombre:", nombre_estudiante)
+print("Edad:", edad)
+print("País:", pais)
+print("Curso:", nombre_curso)
+print("Módulo:", numero_modulo)
+print("Promedio:", promedio)
+print("Curso activo:", curso_activo)
+print("Calificación final:", calificacion_final)
+~~~
+
+Después muestra el tipo de cada variable mediante `type()`.
+
+## Actividad 2: actualización de progreso
+
+Crea un archivo llamado:
+
+~~~text
+actualizar_progreso.py
+~~~
+
+Inicia con estos valores:
+
+~~~python
+ejercicios_completados = 8
+lecciones_completadas = 3
+puntos = 120
+~~~
+
+Realiza las siguientes actualizaciones:
+
+- Aumenta los ejercicios completados en `2`.
+- Aumenta las lecciones completadas en `1`.
+- Aumenta los puntos en `50`.
+- Multiplica los puntos por `2`.
+- Resta `20` puntos.
+
+Utiliza operadores de asignación aumentada.
+
+Ejemplo:
+
+~~~python
+ejercicios_completados = 8
+lecciones_completadas = 3
+puntos = 120
+
+ejercicios_completados += 2
+lecciones_completadas += 1
+puntos += 50
+puntos *= 2
+puntos -= 20
+
+print("Ejercicios completados:", ejercicios_completados)
+print("Lecciones completadas:", lecciones_completadas)
+print("Puntos:", puntos)
+~~~
+
+Resultado esperado:
+
+~~~text
+Ejercicios completados: 10
+Lecciones completadas: 4
+Puntos: 320
+~~~
+
+## Actividad 3: registro interactivo
+
+Crea un archivo llamado:
+
+~~~text
+registro_interactivo.py
+~~~
+
+El programa debe solicitar:
+
+- Nombre.
+- Edad.
+- País.
+- Promedio.
+- Cantidad de ejercicios completados.
+
+Convierte cada entrada al tipo adecuado.
+
+Ejemplo:
+
+~~~python
+nombre = input("Nombre: ")
+edad = int(input("Edad: "))
+pais = input("País: ")
+promedio = float(input("Promedio: "))
+ejercicios_completados = int(
+    input("Ejercicios completados: ")
+)
+
+print()
+print("Registro del estudiante")
+print("Nombre:", nombre)
+print("Edad:", edad)
+print("País:", pais)
+print("Promedio:", promedio)
+print(
+    "Ejercicios completados:",
+    ejercicios_completados
+)
+~~~
+
+Agrega una línea que muestre la edad que tendrá el estudiante el próximo año.
+
+## Actividad 4: calculadora de progreso
+
+Crea un archivo llamado:
+
+~~~text
+calculadora_progreso.py
+~~~
+
+El programa debe solicitar:
+
+- Cantidad total de lecciones.
+- Cantidad de lecciones completadas.
+- Cantidad de ejercicios por lección.
+
+Debe calcular:
+
+- Lecciones pendientes.
+- Total estimado de ejercicios.
+- Ejercicios correspondientes a las lecciones completadas.
+
+Ejemplo:
+
+~~~python
+total_lecciones = int(
+    input("Cantidad total de lecciones: ")
+)
+lecciones_completadas = int(
+    input("Lecciones completadas: ")
+)
+ejercicios_por_leccion = int(
+    input("Ejercicios por lección: ")
+)
+
+lecciones_pendientes = (
+    total_lecciones - lecciones_completadas
+)
+
+total_ejercicios = (
+    total_lecciones * ejercicios_por_leccion
+)
+
+ejercicios_completados = (
+    lecciones_completadas * ejercicios_por_leccion
+)
+
+print()
+print("Lecciones pendientes:", lecciones_pendientes)
+print("Total de ejercicios:", total_ejercicios)
+print(
+    "Ejercicios completados:",
+    ejercicios_completados
+)
+~~~
+
+## Actividad 5: cálculo de promedio
+
+Crea un archivo llamado:
+
+~~~text
+promedio_calificaciones.py
+~~~
+
+Solicita tres calificaciones decimales.
+
+Después calcula el promedio.
+
+~~~python
+calificacion_1 = float(
+    input("Primera calificación: ")
+)
+calificacion_2 = float(
+    input("Segunda calificación: ")
+)
+calificacion_3 = float(
+    input("Tercera calificación: ")
+)
+
+promedio = (
+    calificacion_1
+    + calificacion_2
+    + calificacion_3
+) / 3
+
+print("Promedio:", promedio)
+~~~
+
+Explica por qué se utilizan paréntesis alrededor de la suma.
+
+## Actividad 6: división y residuo
+
+Crea un archivo llamado:
+
+~~~text
+grupos_estudiantes.py
+~~~
+
+El programa debe solicitar:
+
+- Cantidad total de estudiantes.
+- Cantidad de estudiantes por grupo.
+
+Debe calcular:
+
+- Cantidad de grupos completos.
+- Cantidad de estudiantes restantes.
+
+Ejemplo:
+
+~~~python
+total_estudiantes = int(
+    input("Total de estudiantes: ")
+)
+estudiantes_por_grupo = int(
+    input("Estudiantes por grupo: ")
+)
+
+grupos_completos = (
+    total_estudiantes // estudiantes_por_grupo
+)
+
+estudiantes_restantes = (
+    total_estudiantes % estudiantes_por_grupo
+)
+
+print("Grupos completos:", grupos_completos)
+print(
+    "Estudiantes restantes:",
+    estudiantes_restantes
+)
+~~~
+
+Utiliza una cantidad por grupo diferente de cero.
+
+## Actividad 7: costo de materiales
+
+Crea un archivo llamado:
+
+~~~text
+costo_materiales.py
+~~~
+
+Solicita:
+
+- Nombre del material.
+- Precio unitario.
+- Cantidad.
+- Costo de envío.
+
+Calcula el subtotal y el total.
+
+~~~python
+nombre_material = input("Material: ")
+precio_unitario = float(
+    input("Precio unitario: ")
+)
+cantidad = int(input("Cantidad: "))
+costo_envio = float(
+    input("Costo de envío: ")
+)
+
+subtotal = precio_unitario * cantidad
+total = subtotal + costo_envio
+
+print()
+print("Material:", nombre_material)
+print("Subtotal:", subtotal)
+print("Envío:", costo_envio)
+print("Total:", total)
+~~~
+
+## Actividad 8: conversión de tiempo
+
+Crea un archivo llamado:
+
+~~~text
+conversion_tiempo.py
+~~~
+
+Solicita una cantidad total de minutos.
+
+Calcula:
+
+- Horas completas.
+- Minutos restantes.
+
+~~~python
+total_minutos = int(
+    input("Cantidad total de minutos: ")
+)
+
+horas = total_minutos // 60
+minutos_restantes = total_minutos % 60
+
+print("Horas completas:", horas)
+print("Minutos restantes:", minutos_restantes)
+~~~
+
+Ejemplo:
+
+~~~text
+Cantidad total de minutos: 135
+Horas completas: 2
+Minutos restantes: 15
+~~~
+
+## Actividad 9: potencia y área
+
+Crea un archivo llamado:
+
+~~~text
+area_cuadrado.py
+~~~
+
+Solicita la longitud de un lado.
+
+Calcula el área utilizando el operador de potencia.
+
+~~~python
+lado = float(input("Longitud del lado: "))
+
+area = lado ** 2
+
+print("Área del cuadrado:", area)
+~~~
+
+Después calcula el perímetro:
+
+~~~python
+perimetro = lado * 4
+~~~
+
+## Actividad 10: análisis de tipos
+
+Observa el siguiente código:
+
+~~~python
+valor_1 = "25"
+valor_2 = 25
+valor_3 = 25.0
+valor_4 = True
+valor_5 = None
+~~~
+
+Responde:
+
+1. ¿Cuál variable contiene texto?
+2. ¿Cuál variable contiene un entero?
+3. ¿Cuál variable contiene un decimal?
+4. ¿Cuál variable contiene un booleano?
+5. ¿Cuál variable representa ausencia de valor?
+6. ¿Qué resultado produce `type(valor_1)`?
+7. ¿Puede sumarse directamente `valor_1 + valor_2`?
+8. ¿Qué conversión permitiría realizar esa suma?
+
+Comprueba tus respuestas mediante Python.
+
+## Actividad 11: identificar resultados
+
+Calcula el resultado antes de ejecutar el código:
+
+~~~python
+print(10 + 5 * 2)
+print((10 + 5) * 2)
+print(20 / 4)
+print(20 // 6)
+print(20 % 6)
+print(3 ** 3)
+print("10" + "5")
+~~~
+
+Resultados esperados:
+
+~~~text
+20
+30
+5.0
+3
+2
+27
+105
+~~~
+
+## Actividad 12: detectar errores
+
+Corrige cada instrucción.
+
+### Caso 1
+
+~~~python
+nombre estudiante = "Ana"
+~~~
+
+### Caso 2
+
+~~~python
+2modulo = 2
+~~~
+
+### Caso 3
+
+~~~python
+promedio = 91,5
+~~~
+
+### Caso 4
+
+~~~python
+curso_activo = true
+~~~
+
+### Caso 5
+
+~~~python
+edad = input("Edad: ")
+print(edad + 1)
+~~~
+
+### Caso 6
+
+~~~python
+resultado = 5 x 4
+~~~
+
+### Caso 7
+
+~~~python
+potencia = 2 ^ 3
+~~~
+
+### Caso 8
+
+~~~python
+total = 10 / 0
+~~~
+
+Posibles correcciones:
+
+~~~python
+nombre_estudiante = "Ana"
+modulo = 2
+promedio = 91.5
+curso_activo = True
+
+edad = int(input("Edad: "))
+print(edad + 1)
+
+resultado = 5 * 4
+potencia = 2 ** 3
+~~~
+
+Para el último caso debe utilizarse un divisor diferente de cero.
+
+## Proyecto integrador: resumen de inscripción
+
+Crea un archivo llamado:
+
+~~~text
+resumen_inscripcion.py
+~~~
+
+El programa debe solicitar:
+
+- Nombre del estudiante.
+- Edad.
+- Nombre del curso.
+- Cantidad de módulos.
+- Precio por módulo.
+- Porcentaje de descuento.
+- Cantidad de pagos.
+
+Debe calcular:
+
+- Edad del próximo año.
+- Precio sin descuento.
+- Valor del descuento.
+- Precio final.
+- Valor de cada pago.
+- Cantidad de módulos por pago.
+- Módulos restantes.
+
+Utiliza este código como referencia:
+
+~~~python
+nombre = input("Nombre del estudiante: ")
+edad = int(input("Edad: "))
+curso = input("Nombre del curso: ")
+cantidad_modulos = int(
+    input("Cantidad de módulos: ")
+)
+precio_modulo = float(
+    input("Precio por módulo: ")
+)
+descuento_porcentaje = float(
+    input("Porcentaje de descuento: ")
+)
+cantidad_pagos = int(
+    input("Cantidad de pagos: ")
+)
+
+edad_proxima = edad + 1
+
+precio_sin_descuento = (
+    cantidad_modulos * precio_modulo
+)
+
+valor_descuento = (
+    precio_sin_descuento
+    * descuento_porcentaje
+    / 100
+)
+
+precio_final = (
+    precio_sin_descuento - valor_descuento
+)
+
+valor_pago = precio_final / cantidad_pagos
+
+modulos_por_pago = (
+    cantidad_modulos // cantidad_pagos
+)
+
+modulos_restantes = (
+    cantidad_modulos % cantidad_pagos
+)
+
+print()
+print("Resumen de inscripción")
+print("Estudiante:", nombre)
+print("Edad:", edad)
+print("Edad el próximo año:", edad_proxima)
+print("Curso:", curso)
+print("Cantidad de módulos:", cantidad_modulos)
+print("Precio sin descuento:", precio_sin_descuento)
+print("Descuento:", valor_descuento)
+print("Precio final:", precio_final)
+print("Valor por pago:", valor_pago)
+print("Módulos por pago:", modulos_por_pago)
+print("Módulos restantes:", modulos_restantes)
+~~~
+
+Para realizar la práctica:
+
+- Utiliza una cantidad de pagos diferente de cero.
+- Comprueba los resultados manualmente.
+- Consulta los tipos de las variables principales.
+- Cambia los datos y ejecuta nuevamente el programa.
+- Observa qué resultados se modifican.
+
+## Lista de comprobación
+
+Antes de finalizar, verifica:
+
+- Los archivos terminan en `.py`.
+- Los nombres de variables utilizan `snake_case`.
+- Los textos están entre comillas.
+- Los valores numéricos no tienen comillas.
+- Los decimales utilizan punto.
+- `True`, `False` y `None` están escritos correctamente.
+- Las entradas numéricas se convierten.
+- Las multiplicaciones utilizan `*`.
+- Las potencias utilizan `**`.
+- Los divisores no son cero.
+- Los programas se ejecutan sin errores.
+- Los resultados son coherentes.
+
+## Preguntas de repaso
+
+1. ¿Qué función permite recibir información del usuario?
+2. ¿Qué tipo devuelve `input()`?
+3. ¿Qué función convierte texto a entero?
+4. ¿Qué función convierte texto a decimal?
+5. ¿Qué diferencia existe entre `"20"` y `20`?
+6. ¿Qué representa `None`?
+7. ¿Qué operador realiza división entera?
+8. ¿Qué operador calcula el residuo?
+9. ¿Qué operador calcula potencias?
+10. ¿Qué produce una división entre cero?
+11. ¿Qué diferencia existe entre `=` y `==`?
+12. ¿Qué convención se recomienda para nombrar variables?
+
+## Respuestas de repaso
+
+1. `input()`.
+2. `str`.
+3. `int()`.
+4. `float()`.
+5. `"20"` es texto y `20` es un entero.
+6. Ausencia de valor.
+7. `//`.
+8. `%`.
+9. `**`.
+10. `ZeroDivisionError`.
+11. `=` asigna y `==` compara.
+12. `snake_case`.
+
+## Cierre del módulo
+
+En este módulo aprendiste a:
+
+- Crear y modificar variables.
+- Utilizar nombres válidos y descriptivos.
+- Trabajar con `int`, `float`, `str`, `bool` y `None`.
+- Consultar tipos mediante `type()`.
+- Recibir entradas con `input()`.
+- Convertir valores.
+- Realizar operaciones aritméticas.
+- Aplicar precedencia y paréntesis.
+- Utilizar asignación aumentada.
+- Identificar errores comunes.
+
+Estos conocimientos serán utilizados en los siguientes módulos para crear programas que tomen decisiones, repitan instrucciones y organicen información.
