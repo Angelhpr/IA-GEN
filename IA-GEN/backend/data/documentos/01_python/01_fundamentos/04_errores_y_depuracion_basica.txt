@@ -1,0 +1,500 @@
+---
+id: python_fundamentos_errores_depuracion
+title: Errores y depuración básica
+course: python
+module: fundamentos
+lesson: errores_y_depuracion_basica
+topic: errores_y_depuracion
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_fundamentos_print_salida
+estimated_minutes: 35
+keywords: python, errores, sintaxis, excepciones, traceback, depuracion
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Errores y depuración básica
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Comprender que los errores forman parte del desarrollo de software.
+- Diferenciar errores de sintaxis, errores de ejecución y errores lógicos.
+- Identificar el tipo de error mostrado por Python.
+- Localizar el archivo y la línea donde ocurrió un problema.
+- Leer la parte principal de un traceback.
+- Utilizar `print()` para observar valores durante la ejecución.
+- Aplicar un proceso básico para encontrar y corregir errores.
+
+## Los errores forman parte de la programación
+
+Un error no significa que una persona no pueda aprender programación.
+
+Los errores aparecen cuando:
+
+- Una instrucción no respeta la sintaxis.
+- Se utiliza un nombre que no existe.
+- Se intenta realizar una operación inválida.
+- Los datos no tienen el tipo esperado.
+- El programa produce un resultado diferente al deseado.
+
+Aprender a programar también significa aprender a localizar, comprender y corregir errores.
+
+El proceso de buscar y corregir problemas se conoce como depuración o debugging.
+
+## Tipos generales de errores
+
+En un programa básico pueden encontrarse tres categorías principales:
+
+- Errores de sintaxis.
+- Errores de ejecución.
+- Errores lógicos.
+
+Cada categoría requiere una forma diferente de análisis.
+
+## Errores de sintaxis
+
+Un error de sintaxis ocurre cuando el código no respeta las reglas de escritura de Python.
+
+Ejemplo:
+
+~~~python
+print("Hola"
+~~~
+
+Falta el paréntesis de cierre.
+
+Python puede mostrar un mensaje parecido a:
+
+~~~text
+SyntaxError: '(' was never closed
+~~~
+
+Otro ejemplo:
+
+~~~python
+print("Python')
+~~~
+
+Las comillas no coinciden.
+
+Un error de sintaxis normalmente impide que el programa comience a ejecutarse.
+
+## Cómo localizar un error de sintaxis
+
+El mensaje de Python suele incluir:
+
+- El nombre del archivo.
+- El número de línea.
+- Una parte del código.
+- El tipo de error.
+- Una descripción del problema.
+
+Ejemplo aproximado:
+
+~~~text
+File "programa.py", line 3
+    print("Hola"
+         ^
+SyntaxError: '(' was never closed
+~~~
+
+La expresión `line 3` indica que Python detectó el problema cerca de la línea 3.
+
+El símbolo `^` señala una posición relacionada con el error.
+
+La causa real puede encontrarse en esa línea o en una línea anterior.
+
+## Errores de ejecución
+
+Un error de ejecución aparece después de que Python comienza a ejecutar el programa.
+
+El código puede tener una sintaxis válida, pero una instrucción produce una situación que Python no puede completar.
+
+Estos errores también se conocen como excepciones.
+
+## NameError
+
+`NameError` aparece cuando se utiliza un nombre que no existe.
+
+Ejemplo:
+
+~~~python
+print(nombre)
+~~~
+
+Si `nombre` no fue definido anteriormente, Python muestra un error similar a:
+
+~~~text
+NameError: name 'nombre' is not defined
+~~~
+
+También puede producirse por escribir incorrectamente un nombre:
+
+~~~python
+mensaje = "Hola"
+print(mensage)
+~~~
+
+En este ejemplo se creó `mensaje`, pero se intentó utilizar `mensage`.
+
+## TypeError
+
+`TypeError` aparece cuando se intenta realizar una operación con tipos incompatibles.
+
+Ejemplo:
+
+~~~python
+print("Edad: " + 20)
+~~~
+
+Python no puede sumar directamente un texto y un número entero.
+
+El mensaje puede ser parecido a:
+
+~~~text
+TypeError: can only concatenate str (not "int") to str
+~~~
+
+Una forma sencilla de mostrar ambos valores es utilizar una coma:
+
+~~~python
+print("Edad:", 20)
+~~~
+
+## ZeroDivisionError
+
+Este error ocurre cuando se intenta dividir entre cero.
+
+~~~python
+print(10 / 0)
+~~~
+
+Python muestra:
+
+~~~text
+ZeroDivisionError: division by zero
+~~~
+
+La división entre cero no es una operación válida.
+
+## Errores lógicos
+
+Un error lógico ocurre cuando el programa se ejecuta sin mostrar una excepción, pero produce un resultado incorrecto.
+
+Ejemplo:
+
+~~~python
+print("Resultado:", 10 - 5)
+~~~
+
+Supongamos que el objetivo era sumar los valores.
+
+El programa funciona, pero la operación utilizada no corresponde al problema.
+
+La versión correcta sería:
+
+~~~python
+print("Resultado:", 10 + 5)
+~~~
+
+Python no puede detectar automáticamente todos los errores lógicos porque el código es válido.
+
+El programador debe comparar el resultado obtenido con el resultado esperado.
+
+## ¿Qué es un traceback?
+
+Un traceback es el conjunto de información que Python muestra cuando ocurre una excepción.
+
+Puede incluir varias líneas, especialmente cuando un programa contiene funciones o utiliza diferentes archivos.
+
+En esta etapa del curso, la información más importante suele encontrarse al final.
+
+Ejemplo:
+
+~~~text
+Traceback (most recent call last):
+  File "saludo.py", line 2, in <module>
+    print(mensage)
+NameError: name 'mensage' is not defined
+~~~
+
+La última línea indica:
+
+- El tipo de error: `NameError`.
+- La descripción: el nombre `mensage` no está definido.
+
+La línea anterior indica dónde ocurrió:
+
+~~~text
+File "saludo.py", line 2
+~~~
+
+## Proceso básico de depuración
+
+Cuando aparezca un error, sigue este proceso:
+
+1. Lee el mensaje completo.
+2. Observa la última línea.
+3. Identifica el tipo de error.
+4. Localiza el archivo y el número de línea.
+5. Revisa esa línea y las anteriores.
+6. Comprueba nombres, comillas, paréntesis y operadores.
+7. Realiza un cambio pequeño.
+8. Guarda el archivo.
+9. Ejecuta nuevamente el programa.
+10. Confirma que el problema fue corregido.
+
+No conviene cambiar muchas partes del programa al mismo tiempo porque será más difícil saber cuál modificación resolvió el error.
+
+## Utilizar print() para depurar
+
+`print()` puede utilizarse temporalmente para observar qué partes del programa se ejecutan.
+
+Ejemplo:
+
+~~~python
+print("Inicio del programa")
+print("Procesando información")
+print("Fin del programa")
+~~~
+
+También puede utilizarse para observar resultados intermedios:
+
+~~~python
+print("Primer valor:", 10)
+print("Segundo valor:", 5)
+print("Resultado:", 10 + 5)
+~~~
+
+Estas instrucciones ayudan a comprobar si los datos y operaciones coinciden con lo esperado.
+
+## Mensajes de depuración claros
+
+En lugar de mostrar solamente un número:
+
+~~~python
+print(15)
+~~~
+
+es preferible agregar una descripción:
+
+~~~python
+print("Resultado temporal:", 15)
+~~~
+
+De esta forma es más sencillo comprender qué representa el valor.
+
+Las instrucciones de depuración pueden eliminarse cuando el programa funcione correctamente.
+
+## Corregir un problema a la vez
+
+Supongamos que un programa contiene varios errores:
+
+~~~python
+Print("Inicio")
+print(resultado)
+print("Fin"
+~~~
+
+Conviene corregirlos de forma progresiva:
+
+1. Cambiar `Print` por `print`.
+2. Definir o revisar `resultado`.
+3. Agregar el paréntesis de cierre.
+4. Ejecutar el programa después de cada cambio.
+
+Trabajar paso a paso reduce la confusión.
+
+## Errores frecuentes al comenzar
+
+### Nombre de función incorrecto
+
+Incorrecto:
+
+~~~python
+pritn("Hola")
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Mayúsculas incorrectas
+
+Incorrecto:
+
+~~~python
+PRINT("Hola")
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Nombre inexistente
+
+Incorrecto:
+
+~~~python
+print(curso)
+~~~
+
+Correcto:
+
+~~~python
+print("Python desde cero")
+~~~
+
+### Paréntesis incompletos
+
+Incorrecto:
+
+~~~python
+print("Hola"
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Operación equivocada
+
+Código válido, pero resultado incorrecto:
+
+~~~python
+print(8 - 2)
+~~~
+
+Si el objetivo era multiplicar, debe utilizarse:
+
+~~~python
+print(8 * 2)
+~~~
+
+## Buenas prácticas de depuración
+
+- Leer los mensajes de error completos.
+- Revisar primero la última línea del traceback.
+- Comprobar el número de línea.
+- Comparar cuidadosamente los nombres.
+- Revisar mayúsculas y minúsculas.
+- Cerrar comillas y paréntesis.
+- Guardar el archivo antes de ejecutarlo.
+- Realizar cambios pequeños.
+- Ejecutar el programa con frecuencia.
+- Comparar el resultado obtenido con el esperado.
+- No borrar inmediatamente el código completo.
+- Mantener una copia funcional cuando se realicen cambios grandes.
+
+## Ejemplo guiado
+
+El siguiente programa contiene tres errores:
+
+~~~python
+Print("Curso: Python desde cero")
+print("Módulo:", modulo)
+print("Estado: activo"
+~~~
+
+Corrígelo para que muestre:
+
+~~~text
+Curso: Python desde cero
+Módulo: 1
+Estado: activo
+~~~
+
+Una posible solución es:
+
+~~~python
+print("Curso: Python desde cero")
+print("Módulo:", 1)
+print("Estado: activo")
+~~~
+
+## Ejercicio práctico
+
+Crea un archivo llamado `depuracion_basica.py`.
+
+Escribe inicialmente este código:
+
+~~~python
+print("Inicio del programa")
+print("Resultado:", 10 + 5)
+print("Fin del programa")
+~~~
+
+Después realiza estas modificaciones, una por una:
+
+1. Cambia `print` por `Print` en la primera línea.
+2. Ejecuta el programa y lee el error.
+3. Corrige la primera línea.
+4. Elimina un paréntesis de la segunda línea.
+5. Ejecuta nuevamente y localiza el error.
+6. Corrige el paréntesis.
+7. Cambia la suma por una resta.
+8. Comprueba si el resultado coincide con el esperado.
+
+## Ejercicio de clasificación
+
+Clasifica cada caso como error de sintaxis, error de ejecución o error lógico.
+
+### Caso 1
+
+~~~python
+print("Hola"
+~~~
+
+### Caso 2
+
+~~~python
+print(usuario)
+~~~
+
+`usuario` no fue definido.
+
+### Caso 3
+
+~~~python
+print(10 - 4)
+~~~
+
+El objetivo era calcular `10 + 4`.
+
+Soluciones:
+
+- Caso 1: error de sintaxis.
+- Caso 2: error de ejecución, específicamente `NameError`.
+- Caso 3: error lógico.
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- Los errores son una parte normal de la programación.
+- Los errores de sintaxis impiden interpretar correctamente el código.
+- Las excepciones aparecen durante la ejecución.
+- `NameError` indica que un nombre no está definido.
+- `TypeError` puede aparecer al combinar tipos incompatibles.
+- `ZeroDivisionError` aparece al dividir entre cero.
+- Los errores lógicos producen resultados incorrectos sin detener el programa.
+- Un traceback contiene información sobre el error.
+- La última línea suele indicar el tipo y la descripción.
+- `print()` puede ayudar a observar valores durante la depuración.
+- Los problemas deben corregirse mediante cambios pequeños.
+
+## Próxima lección
+
+En la siguiente lección realizarás una práctica integradora del módulo de fundamentos utilizando `print()`, archivos `.py`, ejecución desde terminal y corrección de errores.
