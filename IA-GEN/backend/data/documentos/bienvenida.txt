@@ -1,5 +1,0 @@
-Bienvenido al Instituto IA-GEN.
-
-Nuestra misión es enseñar programación e inteligencia artificial mediante proyectos reales.
-
-Ofrecemos cursos de Python, Machine Learning, IA Generativa y Desarrollo Web.
