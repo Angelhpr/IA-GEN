@@ -9,15 +9,53 @@ import Footer from "../components/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <>
+      <a
+        href="#contenido-principal"
+        className="
+          sr-only
+          fixed
+          left-4
+          top-4
+          z-100
+          rounded-lg
+          bg-[#2563EB]
+          px-4
+          py-3
+          text-sm
+          font-semibold
+          text-white
+          focus:not-sr-only
+          focus:outline-none
+          focus:ring-2
+          focus:ring-[#60A5FA]
+          focus:ring-offset-2
+          focus:ring-offset-[#0F172A]
+        "
+      >
+        Saltar al contenido principal
+      </a>
+
       <Navbar />
-      <Hero />
-      <CoursesSection />
-      <FeaturesSection />
-      <AboutSection />
-      <ChatSection />
-      <ContactSection />
+
+      <main
+        id="contenido-principal"
+        className="
+          min-h-screen
+          overflow-x-clip
+          bg-[#0F172A]
+          text-[#F8FAFC]
+        "
+      >
+        <Hero />
+        <CoursesSection />
+        <FeaturesSection />
+        <AboutSection />
+        <ChatSection />
+        <ContactSection />
+      </main>
+
       <Footer />
-    </main>
+    </>
   );
 }
