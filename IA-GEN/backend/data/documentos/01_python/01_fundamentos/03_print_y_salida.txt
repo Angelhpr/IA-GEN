@@ -1,0 +1,532 @@
+---
+id: python_fundamentos_print_salida
+title: Uso de print() y salida de datos
+course: python
+module: fundamentos
+lesson: print_y_salida
+topic: salida_de_datos
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_fundamentos_instalacion_entorno
+estimated_minutes: 30
+keywords: python, print, salida, texto, consola, caracteres_escape
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Uso de print() y salida de datos
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Utilizar la función `print()`.
+- Mostrar textos, números y valores booleanos.
+- Mostrar varios valores en una misma instrucción.
+- Comprender el uso de comillas.
+- Utilizar los parámetros `sep` y `end`.
+- Aplicar caracteres especiales como salto de línea y tabulación.
+- Reconocer errores frecuentes relacionados con la salida de datos.
+
+## ¿Qué es la salida de datos?
+
+La salida de datos es la información que un programa presenta al usuario.
+
+Un programa puede mostrar:
+
+- Mensajes.
+- Resultados de operaciones.
+- Instrucciones.
+- Advertencias.
+- Valores almacenados.
+- Confirmaciones.
+
+En Python, una de las formas más sencillas de mostrar información es mediante la función `print()`.
+
+## La función print()
+
+La función `print()` muestra información en la terminal.
+
+Ejemplo:
+
+~~~python
+print("Hola, mundo")
+~~~
+
+Resultado:
+
+~~~text
+Hola, mundo
+~~~
+
+La información que se desea mostrar se coloca dentro de los paréntesis.
+
+## Mostrar texto
+
+Los textos deben escribirse entre comillas.
+
+Se pueden utilizar comillas dobles:
+
+~~~python
+print("Estoy aprendiendo Python")
+~~~
+
+También pueden utilizarse comillas simples:
+
+~~~python
+print('Estoy aprendiendo Python')
+~~~
+
+Ambas instrucciones producen el mismo resultado.
+
+## Elegir las comillas
+
+Las comillas externas permiten incluir otro tipo de comillas dentro del texto.
+
+Ejemplo:
+
+~~~python
+print("Python es un lenguaje 'fácil de leer'")
+~~~
+
+También puede escribirse:
+
+~~~python
+print('El curso se llama "Python desde cero"')
+~~~
+
+El tipo de comillas utilizado para abrir un texto debe coincidir con el utilizado para cerrarlo.
+
+Incorrecto:
+
+~~~python
+print("Hola')
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+## Mostrar números
+
+Los números pueden mostrarse sin comillas.
+
+~~~python
+print(25)
+print(3.14)
+print(-10)
+~~~
+
+Resultado:
+
+~~~text
+25
+3.14
+-10
+~~~
+
+Cuando un número se escribe entre comillas, Python lo trata como texto.
+
+~~~python
+print("25")
+~~~
+
+Aunque visualmente puede parecer igual, `"25"` es texto y `25` es un número.
+
+## Mostrar valores booleanos
+
+Python utiliza los valores booleanos `True` y `False`.
+
+~~~python
+print(True)
+print(False)
+~~~
+
+Resultado:
+
+~~~text
+True
+False
+~~~
+
+Los valores booleanos comienzan con letra mayúscula y no se escriben entre comillas.
+
+## Mostrar varias líneas
+
+Cada llamada a `print()` muestra su contenido y después inicia una nueva línea.
+
+~~~python
+print("Primera línea")
+print("Segunda línea")
+print("Tercera línea")
+~~~
+
+Resultado:
+
+~~~text
+Primera línea
+Segunda línea
+Tercera línea
+~~~
+
+## Una instrucción vacía
+
+También puede utilizarse `print()` sin contenido:
+
+~~~python
+print("Inicio")
+print()
+print("Fin")
+~~~
+
+Resultado:
+
+~~~text
+Inicio
+
+Fin
+~~~
+
+La llamada vacía agrega una línea en blanco.
+
+## Mostrar varios valores
+
+La función `print()` puede recibir varios valores separados por comas.
+
+~~~python
+print("Curso:", "Python desde cero")
+print("Módulo:", 1)
+print("Activo:", True)
+~~~
+
+Resultado:
+
+~~~text
+Curso: Python desde cero
+Módulo: 1
+Activo: True
+~~~
+
+Python agrega automáticamente un espacio entre los valores separados por comas.
+
+## El parámetro sep
+
+El parámetro `sep` permite cambiar el texto utilizado para separar varios valores.
+
+Ejemplo:
+
+~~~python
+print("Python", "Machine Learning", "RAG", sep=" | ")
+~~~
+
+Resultado:
+
+~~~text
+Python | Machine Learning | RAG
+~~~
+
+También puede utilizarse otro carácter:
+
+~~~python
+print(2026, 7, 24, sep="-")
+~~~
+
+Resultado:
+
+~~~text
+2026-7-24
+~~~
+
+El valor predeterminado de `sep` es un espacio.
+
+## El parámetro end
+
+Normalmente, `print()` termina agregando un salto de línea.
+
+El parámetro `end` permite cambiar ese comportamiento.
+
+~~~python
+print("Hola", end=" ")
+print("estudiante")
+~~~
+
+Resultado:
+
+~~~text
+Hola estudiante
+~~~
+
+Otro ejemplo:
+
+~~~python
+print("Cargando", end="...")
+print("completado")
+~~~
+
+Resultado:
+
+~~~text
+Cargando...completado
+~~~
+
+## Combinar sep y end
+
+Los parámetros `sep` y `end` pueden utilizarse juntos.
+
+~~~python
+print("Python", "IA-GEN", sep=" - ", end=".")
+~~~
+
+Resultado:
+
+~~~text
+Python - IA-GEN.
+~~~
+
+## Caracteres de escape
+
+Los caracteres de escape permiten representar formatos especiales dentro de un texto.
+
+Comienzan con una barra invertida: `\`.
+
+### Salto de línea
+
+El carácter `\n` crea una nueva línea.
+
+~~~python
+print("Primera línea\nSegunda línea")
+~~~
+
+Resultado:
+
+~~~text
+Primera línea
+Segunda línea
+~~~
+
+### Tabulación
+
+El carácter `\t` agrega una tabulación.
+
+~~~python
+print("Nombre\tCurso")
+print("Ana\tPython")
+~~~
+
+Resultado aproximado:
+
+~~~text
+Nombre  Curso
+Ana     Python
+~~~
+
+### Comillas dentro de un texto
+
+Una comilla puede escaparse utilizando una barra invertida.
+
+~~~python
+print("El curso se llama \"Python desde cero\"")
+~~~
+
+Resultado:
+
+~~~text
+El curso se llama "Python desde cero"
+~~~
+
+### Mostrar una barra invertida
+
+Para mostrar una barra invertida se escriben dos:
+
+~~~python
+print("C:\\curso_python\\ejercicios")
+~~~
+
+Resultado:
+
+~~~text
+C:\curso_python\ejercicios
+~~~
+
+## Texto frente a operación
+
+Observa estos ejemplos:
+
+~~~python
+print("2 + 3")
+print(2 + 3)
+~~~
+
+Resultado:
+
+~~~text
+2 + 3
+5
+~~~
+
+En la primera instrucción, Python muestra el texto exactamente como fue escrito.
+
+En la segunda instrucción, Python realiza la operación y muestra el resultado.
+
+## Errores comunes
+
+### Olvidar las comillas
+
+Incorrecto:
+
+~~~python
+print(Hola)
+~~~
+
+Python interpreta `Hola` como un nombre y no como texto.
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Utilizar comillas diferentes
+
+Incorrecto:
+
+~~~python
+print("Python')
+~~~
+
+Correcto:
+
+~~~python
+print("Python")
+~~~
+
+### Escribir Print con mayúscula
+
+Incorrecto:
+
+~~~python
+Print("Hola")
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Olvidar los paréntesis
+
+Incorrecto:
+
+~~~python
+print "Hola"
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Escribir sep fuera de print
+
+Incorrecto:
+
+~~~python
+print("Python", "RAG"), sep="-"
+~~~
+
+Correcto:
+
+~~~python
+print("Python", "RAG", sep="-")
+~~~
+
+## Ejemplo guiado
+
+Crea un archivo llamado `salida_datos.py`.
+
+~~~python
+print("IA-GEN")
+print("Curso:", "Python desde cero")
+print("Módulo:", 1)
+print("Estado:", "En progreso")
+print()
+print("Python", "Machine Learning", "RAG", sep=" | ")
+print("Aprendiendo", end="...")
+print("completado")
+~~~
+
+Ejecuta el archivo y observa cada línea.
+
+## Ejercicio práctico
+
+Crea un archivo llamado `perfil_estudiante.py`.
+
+Debe mostrar:
+
+- El nombre del estudiante.
+- El país.
+- El nombre del curso.
+- El número del módulo.
+- Tres tecnologías separadas mediante `sep`.
+- Un mensaje construido con dos llamadas a `print()` y el parámetro `end`.
+
+Ejemplo:
+
+~~~python
+print("Nombre:", "Ana")
+print("País:", "Honduras")
+print("Curso:", "Python desde cero")
+print("Módulo:", 1)
+print("Python", "Git", "IA", sep=" - ")
+print("Entorno", end=" ")
+print("preparado")
+~~~
+
+## Ejercicio de corrección
+
+Corrige el siguiente código:
+
+~~~python
+Print("Curso: Python")
+print(Módulo, 1)
+print("Python", "RAG") sep=" | "
+print("Listo", end=" "
+print("para continuar")
+~~~
+
+Una posible solución es:
+
+~~~python
+print("Curso: Python")
+print("Módulo", 1)
+print("Python", "RAG", sep=" | ")
+print("Listo", end=" ")
+print("para continuar")
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- `print()` muestra información en la terminal.
+- Los textos se escriben entre comillas.
+- Los números pueden mostrarse sin comillas.
+- `True` y `False` son valores booleanos.
+- Una llamada vacía a `print()` agrega una línea en blanco.
+- Las comas permiten mostrar varios valores.
+- `sep` modifica el separador.
+- `end` modifica el final de la salida.
+- `\n` crea un salto de línea.
+- `\t` agrega una tabulación.
+- Python puede mostrar textos o resultados de operaciones.
+
+## Próxima lección
+
+En la siguiente lección aprenderás qué son los errores de sintaxis, cómo leer los mensajes de error y cómo corregir programas básicos.
