@@ -1,0 +1,643 @@
+---
+id: python_tipos_datos_basicos
+title: Tipos de datos básicos
+course: python
+module: variables_y_tipos
+lesson: tipos_de_datos_basicos
+topic: tipos_de_datos
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_variables_asignacion
+estimated_minutes: 40
+keywords: python, int, float, str, bool, none, type, tipos_datos
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Tipos de datos básicos
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Explicar qué es un tipo de dato.
+- Trabajar con números enteros.
+- Trabajar con números decimales.
+- Crear y utilizar cadenas de texto.
+- Utilizar valores booleanos.
+- Comprender el valor especial `None`.
+- Consultar el tipo de un valor mediante `type()`.
+- Reconocer diferencias entre valores que parecen similares.
+- Identificar errores básicos relacionados con tipos incompatibles.
+
+## ¿Qué es un tipo de dato?
+
+Un tipo de dato indica qué clase de información representa un valor y qué operaciones pueden realizarse con él.
+
+Por ejemplo:
+
+- Un número entero puede sumarse.
+- Un número decimal puede utilizarse en cálculos.
+- Un texto puede contener palabras.
+- Un valor booleano representa verdadero o falso.
+- `None` representa la ausencia de un valor.
+
+Python determina automáticamente el tipo de los valores asignados a las variables.
+
+~~~python
+nombre = "Ana"
+edad = 20
+promedio = 92.5
+curso_activo = True
+~~~
+
+Cada variable almacena un tipo de dato diferente.
+
+## Números enteros: int
+
+El tipo `int` representa números enteros.
+
+Puede contener valores positivos, negativos o cero.
+
+~~~python
+edad = 20
+cantidad_modulos = 8
+temperatura = -5
+ejercicios = 0
+~~~
+
+Los números enteros no contienen parte decimal.
+
+Ejemplos de valores `int`:
+
+~~~text
+25
+0
+-10
+2026
+~~~
+
+## Operaciones con enteros
+
+Los números enteros pueden utilizarse en operaciones aritméticas.
+
+~~~python
+ejercicios_completados = 6
+ejercicios_nuevos = 2
+
+total = ejercicios_completados + ejercicios_nuevos
+
+print(total)
+~~~
+
+Resultado:
+
+~~~text
+8
+~~~
+
+## Números decimales: float
+
+El tipo `float` representa números con parte decimal.
+
+~~~python
+promedio = 91.5
+precio = 19.99
+temperatura = -2.5
+avance = 0.75
+~~~
+
+En Python se utiliza un punto como separador decimal.
+
+Correcto:
+
+~~~python
+precio = 25.50
+~~~
+
+Incorrecto:
+
+~~~python
+precio = 25,50
+~~~
+
+La coma no representa un separador decimal en Python.
+
+## Operaciones con float
+
+~~~python
+precio = 10.50
+cantidad = 3
+
+total = precio * cantidad
+
+print(total)
+~~~
+
+Resultado:
+
+~~~text
+31.5
+~~~
+
+Una operación entre un `float` y un `int` puede producir un `float`.
+
+## Cadenas de texto: str
+
+El tipo `str` representa texto.
+
+Una cadena se escribe entre comillas simples o dobles.
+
+~~~python
+nombre = "Ana"
+pais = 'Honduras'
+curso = "Python desde cero"
+~~~
+
+Las cadenas pueden contener:
+
+- Letras.
+- Números.
+- Espacios.
+- Símbolos.
+- Signos de puntuación.
+
+~~~python
+mensaje = "Curso 2026: Python desde cero"
+~~~
+
+Aunque una cadena contenga números, continúa siendo texto.
+
+~~~python
+edad_texto = "20"
+~~~
+
+`"20"` es una cadena, no un número entero.
+
+## Cadenas vacías
+
+Una cadena puede no contener caracteres:
+
+~~~python
+mensaje = ""
+~~~
+
+Esto se conoce como cadena vacía.
+
+La variable existe y contiene un valor de tipo `str`, aunque no muestre texto visible.
+
+## Valores booleanos: bool
+
+El tipo `bool` representa dos valores posibles:
+
+~~~python
+True
+False
+~~~
+
+Se utilizan para representar estados y condiciones.
+
+~~~python
+curso_activo = True
+leccion_completada = False
+entorno_preparado = True
+~~~
+
+`True` y `False` deben escribirse con la primera letra en mayúscula y sin comillas.
+
+Incorrecto:
+
+~~~python
+curso_activo = true
+~~~
+
+Incorrecto:
+
+~~~python
+curso_activo = "True"
+~~~
+
+En el segundo caso, `"True"` es texto.
+
+Correcto:
+
+~~~python
+curso_activo = True
+~~~
+
+## El valor especial None
+
+`None` representa la ausencia de un valor.
+
+~~~python
+resultado = None
+~~~
+
+Puede utilizarse cuando una variable existe, pero todavía no tiene información disponible.
+
+~~~python
+nombre_estudiante = None
+
+print(nombre_estudiante)
+~~~
+
+Resultado:
+
+~~~text
+None
+~~~
+
+`None` no es igual a:
+
+- Cero.
+- Una cadena vacía.
+- `False`.
+- El texto `"None"`.
+
+Cada uno representa algo diferente.
+
+~~~python
+valor_1 = None
+valor_2 = 0
+valor_3 = ""
+valor_4 = False
+valor_5 = "None"
+~~~
+
+## Consultar el tipo con type()
+
+La función `type()` permite consultar el tipo de un valor.
+
+~~~python
+edad = 20
+promedio = 91.5
+nombre = "Ana"
+curso_activo = True
+resultado = None
+
+print(type(edad))
+print(type(promedio))
+print(type(nombre))
+print(type(curso_activo))
+print(type(resultado))
+~~~
+
+Resultado aproximado:
+
+~~~text
+<class 'int'>
+<class 'float'>
+<class 'str'>
+<class 'bool'>
+<class 'NoneType'>
+~~~
+
+## Consultar tipos directamente
+
+También puede utilizarse `type()` sin crear variables:
+
+~~~python
+print(type(10))
+print(type(3.14))
+print(type("Python"))
+print(type(True))
+print(type(None))
+~~~
+
+## Valores visualmente similares
+
+Algunos valores pueden verse parecidos, pero tener tipos diferentes.
+
+~~~python
+numero = 25
+texto = "25"
+
+print(numero)
+print(texto)
+
+print(type(numero))
+print(type(texto))
+~~~
+
+Resultado:
+
+~~~text
+25
+25
+<class 'int'>
+<class 'str'>
+~~~
+
+El primer valor puede utilizarse directamente en operaciones matemáticas.
+
+El segundo representa texto.
+
+## Tipado dinámico
+
+Python utiliza tipado dinámico.
+
+Esto significa que una variable puede recibir valores de diferentes tipos durante la ejecución.
+
+~~~python
+dato = 20
+print(type(dato))
+
+dato = "veinte"
+print(type(dato))
+~~~
+
+Resultado aproximado:
+
+~~~text
+<class 'int'>
+<class 'str'>
+~~~
+
+Aunque Python permite cambiar el tipo almacenado, hacerlo sin una razón clara puede volver el programa difícil de comprender.
+
+## Mantener tipos coherentes
+
+Poco claro:
+
+~~~python
+estado = True
+estado = "activo"
+estado = 1
+~~~
+
+Más claro:
+
+~~~python
+curso_activo = True
+nombre_estado = "activo"
+codigo_estado = 1
+~~~
+
+Utilizar variables separadas mejora la legibilidad.
+
+## Operaciones compatibles
+
+Los valores numéricos pueden combinarse en operaciones.
+
+~~~python
+entero = 10
+decimal = 2.5
+
+resultado = entero + decimal
+
+print(resultado)
+print(type(resultado))
+~~~
+
+Resultado aproximado:
+
+~~~text
+12.5
+<class 'float'>
+~~~
+
+## Operaciones incompatibles
+
+No todos los tipos pueden combinarse directamente.
+
+Incorrecto:
+
+~~~python
+edad = 20
+
+print("Edad: " + edad)
+~~~
+
+Python puede mostrar un `TypeError` porque intenta combinar un `str` y un `int`.
+
+Una forma correcta es utilizar una coma:
+
+~~~python
+print("Edad:", edad)
+~~~
+
+También puede convertirse el número a texto, tema que se estudiará posteriormente.
+
+## Errores comunes
+
+### Escribir booleanos en minúscula
+
+Incorrecto:
+
+~~~python
+activo = true
+~~~
+
+Correcto:
+
+~~~python
+activo = True
+~~~
+
+### Escribir un número entre comillas
+
+~~~python
+cantidad = "10"
+~~~
+
+Esta variable contiene texto.
+
+Para almacenar un número entero:
+
+~~~python
+cantidad = 10
+~~~
+
+### Utilizar coma decimal
+
+Incorrecto:
+
+~~~python
+precio = 19,99
+~~~
+
+Correcto:
+
+~~~python
+precio = 19.99
+~~~
+
+### Confundir None con texto
+
+~~~python
+resultado = "None"
+~~~
+
+Esto almacena una cadena.
+
+Para representar ausencia de valor:
+
+~~~python
+resultado = None
+~~~
+
+### Combinar texto y número con suma
+
+Incorrecto:
+
+~~~python
+puntos = 10
+
+print("Puntos: " + puntos)
+~~~
+
+Correcto:
+
+~~~python
+print("Puntos:", puntos)
+~~~
+
+## Ejemplo guiado
+
+Crea un archivo llamado:
+
+~~~text
+tipos_estudiante.py
+~~~
+
+Escribe:
+
+~~~python
+nombre = "Ana"
+edad = 20
+promedio = 91.5
+curso_activo = True
+proyecto_final = None
+
+print("Nombre:", nombre)
+print("Tipo:", type(nombre))
+
+print("Edad:", edad)
+print("Tipo:", type(edad))
+
+print("Promedio:", promedio)
+print("Tipo:", type(promedio))
+
+print("Curso activo:", curso_activo)
+print("Tipo:", type(curso_activo))
+
+print("Proyecto final:", proyecto_final)
+print("Tipo:", type(proyecto_final))
+~~~
+
+## Ejercicio práctico
+
+Crea un archivo llamado:
+
+~~~text
+datos_curso.py
+~~~
+
+Define variables para almacenar:
+
+- Nombre del curso como `str`.
+- Número del módulo como `int`.
+- Porcentaje de avance como `float`.
+- Estado del curso como `bool`.
+- Calificación final como `None`.
+
+Después muestra cada valor y su tipo.
+
+Ejemplo:
+
+~~~python
+nombre_curso = "Python desde cero"
+numero_modulo = 2
+porcentaje_avance = 25.5
+curso_activo = True
+calificacion_final = None
+
+print(nombre_curso, type(nombre_curso))
+print(numero_modulo, type(numero_modulo))
+print(porcentaje_avance, type(porcentaje_avance))
+print(curso_activo, type(curso_activo))
+print(calificacion_final, type(calificacion_final))
+~~~
+
+## Ejercicio de clasificación
+
+Identifica el tipo de cada valor:
+
+~~~python
+"Python"
+100
+10.5
+False
+None
+"100"
+0
+""
+~~~
+
+Respuestas:
+
+- `"Python"`: `str`.
+- `100`: `int`.
+- `10.5`: `float`.
+- `False`: `bool`.
+- `None`: `NoneType`.
+- `"100"`: `str`.
+- `0`: `int`.
+- `""`: `str`.
+
+## Ejercicio de corrección
+
+Corrige el siguiente programa:
+
+~~~python
+nombre = Python
+edad = "20"
+promedio = 91,5
+curso_activo = true
+calificacion = "None"
+
+print("Nombre:", nombre)
+print("Edad:", edad)
+print("Promedio:", promedio)
+print("Curso activo:", curso_activo)
+print("Calificación:", calificacion)
+~~~
+
+Una posible solución es:
+
+~~~python
+nombre = "Python"
+edad = 20
+promedio = 91.5
+curso_activo = True
+calificacion = None
+
+print("Nombre:", nombre)
+print("Edad:", edad)
+print("Promedio:", promedio)
+print("Curso activo:", curso_activo)
+print("Calificación:", calificacion)
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- `int` representa números enteros.
+- `float` representa números decimales.
+- `str` representa texto.
+- `bool` representa `True` o `False`.
+- `None` representa ausencia de valor.
+- `type()` permite consultar el tipo de un valor.
+- `"25"` y `25` tienen tipos diferentes.
+- Python utiliza tipado dinámico.
+- Los tipos deben mantenerse coherentes.
+- No todos los tipos pueden combinarse directamente.
+- Combinar texto y números incorrectamente puede producir `TypeError`.
+
+## Próxima lección
+
+En la siguiente lección aprenderás a recibir información mediante `input()` y a convertir datos utilizando `int()`, `float()`, `str()` y `bool()`.
