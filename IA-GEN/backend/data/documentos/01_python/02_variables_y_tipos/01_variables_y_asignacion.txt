@@ -1,0 +1,634 @@
+---
+id: python_variables_asignacion
+title: Variables y asignación
+course: python
+module: variables_y_tipos
+lesson: variables_y_asignacion
+topic: variables
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_fundamentos_practica_integradora
+estimated_minutes: 35
+keywords: python, variables, asignacion, nombres, datos, memoria
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Variables y asignación
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Explicar qué es una variable.
+- Crear variables utilizando el operador de asignación.
+- Almacenar textos, números y valores booleanos.
+- Mostrar el contenido de una variable.
+- Modificar el valor almacenado.
+- Diferenciar entre asignación y comparación.
+- Aplicar reglas válidas para nombrar variables.
+- Utilizar nombres claros siguiendo la convención `snake_case`.
+- Reconocer errores frecuentes relacionados con variables.
+
+## ¿Qué es una variable?
+
+Una variable es un nombre que permite almacenar y utilizar un valor dentro de un programa.
+
+Puede imaginarse como una etiqueta asociada a determinada información.
+
+Por ejemplo, un programa puede necesitar almacenar:
+
+- El nombre de un estudiante.
+- Su edad.
+- El nombre de un curso.
+- El número de un módulo.
+- El estado de una actividad.
+
+En Python se puede crear una variable de esta forma:
+
+~~~python
+nombre = "Ana"
+~~~
+
+En este ejemplo:
+
+- `nombre` es el nombre de la variable.
+- `=` es el operador de asignación.
+- `"Ana"` es el valor almacenado.
+
+## El operador de asignación
+
+El símbolo `=` se utiliza para asignar un valor a una variable.
+
+~~~python
+curso = "Python desde cero"
+~~~
+
+Esta instrucción significa:
+
+> Guarda el texto `"Python desde cero"` utilizando el nombre `curso`.
+
+No debe interpretarse como una igualdad matemática.
+
+Python evalúa primero el valor que se encuentra a la derecha y después lo asigna al nombre que aparece a la izquierda.
+
+## Crear variables
+
+Se pueden crear variables para diferentes valores:
+
+~~~python
+nombre = "Ana"
+edad = 20
+promedio = 91.5
+curso_activo = True
+~~~
+
+Cada variable almacena un valor:
+
+- `nombre` almacena texto.
+- `edad` almacena un número entero.
+- `promedio` almacena un número decimal.
+- `curso_activo` almacena un valor booleano.
+
+Python determina automáticamente el tipo de valor almacenado.
+
+## Mostrar variables
+
+Para mostrar una variable se escribe su nombre sin comillas:
+
+~~~python
+nombre = "Ana"
+
+print(nombre)
+~~~
+
+Resultado:
+
+~~~text
+Ana
+~~~
+
+También puede combinarse texto y variables:
+
+~~~python
+curso = "Python desde cero"
+
+print("Curso:", curso)
+~~~
+
+Resultado:
+
+~~~text
+Curso: Python desde cero
+~~~
+
+## Nombre de variable frente a texto
+
+Observa la diferencia:
+
+~~~python
+nombre = "Ana"
+
+print(nombre)
+print("nombre")
+~~~
+
+Resultado:
+
+~~~text
+Ana
+nombre
+~~~
+
+En la primera instrucción, Python busca el valor almacenado en la variable.
+
+En la segunda instrucción, Python muestra literalmente el texto `"nombre"`.
+
+## Utilizar varias variables
+
+Un programa puede trabajar con varias variables al mismo tiempo:
+
+~~~python
+nombre = "Ana"
+pais = "Honduras"
+curso = "Python desde cero"
+modulo = 2
+
+print("Nombre:", nombre)
+print("País:", pais)
+print("Curso:", curso)
+print("Módulo:", modulo)
+~~~
+
+Las variables permiten separar la información del código utilizado para mostrarla.
+
+## Modificar una variable
+
+El valor de una variable puede cambiar durante la ejecución del programa.
+
+~~~python
+estado = "pendiente"
+
+print(estado)
+
+estado = "completado"
+
+print(estado)
+~~~
+
+Resultado:
+
+~~~text
+pendiente
+completado
+~~~
+
+La segunda asignación reemplaza el valor anterior.
+
+## Reasignación
+
+El proceso de asignar un nuevo valor a una variable existente se conoce como reasignación.
+
+~~~python
+puntos = 10
+print(puntos)
+
+puntos = 15
+print(puntos)
+~~~
+
+Resultado:
+
+~~~text
+10
+15
+~~~
+
+Una variable conserva únicamente su valor actual.
+
+## Utilizar el valor anterior
+
+Una reasignación puede utilizar el valor que la variable tenía anteriormente.
+
+~~~python
+puntos = 10
+puntos = puntos + 5
+
+print(puntos)
+~~~
+
+Resultado:
+
+~~~text
+15
+~~~
+
+Python realiza estos pasos:
+
+1. Lee el valor actual de `puntos`.
+2. Suma `5`.
+3. Asigna el resultado nuevamente a `puntos`.
+
+## Reglas para nombrar variables
+
+Los nombres de variables deben respetar ciertas reglas.
+
+### Pueden contener letras
+
+~~~python
+nombre = "Ana"
+curso = "Python"
+~~~
+
+### Pueden contener números
+
+~~~python
+modulo1 = "Fundamentos"
+curso2026 = "Python"
+~~~
+
+El nombre no puede comenzar con un número.
+
+Incorrecto:
+
+~~~python
+1curso = "Python"
+~~~
+
+Correcto:
+
+~~~python
+curso1 = "Python"
+~~~
+
+### Pueden contener guiones bajos
+
+~~~python
+nombre_completo = "Ana López"
+curso_actual = "Python desde cero"
+~~~
+
+### No pueden contener espacios
+
+Incorrecto:
+
+~~~python
+nombre completo = "Ana López"
+~~~
+
+Correcto:
+
+~~~python
+nombre_completo = "Ana López"
+~~~
+
+### No deben utilizar símbolos especiales
+
+Incorrecto:
+
+~~~python
+nombre-estudiante = "Ana"
+precio$ = 20
+~~~
+
+Correcto:
+
+~~~python
+nombre_estudiante = "Ana"
+precio = 20
+~~~
+
+### No pueden utilizar palabras reservadas
+
+Python utiliza ciertas palabras para instrucciones especiales.
+
+Ejemplos:
+
+~~~text
+if
+else
+for
+while
+def
+class
+True
+False
+None
+~~~
+
+Estas palabras no deben utilizarse como nombres de variables.
+
+## Python distingue mayúsculas y minúsculas
+
+Estas variables son diferentes:
+
+~~~python
+nombre = "Ana"
+Nombre = "Carlos"
+NOMBRE = "María"
+
+print(nombre)
+print(Nombre)
+print(NOMBRE)
+~~~
+
+Python considera cada combinación de mayúsculas y minúsculas como un nombre distinto.
+
+Se recomienda utilizar nombres en minúsculas.
+
+## Convención snake_case
+
+En Python se recomienda escribir los nombres de variables utilizando `snake_case`.
+
+Esta convención utiliza:
+
+- Letras minúsculas.
+- Palabras separadas mediante guiones bajos.
+
+Ejemplos:
+
+~~~python
+nombre_estudiante = "Ana"
+curso_actual = "Python"
+cantidad_lecciones = 5
+entorno_preparado = True
+~~~
+
+Esto mejora la legibilidad del programa.
+
+## Nombres descriptivos
+
+Un nombre debe explicar qué información almacena.
+
+Poco claro:
+
+~~~python
+x = "Ana"
+n = 20
+c = "Python"
+~~~
+
+Más claro:
+
+~~~python
+nombre_estudiante = "Ana"
+edad_estudiante = 20
+nombre_curso = "Python"
+~~~
+
+Los nombres descriptivos hacen que el código sea más fácil de comprender y mantener.
+
+## Variables con valores constantes
+
+Python no posee una palabra especial para crear constantes.
+
+Sin embargo, por convención, un valor que no debería cambiar se escribe con letras mayúsculas:
+
+~~~python
+NOMBRE_CURSO = "Python desde cero"
+CANTIDAD_MODULOS = 8
+~~~
+
+Esta escritura comunica a otros programadores que el valor debería mantenerse sin cambios.
+
+Python no impide modificarlo, por lo que se trata de una convención.
+
+## Asignación frente a comparación
+
+Un solo símbolo `=` asigna un valor:
+
+~~~python
+edad = 20
+~~~
+
+Dos símbolos `==` comparan valores:
+
+~~~python
+edad == 20
+~~~
+
+La comparación devuelve `True` o `False`.
+
+Ejemplo:
+
+~~~python
+edad = 20
+
+print(edad == 20)
+print(edad == 18)
+~~~
+
+Resultado:
+
+~~~text
+True
+False
+~~~
+
+Las comparaciones se estudiarán con más detalle en módulos posteriores.
+
+## Errores comunes
+
+### Utilizar una variable antes de crearla
+
+Incorrecto:
+
+~~~python
+print(nombre)
+~~~
+
+Si `nombre` no fue definido, Python puede mostrar:
+
+~~~text
+NameError: name 'nombre' is not defined
+~~~
+
+Correcto:
+
+~~~python
+nombre = "Ana"
+print(nombre)
+~~~
+
+### Escribir el nombre de forma diferente
+
+Incorrecto:
+
+~~~python
+nombre_estudiante = "Ana"
+
+print(nombre_estudainte)
+~~~
+
+Existe un error de escritura entre `estudiante` y `estudainte`.
+
+Correcto:
+
+~~~python
+nombre_estudiante = "Ana"
+
+print(nombre_estudiante)
+~~~
+
+### Colocar comillas alrededor del nombre
+
+~~~python
+nombre = "Ana"
+
+print("nombre")
+~~~
+
+Esta instrucción muestra el texto `nombre`, no el contenido de la variable.
+
+Correcto:
+
+~~~python
+print(nombre)
+~~~
+
+### Comenzar con un número
+
+Incorrecto:
+
+~~~python
+2curso = "Python"
+~~~
+
+Correcto:
+
+~~~python
+curso2 = "Python"
+~~~
+
+### Utilizar espacios
+
+Incorrecto:
+
+~~~python
+nombre curso = "Python"
+~~~
+
+Correcto:
+
+~~~python
+nombre_curso = "Python"
+~~~
+
+## Ejemplo guiado
+
+Crea un archivo llamado:
+
+~~~text
+perfil_con_variables.py
+~~~
+
+Escribe:
+
+~~~python
+nombre = "Ana"
+pais = "Honduras"
+curso = "Python desde cero"
+modulo = 2
+entorno_activo = True
+
+print("Nombre:", nombre)
+print("País:", pais)
+print("Curso:", curso)
+print("Módulo:", modulo)
+print("Entorno activo:", entorno_activo)
+~~~
+
+Modifica los valores utilizando tu propia información.
+
+## Ejercicio práctico
+
+Crea un archivo llamado:
+
+~~~text
+progreso_curso.py
+~~~
+
+Debe incluir variables para almacenar:
+
+- El nombre del estudiante.
+- El nombre del curso.
+- La cantidad total de módulos.
+- El módulo actual.
+- La cantidad de ejercicios completados.
+- El estado del curso.
+
+Ejemplo:
+
+~~~python
+nombre_estudiante = "Ana"
+nombre_curso = "Python desde cero"
+total_modulos = 8
+modulo_actual = 2
+ejercicios_completados = 6
+curso_activo = True
+
+print("Estudiante:", nombre_estudiante)
+print("Curso:", nombre_curso)
+print("Total de módulos:", total_modulos)
+print("Módulo actual:", modulo_actual)
+print("Ejercicios completados:", ejercicios_completados)
+print("Curso activo:", curso_activo)
+~~~
+
+Después aumenta en uno la cantidad de ejercicios completados:
+
+~~~python
+ejercicios_completados = ejercicios_completados + 1
+
+print("Nuevo total:", ejercicios_completados)
+~~~
+
+## Ejercicio de corrección
+
+Corrige el siguiente programa:
+
+~~~python
+nombre estudiante = "Ana"
+2modulo = 2
+cursoActivo = true
+
+print("Nombre:", nombre_estudiante)
+print("Módulo:", modulo)
+print("Curso activo:", curso_activo)
+~~~
+
+Una posible solución es:
+
+~~~python
+nombre_estudiante = "Ana"
+modulo = 2
+curso_activo = True
+
+print("Nombre:", nombre_estudiante)
+print("Módulo:", modulo)
+print("Curso activo:", curso_activo)
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- Una variable almacena un valor.
+- El operador `=` realiza una asignación.
+- Las variables pueden almacenar textos, números y booleanos.
+- Un valor puede mostrarse utilizando el nombre de la variable.
+- Las variables pueden ser reasignadas.
+- Los nombres no pueden comenzar con números.
+- Los nombres no deben contener espacios.
+- Python distingue mayúsculas y minúsculas.
+- `snake_case` es la convención recomendada.
+- Los nombres descriptivos mejoran la comprensión del código.
+- `=` asigna y `==` compara.
+- Utilizar una variable inexistente puede producir `NameError`.
+
+## Próxima lección
+
+En la siguiente lección aprenderás a trabajar con números enteros, números decimales, textos, valores booleanos y el valor especial `None`.
