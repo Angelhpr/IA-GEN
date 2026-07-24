@@ -9,6 +9,18 @@ import type { Message } from "../../types/message";
 import ChatInput from "./ChatInput";
 import ChatMessages from "./ChatMessages";
 
+const initialMessages: Message[] = [
+  {
+    role: "assistant",
+    content:
+      "¡Hola! Soy el asistente de IA-GEN. Puedo ayudarte con programación, inteligencia artificial y la información disponible en la base documental.",
+  },
+  {
+    role: "assistant",
+    content: "¿Qué te gustaría aprender hoy?",
+  },
+];
+
 function getChatErrorMessage(error: unknown): string {
   if (error instanceof ApiError) {
     switch (error.code) {
@@ -19,7 +31,7 @@ function getChatErrorMessage(error: unknown): string {
         );
 
       case "AI_EMPTY_RESPONSE":
-        return "No pude generar una respuesta válida. " + "Inténtalo de nuevo.";
+        return "No pude generar una respuesta válida. Inténtalo de nuevo.";
 
       case "AI_CONFIGURATION_ERROR":
         return (
@@ -51,26 +63,45 @@ function getChatErrorMessage(error: unknown): string {
     );
   }
 
-  return "Ocurrió un problema inesperado. " + "Inténtalo nuevamente.";
+  return "Ocurrió un problema inesperado. Inténtalo nuevamente.";
+}
+
+function AssistantIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className="h-4 w-4 text-white"
+    >
+      <path
+        d="M9.5 5.5A3.5 3.5 0 0 1 13 2a3.5 3.5 0 0 1 3.36 2.52A3.5 3.5 0 0 1 18 11v3a4 4 0 0 1-4 4h-1v3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M10 22v-4H9a4 4 0 0 1-4-4v-3a3.5 3.5 0 0 1 1.64-6.48A3.5 3.5 0 0 1 10 2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M9 8.5h6M9 12h6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
 }
 
 export default function ChatCard() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content: "¡Hola! 👋",
-    },
-    {
-      role: "assistant",
-      content:
-        "Estoy listo para ayudarte con cualquier duda sobre nuestros cursos, programación, Inteligencia Artificial o Cloud Computing.",
-    },
-    {
-      role: "assistant",
-      content: "¿Qué te gustaría aprender hoy?",
-    },
-  ]);
-
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [isLoading, setIsLoading] = useState(false);
 
   const requestInFlightRef = useRef(false);
@@ -86,18 +117,19 @@ export default function ChatCard() {
   }
 
   async function handleUserMessage(content: string): Promise<void> {
-    if (requestInFlightRef.current) {
+    const normalizedContent = content.trim();
+
+    if (requestInFlightRef.current || !normalizedContent) {
       return;
     }
 
     requestInFlightRef.current = true;
 
-    appendMessage("user", content.trim());
-
+    appendMessage("user", normalizedContent);
     setIsLoading(true);
 
     try {
-      const answer = await sendMessage(content);
+      const answer = await sendMessage(normalizedContent);
 
       appendMessage("assistant", answer);
     } catch (error: unknown) {
@@ -112,36 +144,101 @@ export default function ChatCard() {
 
   return (
     <div
+      role="region"
+      aria-label="Chat con el asistente IA-GEN"
       className="
         flex
-        h-[620px]
+        h-[520px]
+        min-h-0
         flex-col
-        rounded-3xl
+        overflow-hidden
+        rounded-2xl
         border
-        border-cyan-500/20
-        bg-slate-900
-        shadow-2xl
+        border-white/10
+        bg-[#1E293B]
+        shadow-[0_24px_70px_rgba(2,6,23,0.45)]
+        md:h-[560px]
+        lg:h-[540px]
       "
     >
-      <div
+      <header
         className="
           flex
           items-center
           justify-between
           border-b
-          border-cyan-500/10
-          px-6
-          py-5
+          border-white/5
+          bg-[#1E293B]/95
+          px-5
+          py-4
         "
       >
-        <div>
-          <h3 className="font-semibold text-cyan-400">Asistente IA-GEN</h3>
+        <div className="flex items-center gap-3">
+          <div
+            className="
+              flex
+              h-9
+              w-9
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
+              bg-gradient-to-br
+              from-[#2563EB]
+              to-[#7C3AED]
+              shadow-[0_0_20px_rgba(124,58,237,0.25)]
+            "
+          >
+            <AssistantIcon />
+          </div>
 
-          <p className="text-sm text-green-400">● Listo para ayudarte</p>
+          <div>
+            <h3 className="text-sm font-semibold text-white">
+              Asistente IA-GEN
+            </h3>
+
+            <p
+              className="
+                mt-0.5
+                flex
+                items-center
+                gap-1.5
+                text-[11px]
+                text-emerald-400
+              "
+            >
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-emerald-400"
+              />
+
+              {isLoading ? "Generando respuesta..." : "Listo para ayudarte"}
+            </p>
+          </div>
         </div>
 
-        <div className="text-3xl">🤖</div>
-      </div>
+        <div
+          className="
+            hidden
+            items-center
+            gap-2
+            rounded-full
+            border
+            border-white/5
+            bg-white/5
+            px-3
+            py-1.5
+            text-[10px]
+            font-medium
+            text-[#94A3B8]
+            sm:flex
+          "
+        >
+          <span className="text-[#60A5FA]">RAG</span>
+          <span aria-hidden="true">+</span>
+          <span className="text-[#A78BFA]">Gemini</span>
+        </div>
+      </header>
 
       <ChatMessages messages={messages} isLoading={isLoading} />
 
