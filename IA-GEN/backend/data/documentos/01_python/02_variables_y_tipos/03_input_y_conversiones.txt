@@ -1,0 +1,651 @@
+---
+id: python_input_conversiones
+title: Entrada de datos y conversiones
+course: python
+module: variables_y_tipos
+lesson: input_y_conversiones
+topic: entrada_y_conversion_datos
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_tipos_datos_basicos
+estimated_minutes: 40
+keywords: python, input, int, float, str, bool, conversion, entrada_datos
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Entrada de datos y conversiones
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Recibir información del usuario mediante `input()`.
+- Almacenar la entrada en una variable.
+- Comprender que `input()` devuelve texto.
+- Convertir texto a números enteros.
+- Convertir texto a números decimales.
+- Convertir valores a texto.
+- Comprender el comportamiento básico de `bool()`.
+- Reconocer errores de conversión.
+- Crear programas interactivos sencillos.
+
+## ¿Qué es la entrada de datos?
+
+La entrada de datos es la información que un programa recibe durante su ejecución.
+
+Hasta ahora, los valores se escribían directamente en el código:
+
+~~~python
+nombre = "Ana"
+edad = 20
+~~~
+
+Con `input()` el usuario puede escribir esos valores mientras el programa se ejecuta.
+
+~~~python
+nombre = input("Escribe tu nombre: ")
+~~~
+
+El programa muestra un mensaje y espera una respuesta.
+
+## La función input()
+
+La función `input()` permite recibir texto desde la terminal.
+
+~~~python
+nombre = input("Escribe tu nombre: ")
+
+print("Hola,", nombre)
+~~~
+
+Ejemplo de ejecución:
+
+~~~text
+Escribe tu nombre: Ana
+Hola, Ana
+~~~
+
+La respuesta se almacena en la variable `nombre`.
+
+## El mensaje de input()
+
+El texto dentro de `input()` se conoce como mensaje o prompt.
+
+~~~python
+pais = input("Escribe tu país: ")
+~~~
+
+Es recomendable dejar un espacio al final del mensaje:
+
+~~~python
+pais = input("Escribe tu país: ")
+~~~
+
+Esto separa visualmente el mensaje de la respuesta del usuario.
+
+## input() siempre devuelve texto
+
+Aunque el usuario escriba un número, `input()` devuelve un valor de tipo `str`.
+
+~~~python
+edad = input("Escribe tu edad: ")
+
+print(edad)
+print(type(edad))
+~~~
+
+Si el usuario escribe `20`, el tipo seguirá siendo:
+
+~~~text
+<class 'str'>
+~~~
+
+Por esta razón, normalmente es necesario convertir los datos antes de realizar operaciones matemáticas.
+
+## Problema al sumar una entrada
+
+Observa este programa:
+
+~~~python
+edad = input("Escribe tu edad: ")
+
+print(edad + 1)
+~~~
+
+Puede producir un `TypeError` porque intenta sumar un texto y un número entero.
+
+La entrada debe convertirse primero.
+
+## Convertir a int
+
+La función `int()` convierte un valor compatible a número entero.
+
+~~~python
+edad_texto = input("Escribe tu edad: ")
+edad = int(edad_texto)
+
+print("El próximo año tendrás:", edad + 1)
+~~~
+
+También puede escribirse en una sola línea:
+
+~~~python
+edad = int(input("Escribe tu edad: "))
+
+print("El próximo año tendrás:", edad + 1)
+~~~
+
+## Ejemplo con int
+
+~~~python
+cantidad = int(input("Cantidad de ejercicios completados: "))
+cantidad = cantidad + 1
+
+print("Nuevo total:", cantidad)
+~~~
+
+Si el usuario escribe `5`, el resultado será:
+
+~~~text
+Nuevo total: 6
+~~~
+
+## Convertir a float
+
+La función `float()` convierte un valor compatible a número decimal.
+
+~~~python
+promedio = float(input("Escribe tu promedio: "))
+
+print("Promedio registrado:", promedio)
+~~~
+
+El usuario debe escribir el decimal con punto:
+
+~~~text
+91.5
+~~~
+
+No debe utilizar coma:
+
+~~~text
+91,5
+~~~
+
+## Ejemplo con precio
+
+~~~python
+precio = float(input("Precio del curso: "))
+cantidad = int(input("Cantidad: "))
+
+total = precio * cantidad
+
+print("Total:", total)
+~~~
+
+En este programa:
+
+- `precio` es un `float`.
+- `cantidad` es un `int`.
+- `total` normalmente será un `float`.
+
+## Convertir a str
+
+La función `str()` convierte un valor a texto.
+
+~~~python
+edad = 20
+edad_texto = str(edad)
+
+print(type(edad))
+print(type(edad_texto))
+~~~
+
+Resultado aproximado:
+
+~~~text
+<class 'int'>
+<class 'str'>
+~~~
+
+Esto permite concatenar valores con textos:
+
+~~~python
+edad = 20
+
+mensaje = "Edad: " + str(edad)
+
+print(mensaje)
+~~~
+
+También puede utilizarse una coma en `print()`:
+
+~~~python
+print("Edad:", edad)
+~~~
+
+Para mostrar valores, la coma suele ser más sencilla.
+
+## Convertir a bool
+
+La función `bool()` convierte un valor a booleano.
+
+Algunos valores se consideran falsos:
+
+~~~python
+print(bool(""))
+print(bool(0))
+print(bool(0.0))
+print(bool(None))
+~~~
+
+Resultado:
+
+~~~text
+False
+False
+False
+False
+~~~
+
+Otros valores se consideran verdaderos:
+
+~~~python
+print(bool("Python"))
+print(bool(1))
+print(bool(-5))
+~~~
+
+Resultado:
+
+~~~text
+True
+True
+True
+~~~
+
+## Cuidado con bool() y textos
+
+Cualquier cadena no vacía se considera verdadera.
+
+~~~python
+print(bool("False"))
+~~~
+
+El resultado es:
+
+~~~text
+True
+~~~
+
+Esto ocurre porque `"False"` es un texto con caracteres.
+
+No debe utilizarse directamente `bool(input())` para interpretar respuestas como `"sí"` o `"no"`.
+
+Ese tipo de validación se estudiará posteriormente con condicionales.
+
+## Conversiones directas
+
+Es posible convertir valores sin utilizar `input()`.
+
+~~~python
+numero_entero = int("25")
+numero_decimal = float("10.5")
+numero_texto = str(100)
+
+print(numero_entero)
+print(numero_decimal)
+print(numero_texto)
+~~~
+
+## Conversiones entre números
+
+Un `int` puede convertirse a `float`:
+
+~~~python
+cantidad = 10
+cantidad_decimal = float(cantidad)
+
+print(cantidad_decimal)
+~~~
+
+Resultado:
+
+~~~text
+10.0
+~~~
+
+Un `float` puede convertirse a `int`:
+
+~~~python
+promedio = 91.8
+promedio_entero = int(promedio)
+
+print(promedio_entero)
+~~~
+
+Resultado:
+
+~~~text
+91
+~~~
+
+`int()` elimina la parte decimal. No redondea automáticamente.
+
+## Error de conversión
+
+Una conversión puede fallar cuando el valor no tiene un formato válido.
+
+~~~python
+edad = int("veinte")
+~~~
+
+Python puede mostrar:
+
+~~~text
+ValueError: invalid literal for int()
+~~~
+
+El texto `"veinte"` no puede convertirse directamente a un número entero.
+
+## Otro ejemplo de ValueError
+
+~~~python
+precio = float("diez")
+~~~
+
+También produce un `ValueError`.
+
+Para convertir correctamente:
+
+~~~python
+precio = float("10.5")
+~~~
+
+## Datos válidos para int()
+
+Ejemplos válidos:
+
+~~~python
+int("10")
+int("-5")
+int("0")
+~~~
+
+Ejemplos inválidos:
+
+~~~python
+int("10.5")
+int("diez")
+int("")
+~~~
+
+Para convertir `"10.5"` debe utilizarse `float()`.
+
+## Datos válidos para float()
+
+Ejemplos válidos:
+
+~~~python
+float("10")
+float("10.5")
+float("-2.75")
+~~~
+
+Ejemplos inválidos:
+
+~~~python
+float("diez")
+float("10,5")
+float("")
+~~~
+
+## Separar entrada y conversión
+
+Esta forma facilita la depuración:
+
+~~~python
+edad_texto = input("Escribe tu edad: ")
+edad = int(edad_texto)
+
+print("Edad registrada:", edad)
+~~~
+
+También permite observar ambos valores:
+
+~~~python
+print("Entrada original:", edad_texto)
+print("Tipo original:", type(edad_texto))
+print("Valor convertido:", edad)
+print("Tipo convertido:", type(edad))
+~~~
+
+## Conversión en una sola línea
+
+Esta forma es más corta:
+
+~~~python
+edad = int(input("Escribe tu edad: "))
+~~~
+
+Es válida, pero cuando ocurre un error puede resultar más difícil identificar qué parte falló.
+
+Durante el aprendizaje puede ser útil separar los pasos.
+
+## Errores comunes
+
+### Intentar sumar texto y número
+
+Incorrecto:
+
+~~~python
+edad = input("Edad: ")
+
+print(edad + 1)
+~~~
+
+Correcto:
+
+~~~python
+edad = int(input("Edad: "))
+
+print(edad + 1)
+~~~
+
+### Convertir texto no numérico
+
+Incorrecto:
+
+~~~python
+cantidad = int("cinco")
+~~~
+
+Correcto:
+
+~~~python
+cantidad = int("5")
+~~~
+
+### Utilizar coma decimal
+
+Incorrecto:
+
+~~~python
+precio = float("19,99")
+~~~
+
+Correcto:
+
+~~~python
+precio = float("19.99")
+~~~
+
+### Pensar que int() redondea
+
+~~~python
+numero = int(9.9)
+
+print(numero)
+~~~
+
+Resultado:
+
+~~~text
+9
+~~~
+
+La parte decimal se elimina.
+
+### Interpretar "False" con bool()
+
+~~~python
+estado = bool("False")
+
+print(estado)
+~~~
+
+Resultado:
+
+~~~text
+True
+~~~
+
+La cadena no está vacía.
+
+## Ejemplo guiado
+
+Crea un archivo llamado:
+
+~~~text
+registro_estudiante.py
+~~~
+
+Escribe:
+
+~~~python
+nombre = input("Nombre del estudiante: ")
+edad = int(input("Edad: "))
+promedio = float(input("Promedio: "))
+curso = input("Nombre del curso: ")
+
+print()
+print("Registro completado")
+print("Nombre:", nombre)
+print("Edad:", edad)
+print("Promedio:", promedio)
+print("Curso:", curso)
+print("Próxima edad:", edad + 1)
+~~~
+
+## Ejercicio práctico
+
+Crea un archivo llamado:
+
+~~~text
+calculadora_curso.py
+~~~
+
+El programa debe solicitar:
+
+- Nombre del estudiante.
+- Cantidad de ejercicios completados.
+- Cantidad de ejercicios pendientes.
+- Precio de un material.
+- Cantidad de materiales.
+
+Después debe calcular:
+
+- Total de ejercicios.
+- Costo total de materiales.
+
+Ejemplo:
+
+~~~python
+nombre = input("Nombre: ")
+completados = int(input("Ejercicios completados: "))
+pendientes = int(input("Ejercicios pendientes: "))
+precio = float(input("Precio del material: "))
+cantidad = int(input("Cantidad de materiales: "))
+
+total_ejercicios = completados + pendientes
+costo_total = precio * cantidad
+
+print()
+print("Estudiante:", nombre)
+print("Total de ejercicios:", total_ejercicios)
+print("Costo total:", costo_total)
+~~~
+
+## Ejercicio de tipos
+
+Analiza el resultado de cada instrucción:
+
+~~~python
+print(type(input("Escribe algo: ")))
+print(type(int("20")))
+print(type(float("20.5")))
+print(type(str(100)))
+print(type(bool("")))
+~~~
+
+Resultados esperados:
+
+- `input()` devuelve `str`.
+- `int("20")` devuelve `int`.
+- `float("20.5")` devuelve `float`.
+- `str(100)` devuelve `str`.
+- `bool("")` devuelve `bool`.
+
+## Ejercicio de corrección
+
+Corrige el siguiente programa:
+
+~~~python
+nombre = input("Nombre: ")
+edad = input("Edad: ")
+promedio = int(input("Promedio: "))
+curso_activo = bool("False")
+
+print("Nombre:", nombre)
+print("Próxima edad:", edad + 1)
+print("Promedio:", promedio)
+print("Curso activo:", curso_activo)
+~~~
+
+Una posible solución es:
+
+~~~python
+nombre = input("Nombre: ")
+edad = int(input("Edad: "))
+promedio = float(input("Promedio: "))
+curso_activo = False
+
+print("Nombre:", nombre)
+print("Próxima edad:", edad + 1)
+print("Promedio:", promedio)
+print("Curso activo:", curso_activo)
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- `input()` recibe información desde la terminal.
+- `input()` siempre devuelve un `str`.
+- `int()` convierte valores compatibles a enteros.
+- `float()` convierte valores compatibles a decimales.
+- `str()` convierte valores a texto.
+- `bool()` convierte valores según su contenido.
+- Una cadena no vacía se considera verdadera.
+- `"False"` convertido con `bool()` produce `True`.
+- `int()` elimina la parte decimal de un `float`.
+- Una conversión inválida puede producir `ValueError`.
+- Separar la entrada y la conversión facilita la depuración.
+
+## Próxima lección
+
+En la siguiente lección aprenderás a trabajar con operadores aritméticos, precedencia y operaciones de asignación.

@@ -1,0 +1,806 @@
+---
+id: python_operadores_aritmeticos
+title: Operadores aritméticos
+course: python
+module: variables_y_tipos
+lesson: operadores_aritmeticos
+topic: operaciones_numericas
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_input_conversiones
+estimated_minutes: 40
+keywords: python, operadores, suma, resta, multiplicacion, division, modulo, potencia
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Operadores aritméticos
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Utilizar operadores aritméticos.
+- Realizar sumas, restas, multiplicaciones y divisiones.
+- Diferenciar entre división normal y división entera.
+- Calcular residuos mediante el operador módulo.
+- Calcular potencias.
+- Comprender la precedencia de operadores.
+- Utilizar paréntesis para controlar el orden de las operaciones.
+- Aplicar operadores de asignación aumentada.
+- Reconocer errores frecuentes en operaciones numéricas.
+
+## ¿Qué es un operador?
+
+Un operador es un símbolo que indica a Python que debe realizar una operación.
+
+Los operadores aritméticos permiten trabajar con valores numéricos.
+
+Los principales operadores son:
+
+~~~text
++   suma
+-   resta
+*   multiplicación
+/   división
+//  división entera
+%   módulo o residuo
+**  potencia
+~~~
+
+## Suma
+
+El operador `+` suma dos valores numéricos.
+
+~~~python
+resultado = 10 + 5
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+15
+~~~
+
+También pueden sumarse variables:
+
+~~~python
+ejercicios_completados = 8
+ejercicios_nuevos = 3
+
+total = ejercicios_completados + ejercicios_nuevos
+
+print("Total:", total)
+~~~
+
+Resultado:
+
+~~~text
+Total: 11
+~~~
+
+## Resta
+
+El operador `-` calcula la diferencia entre dos valores.
+
+~~~python
+resultado = 20 - 7
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+13
+~~~
+
+Ejemplo con variables:
+
+~~~python
+total_lecciones = 20
+lecciones_completadas = 8
+
+lecciones_pendientes = total_lecciones - lecciones_completadas
+
+print("Pendientes:", lecciones_pendientes)
+~~~
+
+## Multiplicación
+
+El operador `*` multiplica valores.
+
+~~~python
+resultado = 6 * 4
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+24
+~~~
+
+Ejemplo:
+
+~~~python
+precio_material = 12.5
+cantidad = 3
+
+costo_total = precio_material * cantidad
+
+print("Costo total:", costo_total)
+~~~
+
+Resultado:
+
+~~~text
+Costo total: 37.5
+~~~
+
+## División
+
+El operador `/` realiza una división normal.
+
+~~~python
+resultado = 10 / 2
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+5.0
+~~~
+
+Aunque el resultado sea exacto, la división normal devuelve un valor de tipo `float`.
+
+~~~python
+print(type(10 / 2))
+~~~
+
+Resultado aproximado:
+
+~~~text
+<class 'float'>
+~~~
+
+## División con resultado decimal
+
+~~~python
+resultado = 7 / 2
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+3.5
+~~~
+
+## División entera
+
+El operador `//` realiza una división entera.
+
+~~~python
+resultado = 7 // 2
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+3
+~~~
+
+La división entera conserva la parte entera del resultado.
+
+No debe confundirse con una división normal.
+
+~~~python
+print(7 / 2)
+print(7 // 2)
+~~~
+
+Resultado:
+
+~~~text
+3.5
+3
+~~~
+
+## El operador módulo
+
+El operador `%` devuelve el residuo de una división.
+
+~~~python
+resultado = 7 % 2
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+1
+~~~
+
+La división de `7` entre `2` produce `3` grupos completos y queda un residuo de `1`.
+
+## Comprobar números pares
+
+El operador módulo puede ayudar a comprobar si un número es divisible entre dos.
+
+~~~python
+numero = 8
+residuo = numero % 2
+
+print(residuo)
+~~~
+
+Resultado:
+
+~~~text
+0
+~~~
+
+Cuando el residuo es cero, el número es divisible entre dos.
+
+Las decisiones basadas en este resultado se estudiarán en el módulo de condicionales.
+
+## Potencia
+
+El operador `**` eleva un número a una potencia.
+
+~~~python
+resultado = 2 ** 3
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+8
+~~~
+
+Esta operación significa:
+
+~~~text
+2 × 2 × 2
+~~~
+
+Otro ejemplo:
+
+~~~python
+cuadrado = 5 ** 2
+
+print(cuadrado)
+~~~
+
+Resultado:
+
+~~~text
+25
+~~~
+
+## Números negativos
+
+Los operadores también funcionan con números negativos.
+
+~~~python
+temperatura_inicial = -3
+aumento = 5
+
+temperatura_final = temperatura_inicial + aumento
+
+print(temperatura_final)
+~~~
+
+Resultado:
+
+~~~text
+2
+~~~
+
+## Operaciones con int y float
+
+Una operación entre un `int` y un `float` normalmente produce un `float`.
+
+~~~python
+entero = 10
+decimal = 2.5
+
+resultado = entero + decimal
+
+print(resultado)
+print(type(resultado))
+~~~
+
+Resultado aproximado:
+
+~~~text
+12.5
+<class 'float'>
+~~~
+
+## Precedencia de operadores
+
+Cuando una expresión contiene varios operadores, Python sigue un orden de evaluación.
+
+En términos básicos, el orden es:
+
+1. Paréntesis.
+2. Potencias.
+3. Multiplicación, división, división entera y módulo.
+4. Suma y resta.
+
+Ejemplo:
+
+~~~python
+resultado = 2 + 3 * 4
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+14
+~~~
+
+Python realiza primero la multiplicación:
+
+~~~text
+3 × 4 = 12
+2 + 12 = 14
+~~~
+
+## Utilizar paréntesis
+
+Los paréntesis permiten cambiar el orden de una operación.
+
+~~~python
+resultado = (2 + 3) * 4
+
+print(resultado)
+~~~
+
+Resultado:
+
+~~~text
+20
+~~~
+
+Primero se realiza:
+
+~~~text
+2 + 3 = 5
+~~~
+
+Después:
+
+~~~text
+5 × 4 = 20
+~~~
+
+## Expresiones más largas
+
+~~~python
+resultado = 10 + 2 * 3 - 4
+
+print(resultado)
+~~~
+
+Python realiza primero la multiplicación:
+
+~~~text
+2 × 3 = 6
+10 + 6 - 4 = 12
+~~~
+
+Resultado:
+
+~~~text
+12
+~~~
+
+## Operaciones de izquierda a derecha
+
+Los operadores con el mismo nivel de precedencia suelen evaluarse de izquierda a derecha.
+
+~~~python
+resultado = 20 / 5 * 2
+
+print(resultado)
+~~~
+
+Proceso:
+
+~~~text
+20 / 5 = 4.0
+4.0 * 2 = 8.0
+~~~
+
+Resultado:
+
+~~~text
+8.0
+~~~
+
+## Asignación aumentada
+
+Python permite actualizar una variable utilizando operadores de asignación aumentada.
+
+Forma tradicional:
+
+~~~python
+puntos = 10
+puntos = puntos + 5
+~~~
+
+Forma abreviada:
+
+~~~python
+puntos = 10
+puntos += 5
+~~~
+
+Ambas producen el mismo resultado.
+
+~~~python
+print(puntos)
+~~~
+
+Resultado:
+
+~~~text
+15
+~~~
+
+## Operadores de asignación aumentada
+
+~~~text
++=   sumar y asignar
+-=   restar y asignar
+*=   multiplicar y asignar
+/=   dividir y asignar
+//=  dividir de forma entera y asignar
+%=   calcular residuo y asignar
+**=  calcular potencia y asignar
+~~~
+
+## Ejemplos de asignación aumentada
+
+~~~python
+valor = 10
+
+valor += 2
+print(valor)
+
+valor -= 3
+print(valor)
+
+valor *= 4
+print(valor)
+
+valor /= 2
+print(valor)
+~~~
+
+Resultado:
+
+~~~text
+12
+9
+36
+18.0
+~~~
+
+## División entre cero
+
+No es posible dividir entre cero.
+
+Incorrecto:
+
+~~~python
+resultado = 10 / 0
+~~~
+
+Python muestra:
+
+~~~text
+ZeroDivisionError: division by zero
+~~~
+
+El mismo problema ocurre con:
+
+~~~python
+10 // 0
+10 % 0
+~~~
+
+Antes de dividir, el programa debe asegurarse de que el divisor no sea cero.
+
+Esta validación se estudiará con condicionales.
+
+## Operaciones con input()
+
+Los valores recibidos con `input()` deben convertirse antes de utilizarlos en cálculos.
+
+~~~python
+numero_1 = int(input("Primer número: "))
+numero_2 = int(input("Segundo número: "))
+
+suma = numero_1 + numero_2
+
+print("Resultado:", suma)
+~~~
+
+Sin conversión, ambos valores serían textos.
+
+## Diferencia entre suma y concatenación
+
+Con números:
+
+~~~python
+print(10 + 5)
+~~~
+
+Resultado:
+
+~~~text
+15
+~~~
+
+Con textos:
+
+~~~python
+print("10" + "5")
+~~~
+
+Resultado:
+
+~~~text
+105
+~~~
+
+En el segundo caso, Python une las cadenas.
+
+## Errores comunes
+
+### Utilizar x para multiplicar
+
+Incorrecto:
+
+~~~python
+resultado = 5 x 3
+~~~
+
+Correcto:
+
+~~~python
+resultado = 5 * 3
+~~~
+
+### Utilizar ^ para potencia
+
+En Python, `^` no representa potencia.
+
+Incorrecto:
+
+~~~python
+resultado = 2 ^ 3
+~~~
+
+Correcto:
+
+~~~python
+resultado = 2 ** 3
+~~~
+
+### Confundir división normal y entera
+
+~~~python
+print(7 / 2)
+print(7 // 2)
+~~~
+
+Los resultados son diferentes:
+
+~~~text
+3.5
+3
+~~~
+
+### Olvidar convertir input()
+
+Incorrecto:
+
+~~~python
+numero = input("Número: ")
+
+print(numero + 1)
+~~~
+
+Correcto:
+
+~~~python
+numero = int(input("Número: "))
+
+print(numero + 1)
+~~~
+
+### Dividir entre cero
+
+Incorrecto:
+
+~~~python
+total = 10
+cantidad = 0
+
+promedio = total / cantidad
+~~~
+
+Esto produce `ZeroDivisionError`.
+
+## Ejemplo guiado
+
+Crea un archivo llamado:
+
+~~~text
+operaciones_basicas.py
+~~~
+
+Escribe:
+
+~~~python
+numero_1 = 20
+numero_2 = 6
+
+print("Suma:", numero_1 + numero_2)
+print("Resta:", numero_1 - numero_2)
+print("Multiplicación:", numero_1 * numero_2)
+print("División:", numero_1 / numero_2)
+print("División entera:", numero_1 // numero_2)
+print("Residuo:", numero_1 % numero_2)
+print("Potencia:", numero_1 ** 2)
+~~~
+
+## Ejercicio práctico
+
+Crea un archivo llamado:
+
+~~~text
+calculadora_basica.py
+~~~
+
+El programa debe solicitar dos números y mostrar:
+
+- Suma.
+- Resta.
+- Multiplicación.
+- División.
+- División entera.
+- Residuo.
+- Potencia del primer número elevado al segundo.
+
+Ejemplo:
+
+~~~python
+numero_1 = float(input("Primer número: "))
+numero_2 = float(input("Segundo número: "))
+
+print("Suma:", numero_1 + numero_2)
+print("Resta:", numero_1 - numero_2)
+print("Multiplicación:", numero_1 * numero_2)
+print("División:", numero_1 / numero_2)
+print("División entera:", numero_1 // numero_2)
+print("Residuo:", numero_1 % numero_2)
+print("Potencia:", numero_1 ** numero_2)
+~~~
+
+Para esta práctica, utiliza un segundo número diferente de cero.
+
+## Ejercicio de precedencia
+
+Calcula primero el resultado manualmente y después compruébalo en Python:
+
+~~~python
+print(2 + 5 * 3)
+print((2 + 5) * 3)
+print(20 / 4 + 2)
+print(20 / (4 + 1))
+print(3 ** 2 + 1)
+~~~
+
+Resultados:
+
+~~~text
+17
+21
+7.0
+4.0
+10
+~~~
+
+## Ejercicio de asignación aumentada
+
+~~~python
+puntos = 10
+
+puntos += 5
+puntos *= 2
+puntos -= 4
+
+print(puntos)
+~~~
+
+Resultado:
+
+~~~text
+26
+~~~
+
+## Ejercicio de corrección
+
+Corrige el siguiente programa:
+
+~~~python
+numero_1 = input("Primer número: ")
+numero_2 = input("Segundo número: ")
+
+suma = numero_1 + numero_2
+multiplicacion = numero_1 x numero_2
+potencia = numero_1 ^ numero_2
+
+print("Suma:", suma)
+print("Multiplicación:", multiplicacion)
+print("Potencia:", potencia)
+~~~
+
+Una posible solución es:
+
+~~~python
+numero_1 = float(input("Primer número: "))
+numero_2 = float(input("Segundo número: "))
+
+suma = numero_1 + numero_2
+multiplicacion = numero_1 * numero_2
+potencia = numero_1 ** numero_2
+
+print("Suma:", suma)
+print("Multiplicación:", multiplicacion)
+print("Potencia:", potencia)
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- `+` realiza sumas.
+- `-` realiza restas.
+- `*` realiza multiplicaciones.
+- `/` realiza divisiones y devuelve un `float`.
+- `//` realiza división entera.
+- `%` calcula el residuo.
+- `**` calcula potencias.
+- Python respeta un orden de precedencia.
+- Los paréntesis permiten controlar el orden.
+- Los operadores aumentados actualizan variables.
+- Dividir entre cero produce `ZeroDivisionError`.
+- `input()` debe convertirse antes de utilizarse en cálculos.
+- `+` suma números, pero concatena cadenas.
+
+## Próxima lección
+
+En la siguiente lección realizarás una práctica integradora sobre variables, tipos de datos, entrada de información, conversiones y operadores aritméticos.
