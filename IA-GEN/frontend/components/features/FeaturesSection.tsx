@@ -125,7 +125,7 @@ export default function FeaturesSection() {
                   rounded-full
                   border
                   border-white/5
-                  bg-white/[0.025]
+                  bg-white/2.5
                   px-4
                   py-2
                 "
