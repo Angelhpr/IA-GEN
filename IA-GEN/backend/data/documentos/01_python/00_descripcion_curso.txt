@@ -1,0 +1,194 @@
+---
+id: python_descripcion_curso
+title: Python desde cero
+course: python
+module: general
+lesson: descripcion_curso
+topic: presentacion_curso
+level: principiante
+document_type: course_description
+language: es
+version: 1.0
+status: published
+prerequisites: ninguno
+estimated_minutes: 10
+keywords: python, programacion, fundamentos, principiantes, curso
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Python desde cero
+
+## Descripción general
+
+Python desde cero es el curso piloto de IA-GEN. Está diseñado para enseñar los fundamentos de la programación a estudiantes que no necesitan tener experiencia previa.
+
+A lo largo del curso, el estudiante aprenderá a comprender problemas, dividirlos en pasos y convertir esos pasos en programas escritos con Python. El enfoque será progresivo: primero se estudiarán los conceptos esenciales y después se aplicarán mediante ejemplos, ejercicios y pequeños proyectos.
+
+Python es un lenguaje utilizado en áreas como automatización, desarrollo web, análisis de datos, inteligencia artificial, Machine Learning y computación científica. Sin embargo, este curso no busca cubrir todas esas áreas de inmediato. Su objetivo principal es construir una base sólida de programación que permita continuar con cursos más avanzados.
+
+## ¿A quién está dirigido?
+
+Este curso está dirigido a:
+
+- Personas que nunca han programado.
+- Estudiantes que desean comenzar una carrera tecnológica.
+- Personas interesadas en automatización o análisis de datos.
+- Estudiantes que desean prepararse para Machine Learning.
+- Personas que conocen algunos conceptos de programación, pero necesitan reforzar sus fundamentos.
+
+No se requiere experiencia previa con Python ni con otros lenguajes de programación.
+
+## Objetivos de aprendizaje
+
+Al finalizar el curso, el estudiante será capaz de:
+
+- Comprender qué es un programa y cómo se ejecuta.
+- Escribir instrucciones básicas utilizando Python.
+- Crear y utilizar variables.
+- Trabajar con números, textos y valores booleanos.
+- Utilizar operadores aritméticos, lógicos y de comparación.
+- Tomar decisiones mediante estructuras condicionales.
+- Repetir instrucciones utilizando bucles.
+- Crear funciones para organizar y reutilizar código.
+- Trabajar con listas, tuplas, conjuntos y diccionarios.
+- Leer y escribir archivos de texto.
+- Reconocer y manejar errores básicos.
+- Desarrollar un programa completo aplicando los conocimientos adquiridos.
+
+## Estructura del curso
+
+El curso está organizado en ocho módulos principales.
+
+### Módulo 1: Fundamentos de Python
+
+El estudiante conocerá qué es Python, para qué se utiliza y cómo se ejecuta un programa. También aprenderá a escribir sus primeras instrucciones y a utilizar la función `print()`.
+
+### Módulo 2: Variables y tipos de datos
+
+Se estudiará cómo almacenar información mediante variables. El estudiante trabajará con números enteros, números decimales, cadenas de texto y valores booleanos.
+
+También aprenderá a recibir información del usuario y a convertir datos entre diferentes tipos.
+
+### Módulo 3: Condicionales
+
+El estudiante aprenderá a crear programas capaces de tomar decisiones mediante `if`, `elif` y `else`.
+
+Se utilizarán operadores de comparación y operadores lógicos para construir condiciones más completas.
+
+### Módulo 4: Bucles
+
+Se estudiarán los bucles `for` y `while`, que permiten repetir instrucciones.
+
+El estudiante aprenderá a controlar las repeticiones y a evitar errores como los bucles infinitos.
+
+### Módulo 5: Funciones
+
+El estudiante aprenderá a dividir un programa en funciones pequeñas y reutilizables.
+
+Se trabajará con parámetros, argumentos, valores de retorno y alcance básico de variables.
+
+### Módulo 6: Estructuras de datos
+
+Se introducirán las principales estructuras de datos disponibles en Python:
+
+- Listas.
+- Tuplas.
+- Conjuntos.
+- Diccionarios.
+
+El estudiante aprenderá cuándo utilizar cada estructura y cómo recorrer, consultar y modificar sus elementos.
+
+### Módulo 7: Archivos y errores
+
+El estudiante aprenderá a guardar información en archivos de texto y a recuperar posteriormente esos datos.
+
+También conocerá los errores más comunes y utilizará bloques `try` y `except` para controlar situaciones inesperadas.
+
+### Módulo 8: Proyecto final
+
+El estudiante desarrollará una aplicación de consola que combine variables, condicionales, bucles, funciones, estructuras de datos, archivos y manejo básico de errores.
+
+## Metodología de aprendizaje
+
+Cada lección combinará:
+
+- Objetivos de aprendizaje.
+- Explicaciones progresivas.
+- Ejemplos de código.
+- Buenas prácticas.
+- Errores comunes.
+- Ejercicios guiados.
+- Ejercicios propuestos.
+- Resúmenes.
+- Preguntas frecuentes.
+
+El estudiante debe ejecutar y modificar los ejemplos. Leer código es importante, pero aprender programación requiere escribir, probar y corregir programas.
+
+## Herramientas necesarias
+
+Para realizar el curso se recomienda contar con:
+
+- Una computadora con Windows, macOS o Linux.
+- Python 3 instalado.
+- Un editor de código.
+- Acceso a una terminal o consola.
+- Tiempo para practicar regularmente.
+
+Durante las primeras lecciones se explicará cómo comprobar que Python está instalado y cómo ejecutar un archivo con extensión `.py`.
+
+## Evaluación
+
+El progreso será evaluado mediante ejercicios prácticos y pequeños programas.
+
+Cada módulo incluirá actividades para comprobar la comprensión de los conceptos estudiados. El proyecto final permitirá integrar los conocimientos de todo el curso.
+
+El objetivo de la evaluación no es memorizar instrucciones, sino demostrar que el estudiante puede analizar un problema y construir una solución funcional.
+
+## Proyecto final
+
+El proyecto final consistirá en una aplicación de consola para gestionar información.
+
+La aplicación permitirá:
+
+- Registrar datos.
+- Consultar datos almacenados.
+- Modificar o eliminar registros.
+- Validar información ingresada.
+- Guardar información en un archivo.
+- Recuperar la información al iniciar nuevamente el programa.
+- Controlar errores básicos.
+
+El proyecto se construirá progresivamente y podrá formar parte del portafolio inicial del estudiante.
+
+## Resultados esperados
+
+Al completar Python desde cero, el estudiante tendrá una base suficiente para continuar con temas como:
+
+- Automatización con Python.
+- Desarrollo web.
+- Análisis de datos.
+- Fundamentos de Machine Learning.
+- Inteligencia artificial generativa.
+- Desarrollo de APIs.
+- Bases de datos.
+
+El estudiante no necesita dominar todo Python al terminar este curso. El resultado esperado es que comprenda los fundamentos, pueda desarrollar programas básicos y tenga las herramientas necesarias para continuar aprendiendo de manera independiente.
+
+## Preguntas frecuentes
+
+### ¿Necesito experiencia previa?
+
+No. El curso comienza desde los conceptos fundamentales.
+
+### ¿Debo saber matemáticas avanzadas?
+
+No. Para este curso solo se requieren operaciones matemáticas básicas y razonamiento lógico.
+
+### ¿Cuánto tiempo debo practicar?
+
+Se recomienda practicar varias veces por semana. La constancia es más importante que estudiar muchas horas en un solo día.
+
+### ¿Puedo realizar el curso desde un teléfono?
+
+Algunos contenidos pueden consultarse desde un teléfono, pero para escribir, ejecutar y depurar programas se recomienda utilizar una computadora.

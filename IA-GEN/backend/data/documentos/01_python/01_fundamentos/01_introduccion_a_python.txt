@@ -1,0 +1,356 @@
+---
+id: python_fundamentos_introduccion
+title: Introducción a Python
+course: python
+module: fundamentos
+lesson: introduccion_a_python
+topic: introduccion
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: ninguno
+estimated_minutes: 25
+keywords: python, programacion, lenguaje, interprete, codigo, principiantes
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Introducción a Python
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Explicar qué es Python.
+- Reconocer algunos de sus principales usos.
+- Comprender qué significa que Python sea un lenguaje interpretado.
+- Diferenciar entre código fuente, intérprete y programa.
+- Identificar la extensión utilizada por los archivos de Python.
+- Comprender cómo se ejecuta un programa básico.
+
+## ¿Qué es Python?
+
+Python es un lenguaje de programación de propósito general. Puede utilizarse para desarrollar diferentes tipos de programas y no está limitado a una sola área.
+
+Un lenguaje de programación permite escribir instrucciones que una computadora puede interpretar y ejecutar.
+
+Con Python es posible crear programas, automatizar tareas, analizar datos, desarrollar aplicaciones web y construir soluciones relacionadas con inteligencia artificial.
+
+Python fue diseñado para que su código resulte relativamente fácil de leer. Su sintaxis busca expresar las instrucciones de manera clara.
+
+## ¿Qué significa programar?
+
+Programar consiste en definir una serie de instrucciones para resolver un problema o realizar una tarea.
+
+Un programa puede:
+
+- Recibir datos.
+- Guardar información.
+- Procesar los datos.
+- Producir un resultado.
+
+Por ejemplo, un programa puede solicitar el nombre de una persona, construir un mensaje de bienvenida y mostrarlo en pantalla.
+
+Las instrucciones deben escribirse de forma precisa. Una computadora ejecuta lo que está escrito, no lo que el programador tenía intención de escribir.
+
+## ¿Para qué se utiliza Python?
+
+Python se utiliza en distintas áreas de la tecnología.
+
+### Automatización
+
+Permite automatizar tareas repetitivas, como organizar archivos, procesar documentos o generar reportes.
+
+### Desarrollo web
+
+Puede utilizarse para construir servidores, APIs y aplicaciones web mediante herramientas como FastAPI, Django o Flask.
+
+### Análisis de datos
+
+Permite limpiar, transformar, analizar y visualizar información.
+
+### Machine Learning
+
+Se utiliza para entrenar modelos capaces de encontrar patrones, realizar clasificaciones o generar predicciones.
+
+### Inteligencia artificial generativa
+
+Python puede utilizarse para integrar modelos de lenguaje, crear asistentes inteligentes y desarrollar sistemas RAG.
+
+### Computación científica
+
+También se emplea en matemáticas, física, biología, ingeniería y otras áreas científicas.
+
+## Python es un lenguaje interpretado
+
+Python es considerado un lenguaje interpretado. El código es procesado por un programa llamado intérprete de Python.
+
+El flujo básico es el siguiente:
+
+1. El programador escribe el código.
+2. El código se guarda en un archivo.
+3. El intérprete lee las instrucciones.
+4. Python ejecuta el programa.
+5. El resultado aparece en la terminal o en la aplicación.
+
+El intérprete también puede detectar errores que impidan ejecutar correctamente el programa.
+
+## Código fuente
+
+El código fuente es el conjunto de instrucciones escritas por el programador.
+
+Ejemplo:
+
+~~~python
+print("Hola, mundo")
+~~~
+
+Esta instrucción indica a Python que muestre un mensaje en pantalla.
+
+## Archivos de Python
+
+Los programas de Python normalmente se guardan en archivos con extensión `.py`.
+
+Ejemplos:
+
+~~~text
+hola.py
+calculadora.py
+registro_estudiantes.py
+~~~
+
+## Primer programa
+
+El siguiente código representa un programa completo:
+
+~~~python
+print("Bienvenido a IA-GEN")
+~~~
+
+El resultado es:
+
+~~~text
+Bienvenido a IA-GEN
+~~~
+
+La función `print()` se utiliza para mostrar información.
+
+## Ejecutar un archivo
+
+Supongamos que el programa está guardado como:
+
+~~~text
+hola.py
+~~~
+
+Puede ejecutarse desde una terminal con:
+
+~~~bash
+python hola.py
+~~~
+
+En algunos sistemas se utiliza:
+
+~~~bash
+python3 hola.py
+~~~
+
+## Modo interactivo
+
+Al ejecutar `python` en una terminal puede aparecer el indicador:
+
+~~~text
+>>>
+~~~
+
+En ese punto pueden probarse instrucciones directamente:
+
+~~~python
+>>> print("Hola")
+Hola
+~~~
+
+El modo interactivo es útil para pruebas rápidas. Los programas que deben conservarse normalmente se guardan en archivos `.py`.
+
+## Mayúsculas y minúsculas
+
+Python distingue entre letras mayúsculas y minúsculas.
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+Incorrecto:
+
+~~~python
+Print("Hola")
+~~~
+
+`Print` no es igual a `print`.
+
+## La importancia de la sintaxis
+
+La sintaxis es el conjunto de reglas que determina cómo debe escribirse el código.
+
+Correcto:
+
+~~~python
+print("Python")
+~~~
+
+Incorrecto:
+
+~~~python
+print("Python"
+~~~
+
+En el segundo ejemplo falta el paréntesis de cierre.
+
+Los errores forman parte normal del aprendizaje. El objetivo es aprender a identificarlos y corregirlos.
+
+## Comentarios
+
+Los comentarios permiten agregar explicaciones dentro del código. Python los ignora durante la ejecución.
+
+Un comentario comienza con `#`.
+
+~~~python
+# Este programa muestra un mensaje
+print("Hola, estudiante")
+~~~
+
+No es necesario comentar cada instrucción. Los comentarios deben explicar decisiones importantes o partes difíciles de comprender.
+
+## Buenas prácticas iniciales
+
+- Utilizar nombres claros para los archivos.
+- Escribir una instrucción por línea.
+- Respetar mayúsculas y minúsculas.
+- Cerrar correctamente comillas y paréntesis.
+- Ejecutar el programa después de pequeños cambios.
+- Leer cuidadosamente los mensajes de error.
+- Evitar copiar código sin comprenderlo.
+
+## Errores comunes
+
+### Escribir incorrectamente `print`
+
+Incorrecto:
+
+~~~python
+pritn("Hola")
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Olvidar las comillas
+
+Incorrecto:
+
+~~~python
+print(Hola)
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+### Olvidar cerrar un paréntesis
+
+Incorrecto:
+
+~~~python
+print("Hola"
+~~~
+
+Correcto:
+
+~~~python
+print("Hola")
+~~~
+
+## Ejemplo guiado
+
+Crea un archivo llamado `presentacion.py`:
+
+~~~python
+print("Hola")
+print("Estoy aprendiendo Python")
+print("Mi curso es Python desde cero")
+~~~
+
+Resultado:
+
+~~~text
+Hola
+Estoy aprendiendo Python
+Mi curso es Python desde cero
+~~~
+
+## Ejercicio práctico
+
+Crea un archivo llamado `mi_primer_programa.py`.
+
+El programa debe mostrar:
+
+- Tu nombre.
+- Tu país.
+- Una razón por la que deseas aprender Python.
+- El nombre del curso.
+
+Ejemplo:
+
+~~~python
+print("Mi nombre es Ana")
+print("Vivo en Honduras")
+print("Quiero aprender a crear programas")
+print("Curso: Python desde cero")
+~~~
+
+Modifica el ejemplo utilizando tu propia información.
+
+## Ejercicio de corrección
+
+Corrige el siguiente código:
+
+~~~python
+Print("Bienvenido a Python")
+print("Estoy aprendiendo"
+pritn("IA-GEN")
+~~~
+
+Una posible solución es:
+
+~~~python
+print("Bienvenido a Python")
+print("Estoy aprendiendo")
+print("IA-GEN")
+~~~
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- Python es un lenguaje de programación de propósito general.
+- Se utiliza en automatización, desarrollo web, datos e inteligencia artificial.
+- El intérprete procesa y ejecuta las instrucciones.
+- Los archivos de Python utilizan la extensión `.py`.
+- La función `print()` muestra información.
+- Python distingue entre mayúsculas y minúsculas.
+- La sintaxis debe respetarse.
+- Los comentarios comienzan con `#`.
+- Los errores son una parte normal del aprendizaje.
+
+## Próxima lección
+
+En la siguiente lección aprenderás a preparar el entorno de trabajo, comprobar la instalación de Python y ejecutar programas desde una terminal.

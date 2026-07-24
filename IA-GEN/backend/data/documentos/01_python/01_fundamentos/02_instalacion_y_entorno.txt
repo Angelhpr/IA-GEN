@@ -1,0 +1,454 @@
+---
+id: python_fundamentos_instalacion_entorno
+title: Instalación de Python y entorno de trabajo
+course: python
+module: fundamentos
+lesson: instalacion_y_entorno
+topic: preparacion_entorno
+level: principiante
+document_type: lesson
+language: es
+version: 1.0
+status: published
+prerequisites: python_fundamentos_introduccion
+estimated_minutes: 35
+keywords: python, instalacion, entorno, terminal, editor, archivo_py
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Instalación de Python y entorno de trabajo
+
+## Objetivos de aprendizaje
+
+Al finalizar esta lección, el estudiante será capaz de:
+
+- Comprobar si Python está instalado.
+- Identificar la versión instalada.
+- Comprender qué es una terminal.
+- Diferenciar entre una terminal y un editor de código.
+- Crear una carpeta de trabajo.
+- Crear y guardar un archivo con extensión `.py`.
+- Ejecutar un programa desde la terminal.
+- Reconocer errores básicos relacionados con rutas e instalación.
+
+## Herramientas necesarias
+
+Para comenzar a programar se necesitan dos herramientas principales:
+
+- El intérprete de Python.
+- Un editor de código.
+
+El intérprete ejecuta las instrucciones escritas en Python.
+
+El editor de código permite crear y modificar los archivos que contienen esas instrucciones.
+
+También se utilizará una terminal para ejecutar los programas.
+
+## Comprobar si Python está instalado
+
+Abre una terminal y ejecuta:
+
+~~~bash
+python --version
+~~~
+
+También puedes intentar:
+
+~~~bash
+python3 --version
+~~~
+
+Si Python está instalado, aparecerá un resultado similar a:
+
+~~~text
+Python 3.x.x
+~~~
+
+Los números representan la versión instalada.
+
+Para este curso se utilizará Python 3.
+
+## ¿Qué ocurre si el comando no funciona?
+
+En algunos equipos, la terminal puede indicar que el comando `python` no existe o no se reconoce.
+
+Esto puede significar que:
+
+- Python no está instalado.
+- Python está instalado, pero no está disponible en la variable PATH.
+- El sistema utiliza el comando `python3`.
+- Existen varias instalaciones de Python.
+
+Primero prueba:
+
+~~~bash
+python3 --version
+~~~
+
+Si tampoco funciona, será necesario instalar Python 3.
+
+## Instalar Python
+
+Python puede obtenerse desde su sitio oficial.
+
+Durante la instalación en Windows, es importante permitir que Python se agregue al PATH cuando el instalador presente esa opción.
+
+Agregar Python al PATH permite ejecutar el comando `python` desde diferentes carpetas de la terminal.
+
+Después de instalarlo, cierra la terminal, ábrela nuevamente y ejecuta:
+
+~~~bash
+python --version
+~~~
+
+En macOS o Linux puede ser necesario utilizar:
+
+~~~bash
+python3 --version
+~~~
+
+## ¿Qué es una terminal?
+
+Una terminal es una herramienta que permite comunicarse con el sistema operativo mediante comandos escritos.
+
+Desde una terminal es posible:
+
+- Cambiar de carpeta.
+- Crear archivos y directorios.
+- Ejecutar programas.
+- Instalar herramientas.
+- Consultar información del sistema.
+- Ver mensajes generados por Python.
+
+En Windows se puede utilizar PowerShell.
+
+En macOS y Linux se puede utilizar la aplicación Terminal.
+
+## ¿Qué es un editor de código?
+
+Un editor de código es una aplicación utilizada para escribir y organizar programas.
+
+Un editor suele ofrecer funciones como:
+
+- Colores para distinguir elementos del código.
+- Numeración de líneas.
+- Autocompletado.
+- Detección de algunos errores.
+- Explorador de archivos.
+- Terminal integrada.
+
+Se puede utilizar un editor como Visual Studio Code u otro editor compatible con archivos de texto y Python.
+
+## Terminal y editor no son lo mismo
+
+El editor se utiliza principalmente para escribir el programa.
+
+La terminal se utiliza principalmente para ejecutar el programa y observar sus resultados.
+
+Un flujo de trabajo básico es:
+
+1. Crear o abrir un archivo en el editor.
+2. Escribir código Python.
+3. Guardar el archivo.
+4. Abrir la terminal.
+5. Ejecutar el archivo.
+6. Revisar el resultado.
+7. Corregir el código cuando sea necesario.
+
+## Crear una carpeta de trabajo
+
+Es recomendable guardar los programas del curso dentro de una carpeta específica.
+
+Por ejemplo:
+
+~~~text
+curso_python
+~~~
+
+Dentro de esa carpeta se crearán los archivos de las lecciones y ejercicios.
+
+En PowerShell puedes crear la carpeta con:
+
+~~~powershell
+New-Item -ItemType Directory -Name curso_python
+~~~
+
+Después puedes entrar en ella con:
+
+~~~powershell
+Set-Location curso_python
+~~~
+
+En macOS o Linux pueden utilizarse estos comandos:
+
+~~~bash
+mkdir curso_python
+cd curso_python
+~~~
+
+## Consultar la carpeta actual
+
+Antes de ejecutar un programa es importante saber en qué carpeta se encuentra la terminal.
+
+En PowerShell puedes utilizar:
+
+~~~powershell
+Get-Location
+~~~
+
+En macOS o Linux puedes utilizar:
+
+~~~bash
+pwd
+~~~
+
+La ruta mostrada debe corresponder a la carpeta donde se encuentra el archivo que deseas ejecutar.
+
+## Crear el primer archivo
+
+Abre el editor de código y crea un archivo llamado:
+
+~~~text
+hola.py
+~~~
+
+Escribe:
+
+~~~python
+print("Hola desde Python")
+~~~
+
+Guarda el archivo dentro de la carpeta `curso_python`.
+
+La extensión debe ser `.py` y no `.txt`.
+
+## Ejecutar el programa
+
+Abre una terminal en la carpeta donde guardaste `hola.py`.
+
+Ejecuta:
+
+~~~bash
+python hola.py
+~~~
+
+En algunos sistemas se utiliza:
+
+~~~bash
+python3 hola.py
+~~~
+
+El resultado esperado es:
+
+~~~text
+Hola desde Python
+~~~
+
+## Comprobar que el archivo existe
+
+En PowerShell puedes listar los archivos de la carpeta con:
+
+~~~powershell
+Get-ChildItem
+~~~
+
+En macOS o Linux puedes utilizar:
+
+~~~bash
+ls
+~~~
+
+En la lista debe aparecer:
+
+~~~text
+hola.py
+~~~
+
+## Modificar y volver a ejecutar
+
+Cambia el contenido del archivo:
+
+~~~python
+print("Estoy preparando mi entorno de Python")
+print("Mi primer archivo funciona correctamente")
+~~~
+
+Guarda los cambios y ejecuta nuevamente:
+
+~~~bash
+python hola.py
+~~~
+
+Cada vez que se modifica un archivo, debe guardarse antes de volver a ejecutarlo.
+
+## Errores comunes
+
+### El comando Python no se reconoce
+
+El sistema puede mostrar un mensaje indicando que `python` no es un comando válido.
+
+Prueba con:
+
+~~~bash
+python3 --version
+~~~
+
+Si ningún comando funciona, revisa la instalación y la configuración del PATH.
+
+### Python no encuentra el archivo
+
+Puede aparecer un mensaje parecido a:
+
+~~~text
+No such file or directory
+~~~
+
+o:
+
+~~~text
+can't open file
+~~~
+
+Esto normalmente significa que:
+
+- La terminal está en otra carpeta.
+- El nombre del archivo está escrito incorrectamente.
+- El archivo no fue guardado.
+- La extensión real del archivo es diferente.
+
+Comprueba la carpeta actual y lista sus archivos.
+
+### El archivo se guardó como `.txt`
+
+En algunos sistemas, un archivo puede quedar guardado como:
+
+~~~text
+hola.py.txt
+~~~
+
+Ese archivo no tiene realmente la extensión `.py`.
+
+Comprueba el nombre completo y corrígelo a:
+
+~~~text
+hola.py
+~~~
+
+### Los cambios no aparecen
+
+Esto puede ocurrir cuando el archivo fue modificado, pero no guardado.
+
+Guarda el archivo antes de ejecutar nuevamente el programa.
+
+### Se ejecuta otro archivo
+
+Verifica que el nombre utilizado en el comando coincida exactamente con el archivo deseado.
+
+Por ejemplo:
+
+~~~bash
+python hola.py
+~~~
+
+no ejecutará un archivo llamado:
+
+~~~text
+saludo.py
+~~~
+
+## Buenas prácticas para organizar el entorno
+
+- Utilizar una carpeta exclusiva para el curso.
+- Crear nombres de archivos claros.
+- Evitar espacios en los nombres de archivos.
+- Utilizar letras minúsculas.
+- Separar palabras mediante guiones bajos.
+- Guardar el archivo antes de ejecutarlo.
+- Revisar la carpeta actual.
+- Leer los mensajes de error completos.
+
+Ejemplos de nombres adecuados:
+
+~~~text
+hola.py
+mi_presentacion.py
+primer_ejercicio.py
+calculadora_basica.py
+~~~
+
+## Ejercicio guiado
+
+Crea un archivo llamado:
+
+~~~text
+informacion_entorno.py
+~~~
+
+Escribe:
+
+~~~python
+print("Python está instalado")
+print("Mi entorno de trabajo está preparado")
+print("Estoy listo para comenzar el curso")
+~~~
+
+Guarda el archivo y ejecútalo desde la terminal.
+
+## Ejercicio práctico
+
+Crea un archivo llamado:
+
+~~~text
+datos_del_curso.py
+~~~
+
+Debe mostrar:
+
+- El nombre del curso.
+- El nombre del estudiante.
+- El editor utilizado.
+- El sistema operativo utilizado.
+- Un mensaje indicando que el entorno funciona.
+
+Ejemplo:
+
+~~~python
+print("Curso: Python desde cero")
+print("Estudiante: Ana")
+print("Editor: Visual Studio Code")
+print("Sistema operativo: Windows")
+print("El entorno funciona correctamente")
+~~~
+
+Modifica los datos del ejemplo con tu propia información.
+
+## Lista de comprobación
+
+Antes de continuar, verifica que puedes responder afirmativamente:
+
+- Python 3 está instalado.
+- La terminal reconoce `python` o `python3`.
+- Puedes consultar la versión instalada.
+- Tienes un editor de código.
+- Creaste una carpeta para el curso.
+- Puedes crear archivos `.py`.
+- Puedes ejecutar un archivo desde la terminal.
+- Puedes modificarlo, guardarlo y ejecutarlo nuevamente.
+
+## Resumen
+
+En esta lección aprendiste que:
+
+- El intérprete de Python ejecuta los programas.
+- Un editor permite escribir y modificar código.
+- La terminal permite ejecutar archivos y comandos.
+- La versión puede consultarse con `python --version` o `python3 --version`.
+- Los programas de Python utilizan la extensión `.py`.
+- La terminal debe estar en la carpeta correcta.
+- Los nombres de archivos deben ser claros.
+- Los mensajes de error ayudan a identificar problemas del entorno.
+
+## Próxima lección
+
+En la siguiente lección aprenderás a utilizar `print()` con más detalle, mostrar diferentes valores y construir mensajes de salida.

@@ -1,0 +1,386 @@
+---
+id: python_fundamentos_practica_integradora
+title: Práctica integradora del módulo de fundamentos
+course: python
+module: fundamentos
+lesson: practica_integradora_fundamentos
+topic: practica_integradora
+level: principiante
+document_type: exercise
+language: es
+version: 1.0
+status: published
+prerequisites: python_fundamentos_errores_depuracion
+estimated_minutes: 45
+keywords: python, fundamentos, practica, print, terminal, depuracion
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Práctica integradora del módulo de fundamentos
+
+## Objetivos de la práctica
+
+Al finalizar esta práctica, el estudiante será capaz de:
+
+- Crear un archivo de Python.
+- Ejecutar un programa desde la terminal.
+- Utilizar correctamente la función `print()`.
+- Mostrar textos, números y valores booleanos.
+- Utilizar los parámetros `sep` y `end`.
+- Aplicar saltos de línea y tabulaciones.
+- Identificar y corregir errores básicos.
+- Comparar la salida obtenida con la salida esperada.
+
+## Descripción
+
+En esta práctica crearás una presentación digital sencilla utilizando Python.
+
+El programa mostrará información sobre el estudiante, el curso y las tecnologías que desea aprender.
+
+No se utilizarán variables todavía. Toda la información se escribirá directamente dentro de las llamadas a `print()`.
+
+El archivo deberá llamarse:
+
+~~~text
+perfil_aprendiz.py
+~~~
+
+## Preparar el entorno
+
+Crea una carpeta llamada:
+
+~~~text
+practica_fundamentos
+~~~
+
+En PowerShell puedes utilizar:
+
+~~~powershell
+New-Item -ItemType Directory -Name practica_fundamentos
+Set-Location practica_fundamentos
+~~~
+
+Dentro de esa carpeta crea el archivo:
+
+~~~text
+perfil_aprendiz.py
+~~~
+
+## Requisitos del programa
+
+El programa debe mostrar:
+
+1. Un título principal.
+2. El nombre del estudiante.
+3. El país del estudiante.
+4. El nombre del curso.
+5. El número del módulo.
+6. Tres tecnologías separadas por ` | `.
+7. Un valor booleano que indique si el entorno funciona.
+8. Una línea en blanco.
+9. Un mensaje construido mediante dos llamadas a `print()` y el parámetro `end`.
+10. Una sección final con tres líneas creadas mediante `\n`.
+
+## Primera parte del programa
+
+Comienza con este código:
+
+~~~python
+# Presentación del estudiante
+print("================================")
+print("PERFIL DEL APRENDIZ DE PYTHON")
+print("================================")
+print()
+~~~
+
+Los comentarios comienzan con `#` y no aparecen en la salida.
+
+La llamada vacía a `print()` crea una línea en blanco.
+
+## Mostrar información básica
+
+Agrega estas instrucciones:
+
+~~~python
+print("Nombre:", "Ana")
+print("País:", "Honduras")
+print("Curso:", "Python desde cero")
+print("Módulo:", 1)
+~~~
+
+Reemplaza el nombre y el país con tu propia información.
+
+## Mostrar tecnologías con sep
+
+Utiliza el parámetro `sep`:
+
+~~~python
+print(
+    "Python",
+    "Git",
+    "Inteligencia Artificial",
+    sep=" | ",
+)
+~~~
+
+El resultado será:
+
+~~~text
+Python | Git | Inteligencia Artificial
+~~~
+
+## Mostrar un valor booleano
+
+Agrega:
+
+~~~python
+print("Entorno preparado:", True)
+~~~
+
+`True` es un valor booleano y no debe escribirse entre comillas.
+
+## Utilizar end
+
+Construye un mensaje utilizando dos llamadas a `print()`:
+
+~~~python
+print()
+print("Estado del curso:", end=" ")
+print("listo para continuar")
+~~~
+
+El resultado será:
+
+~~~text
+Estado del curso: listo para continuar
+~~~
+
+## Utilizar saltos de línea
+
+Agrega una sección final:
+
+~~~python
+print()
+print("Próximos temas:\nVariables\nTipos de datos\nOperadores")
+~~~
+
+El carácter `\n` crea una nueva línea.
+
+## Programa completo
+
+El archivo puede quedar así:
+
+~~~python
+# Presentación del estudiante
+print("================================")
+print("PERFIL DEL APRENDIZ DE PYTHON")
+print("================================")
+print()
+
+print("Nombre:", "Ana")
+print("País:", "Honduras")
+print("Curso:", "Python desde cero")
+print("Módulo:", 1)
+
+print(
+    "Python",
+    "Git",
+    "Inteligencia Artificial",
+    sep=" | ",
+)
+
+print("Entorno preparado:", True)
+
+print()
+print("Estado del curso:", end=" ")
+print("listo para continuar")
+
+print()
+print("Próximos temas:\nVariables\nTipos de datos\nOperadores")
+~~~
+
+## Salida esperada
+
+El resultado debe ser parecido a:
+
+~~~text
+================================
+PERFIL DEL APRENDIZ DE PYTHON
+================================
+
+Nombre: Ana
+País: Honduras
+Curso: Python desde cero
+Módulo: 1
+Python | Git | Inteligencia Artificial
+Entorno preparado: True
+
+Estado del curso: listo para continuar
+
+Próximos temas:
+Variables
+Tipos de datos
+Operadores
+~~~
+
+Los datos personales pueden ser diferentes, pero la estructura debe conservarse.
+
+## Ejecutar el programa
+
+Desde la carpeta que contiene el archivo, ejecuta:
+
+~~~bash
+python perfil_aprendiz.py
+~~~
+
+En algunos sistemas puede utilizarse:
+
+~~~bash
+python3 perfil_aprendiz.py
+~~~
+
+Comprueba que la salida coincida con la estructura esperada.
+
+## Parte de depuración
+
+Crea temporalmente una copia del programa y agrega estos errores:
+
+~~~python
+Print("PERFIL DEL APRENDIZ")
+print("Curso:", Python)
+print("Entorno preparado:", true)
+print("Fin del programa"
+~~~
+
+Ejecuta el archivo y corrige los errores uno por uno.
+
+## Solución de la depuración
+
+Una posible solución es:
+
+~~~python
+print("PERFIL DEL APRENDIZ")
+print("Curso:", "Python")
+print("Entorno preparado:", True)
+print("Fin del programa")
+~~~
+
+Los problemas eran:
+
+- `Print` debía escribirse como `print`.
+- `Python` necesitaba comillas porque representa texto.
+- `true` debía escribirse como `True`.
+- Faltaba cerrar el último paréntesis.
+
+## Lista de comprobación
+
+Comprueba que el programa cumple todos los requisitos:
+
+- El archivo utiliza la extensión `.py`.
+- El programa se ejecuta desde la terminal.
+- Existe al menos un comentario.
+- Se utilizan varias llamadas a `print()`.
+- Se muestra texto.
+- Se muestra un número.
+- Se muestra un valor booleano.
+- Se utiliza `sep`.
+- Se utiliza `end`.
+- Se utiliza `\n`.
+- El programa no contiene errores de sintaxis.
+- La salida coincide con la estructura esperada.
+
+## Criterios de evaluación
+
+### Organización
+
+El archivo tiene un nombre claro y el código está ordenado.
+
+### Ejecución
+
+El programa se ejecuta completamente sin errores.
+
+### Salida
+
+La información aparece de forma clara y legible.
+
+### Uso de print()
+
+Se utilizan correctamente varias llamadas a `print()`.
+
+### Formato
+
+El programa utiliza `sep`, `end`, líneas en blanco y saltos de línea.
+
+### Depuración
+
+El estudiante identifica y corrige los errores propuestos.
+
+## Actividad adicional
+
+Personaliza la presentación agregando:
+
+- Una frase sobre tu objetivo profesional.
+- Dos áreas tecnológicas que deseas estudiar.
+- El nombre de un proyecto que deseas desarrollar.
+- Una línea divisoria creada con símbolos.
+- Una segunda sección con tabulaciones mediante `\t`.
+
+Ejemplo:
+
+~~~python
+print("Objetivo\tAprender programación")
+print("Proyecto\tAsistente educativo")
+~~~
+
+## Preguntas de reflexión
+
+Responde con tus propias palabras:
+
+1. ¿Qué función permite mostrar información?
+2. ¿Qué diferencia existe entre `"25"` y `25`?
+3. ¿Para qué sirve `sep`?
+4. ¿Para qué sirve `end`?
+5. ¿Qué carácter crea una nueva línea?
+6. ¿Por qué Python distingue entre `print` y `Print`?
+7. ¿Qué debes revisar cuando Python no encuentra un archivo?
+8. ¿Qué información importante aparece al final de un traceback?
+
+## Respuestas orientativas
+
+1. La función `print()`.
+2. `"25"` es texto y `25` es un número.
+3. `sep` cambia el separador entre varios valores.
+4. `end` modifica lo que se agrega al final de la salida.
+5. El carácter `\n`.
+6. Porque Python distingue mayúsculas y minúsculas.
+7. La carpeta actual, el nombre y la extensión del archivo.
+8. El tipo de error y su descripción.
+
+## Resultado del módulo
+
+Al completar esta práctica, el estudiante ha demostrado que puede:
+
+- Preparar un entorno básico.
+- Crear archivos de Python.
+- Ejecutar programas.
+- Mostrar información.
+- Aplicar formatos sencillos.
+- Leer errores básicos.
+- Corregir problemas progresivamente.
+
+## Resumen
+
+En esta práctica integraste los contenidos del módulo de fundamentos:
+
+- Introducción a Python.
+- Instalación y entorno.
+- Uso de `print()`.
+- Salida de datos.
+- Errores de sintaxis.
+- Excepciones básicas.
+- Depuración inicial.
+
+## Próximo módulo
+
+En el siguiente módulo aprenderás a almacenar información mediante variables y a trabajar con los principales tipos de datos de Python.
