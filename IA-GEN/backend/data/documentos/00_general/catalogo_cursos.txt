@@ -1,0 +1,117 @@
+---
+id: general_catalogo_cursos
+title: Catálogo de cursos de IA-GEN
+course: general
+module: general
+lesson: catalogo_cursos
+topic: oferta_formativa
+level: general
+document_type: catalog
+language: es
+version: 1.0
+status: published
+prerequisites: ninguno
+estimated_minutes: 8
+keywords: cursos, python, machine_learning, ia_generativa, rag, oracle_cloud
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Catálogo de cursos de IA-GEN
+
+IA-GEN organiza su oferta educativa en rutas progresivas de aprendizaje. Cada curso está diseñado para combinar fundamentos teóricos, ejemplos prácticos, ejercicios y un proyecto final.
+
+## Python desde cero
+
+**Nivel:** Principiante.
+
+Python desde cero es el curso piloto de IA-GEN. Está dirigido a estudiantes que desean aprender programación sin necesitar experiencia previa.
+
+El curso aborda:
+
+- Introducción a Python.
+- Variables y tipos de datos.
+- Operadores.
+- Estructuras condicionales.
+- Bucles.
+- Funciones.
+- Listas, tuplas, conjuntos y diccionarios.
+- Manejo de archivos.
+- Manejo básico de errores.
+- Desarrollo de un proyecto final.
+
+Al finalizar, el estudiante deberá ser capaz de crear programas básicos, organizar soluciones mediante funciones y utilizar las principales estructuras de datos de Python.
+
+## Fundamentos de Machine Learning
+
+**Nivel:** Principiante a intermedio.
+
+Este curso introduce los principios esenciales del aprendizaje automático. Se recomienda haber completado Python desde cero o contar con conocimientos equivalentes.
+
+El curso aborda:
+
+- Introducción al Machine Learning.
+- Preparación y análisis de datos.
+- Preprocesamiento.
+- Aprendizaje supervisado.
+- Aprendizaje no supervisado.
+- Entrenamiento de modelos.
+- Evaluación de resultados.
+- Errores comunes en proyectos de Machine Learning.
+- Desarrollo de un proyecto final.
+
+El objetivo es que el estudiante comprenda cómo se utilizan los datos para entrenar y evaluar modelos sencillos.
+
+## IA Generativa y sistemas RAG
+
+**Nivel:** Intermedio.
+
+Este curso explica los fundamentos de los modelos generativos y la construcción de aplicaciones que combinan modelos de lenguaje con fuentes de conocimiento controladas.
+
+El curso aborda:
+
+- Fundamentos de inteligencia artificial generativa.
+- Modelos de lenguaje.
+- Prompt engineering.
+- Embeddings.
+- Bases de datos vectoriales.
+- Recuperación semántica.
+- Arquitectura RAG.
+- Construcción de asistentes basados en conocimiento.
+- Evaluación y reducción de respuestas inventadas.
+- Desarrollo de un proyecto final.
+
+El estudiante aprenderá cómo una aplicación puede recuperar información relevante y utilizarla como contexto para generar una respuesta.
+
+## Fundamentos de Oracle Cloud
+
+**Nivel:** Principiante.
+
+Este curso presenta conceptos esenciales de computación en la nube utilizando Oracle Cloud Infrastructure como plataforma de referencia.
+
+El curso aborda:
+
+- Fundamentos de cloud computing.
+- Regiones y dominios de disponibilidad.
+- Identidad y gestión de acceso.
+- Servicios de cómputo.
+- Almacenamiento.
+- Redes virtuales.
+- Bases de datos.
+- Principios básicos de seguridad.
+- Despliegue de una aplicación.
+
+El objetivo es que el estudiante conozca los componentes principales de una infraestructura en la nube y pueda realizar un despliegue básico.
+
+## Contenidos complementarios futuros
+
+IA-GEN podrá incorporar posteriormente contenidos relacionados con:
+
+- Desarrollo web.
+- Git y GitHub.
+- Docker.
+- FastAPI.
+- Next.js.
+- PostgreSQL.
+
+Estos contenidos son complementarios y no forman parte del catálogo principal de la primera versión.

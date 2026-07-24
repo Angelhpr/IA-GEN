@@ -1,0 +1,59 @@
+---
+id: general_bienvenida
+title: Bienvenida a IA-GEN
+course: general
+module: general
+lesson: bienvenida
+topic: presentacion
+level: general
+document_type: welcome
+language: es
+version: 1.0
+status: published
+prerequisites: ninguno
+estimated_minutes: 3
+keywords: ia_gen, educacion, programacion, inteligencia_artificial
+source_reference: documentacion_interna_ia_gen
+updated_at: 2026-07-24
+---
+
+# Bienvenida a IA-GEN
+
+IA-GEN es una plataforma educativa creada para facilitar el aprendizaje de programación, inteligencia artificial y tecnologías de la nube mediante explicaciones claras, ejemplos prácticos y proyectos aplicados.
+
+El propósito de IA-GEN es ayudar a estudiantes que desean desarrollar habilidades tecnológicas desde una base sólida. Los contenidos están organizados de forma progresiva para que cada persona pueda comprender los conceptos fundamentales antes de avanzar hacia temas más especializados.
+
+## ¿Qué puedes aprender en IA-GEN?
+
+La primera versión de la plataforma incluye cuatro áreas formativas principales:
+
+- Python desde cero.
+- Fundamentos de Machine Learning.
+- IA Generativa y sistemas RAG.
+- Fundamentos de Oracle Cloud.
+
+El curso piloto es Python desde cero. Este curso introduce los conceptos esenciales de programación y sirve como preparación para estudiar automatización, análisis de datos, inteligencia artificial y desarrollo de aplicaciones.
+
+## Aprendizaje basado en proyectos
+
+IA-GEN promueve una metodología práctica. Además de estudiar conceptos, el estudiante podrá analizar ejemplos, resolver ejercicios y desarrollar proyectos relacionados con situaciones reales.
+
+Los contenidos buscan fomentar:
+
+- La comprensión de los fundamentos.
+- La práctica constante.
+- La resolución de problemas.
+- El uso responsable de la inteligencia artificial.
+- La creación de proyectos que puedan formar parte de un portafolio.
+
+## Asistente educativo
+
+La plataforma incorpora un asistente apoyado por inteligencia artificial y recuperación de información mediante RAG.
+
+El asistente utiliza la base de conocimientos oficial de IA-GEN para responder preguntas relacionadas con los cursos y materiales publicados. Sus respuestas deben basarse en el contenido educativo disponible y no sustituir la investigación, la práctica ni el acompañamiento de un docente.
+
+## Comienza tu aprendizaje
+
+Puedes iniciar con el curso Python desde cero y avanzar gradualmente hacia Machine Learning, IA Generativa, sistemas RAG y servicios de Oracle Cloud.
+
+Bienvenido a IA-GEN: aprende, practica y construye proyectos reales.

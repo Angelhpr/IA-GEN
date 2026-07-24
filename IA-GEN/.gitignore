@@ -31,3 +31,4 @@ IA-GEN_BACKUP*/
 
 # Streamlit secrets
 .streamlit/secrets.toml
+backend/data/vector_db_backup_*/

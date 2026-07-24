@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from pathlib import Path
 
 from chromadb import PersistentClient
@@ -11,124 +12,224 @@ class VectorStore:
 
     def __init__(self):
 
-        db_path = Path(settings.VECTOR_DB_PATH)
+        db_path = settings.resolved_vector_db_path
 
-        db_path.mkdir(parents=True, exist_ok=True)
+        db_path.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
 
         self.client = PersistentClient(
             path=str(db_path),
-            settings=Settings(anonymized_telemetry=False)
+            settings=Settings(
+                anonymized_telemetry=False
+            ),
         )
 
-        self.collection = self.client.get_or_create_collection(
-            name="ia_gen_documents"
+        self.collection = (
+            self.client.get_or_create_collection(
+                name="ia_gen_documents"
+            )
         )
 
-    def _generate_chunk_id(self, chunk, index: int) -> str:
-            
-        filename = Path(
-            chunk.metadata["filename"]
-        ).stem
+    def _generate_chunk_id(
+        self,
+        chunk,
+        index: int,
+    ) -> str:
 
-        content_hash = chunk.metadata["content_hash"][:8]
+        document_id = chunk.metadata["id"]
+        content_hash = (
+            chunk.metadata["content_hash"][:8]
+        )
+        chunk_index = chunk.metadata.get(
+            "chunk_index",
+            index,
+        )
 
-        return f"{filename}_{content_hash}_chunk_{index}"
+        return (
+            f"{document_id}_"
+            f"{content_hash}_"
+            f"chunk_{chunk_index}"
+        )
 
-    def add_documents(self, chunks, embeddings):
+    def add_documents(
+        self,
+        chunks,
+        embeddings,
+    ) -> list[str]:
+
+        if len(chunks) != len(embeddings):
+            raise ValueError(
+                "La cantidad de chunks y embeddings "
+                "debe coincidir."
+            )
+
+        if not chunks:
+            return []
 
         ids = []
         documents = []
         metadatas = []
 
-        for i, chunk in enumerate(chunks):
-
+        for index, chunk in enumerate(chunks):
             chunk_id = self._generate_chunk_id(
                 chunk,
-                i
+                index,
             )
-            ids.append(chunk_id)
 
-            documents.append(chunk.page_content)
-            metadatas.append(chunk.metadata)
+            ids.append(chunk_id)
+            documents.append(
+                chunk.page_content
+            )
+            metadatas.append(
+                chunk.metadata
+            )
 
         self.collection.add(
             ids=ids,
             documents=documents,
             embeddings=embeddings,
-            metadatas=metadatas
+            metadatas=metadatas,
         )
 
         logger.info(
-            f"IDs almacenados: {ids}"
+            "IDs almacenados: %s",
+            ids,
         )
-        
         logger.info(
-            f"{len(ids)} documentos almacenados en ChromaDB"
+            "%s chunks almacenados en ChromaDB",
+            len(ids),
         )
 
-    def query(self, embedding, k: int = 3):
+        return ids
 
-        results = self.collection.query(
+    def query(
+        self,
+        embedding,
+        k: int = 3,
+    ):
+
+        return self.collection.query(
             query_embeddings=[embedding],
-            n_results=k
+            n_results=k,
         )
 
-        return results
-    
     def count(self):
 
         return self.collection.count()
-    
-    def document_exists(self, source: str) -> bool:
 
-        results = self.collection.get(
-            where={
-                "source": source}
+    def document_exists(
+        self,
+        source: str,
+    ) -> bool:
+
+        results = self.get_document(source)
+
+        return bool(results["ids"])
+
+    def get_document(
+        self,
+        source: str,
+    ):
+
+        normalized_source = str(
+            Path(source).resolve()
         )
 
-        return len(results["ids"]) > 0
-    
-    def get_document(self, source: str):
-
-        source = str(Path(source).resolve())
-
-        results = self.collection.get(
+        return self.collection.get(
             where={
-                "source": source
+                "source": normalized_source,
             }
         )
 
-        return results
-    
-    def delete_document(self, source: str):
+    def delete_ids(
+        self,
+        ids: Sequence[str],
+    ) -> None:
+        """
+        Elimina únicamente los registros indicados.
 
-        source = str(Path(source).resolve())
+        Se utiliza durante el reemplazo seguro para
+        retirar los chunks de una versión anterior.
+        """
+
+        normalized_ids = list(ids)
+
+        if not normalized_ids:
+            return
+
+        self.collection.delete(
+            ids=normalized_ids
+        )
+
+        logger.info(
+            "%s chunks eliminados por ID",
+            len(normalized_ids),
+        )
+
+    def delete_document(
+        self,
+        source: str,
+    ) -> None:
+
+        normalized_source = str(
+            Path(source).resolve()
+        )
 
         self.collection.delete(
             where={
-                "source": source
+                "source": normalized_source,
             }
         )
 
         logger.info(
-            f"Documento eliminado: {source}"
+            "Documento eliminado: %s",
+            normalized_source,
         )
-    
-    def needs_update(self, source: str, new_hash: str) -> bool:
+
+    def needs_update(
+        self,
+        source: str,
+        new_hash: str,
+    ) -> bool:
 
         results = self.get_document(source)
 
-        if len(results["ids"]) == 0:
+        if not results["ids"]:
             return True
 
-        stored_hash = results["metadatas"][0]["content_hash"]
+        stored_hash = (
+            results["metadatas"][0]
+            ["content_hash"]
+        )
 
         return stored_hash != new_hash
-    
+
     def show_all(self):
 
         return self.collection.get()
-    
+
+    def list_sources(self) -> list[str]:
+        """
+        Devuelve las rutas fuente únicas almacenadas
+        en la colección.
+        """
+
+        results = self.collection.get()
+        metadatas = (
+            results.get("metadatas") or []
+        )
+
+        sources = {
+            metadata["source"]
+            for metadata in metadatas
+            if metadata
+            and metadata.get("source")
+        }
+
+        return sorted(sources)
+
     def list_documents(self):
 
         results = self.collection.get()
@@ -142,11 +243,14 @@ class VectorStore:
         }
 
         return sorted(filenames)
-    
-    def get_document_by_filename(self, filename: str):
+
+    def get_document_by_filename(
+        self,
+        filename: str,
+    ):
 
         return self.collection.get(
             where={
-                "filename": filename
+                "filename": filename,
             }
         )
