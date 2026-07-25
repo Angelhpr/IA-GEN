@@ -102,6 +102,7 @@ function AssistantIcon() {
 
 export default function ChatCard() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [conversationHistory, setConversationHistory] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const requestInFlightRef = useRef(false);
@@ -129,9 +130,27 @@ export default function ChatCard() {
     setIsLoading(true);
 
     try {
-      const answer = await sendMessage(normalizedContent);
+      const recentHistory = conversationHistory.slice(-8);
+
+      const answer = await sendMessage(normalizedContent, recentHistory);
 
       appendMessage("assistant", answer);
+
+      setConversationHistory((previousHistory) => {
+        const updatedHistory: Message[] = [
+          ...previousHistory,
+          {
+            role: "user",
+            content: normalizedContent,
+          },
+          {
+            role: "assistant",
+            content: answer,
+          },
+        ];
+
+        return updatedHistory.slice(-8);
+      });
     } catch (error: unknown) {
       console.error("Error al enviar el mensaje:", error);
 

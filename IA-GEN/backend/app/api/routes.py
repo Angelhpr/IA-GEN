@@ -31,7 +31,15 @@ def chat(
     chat_service: ChatService = Depends(get_chat_service),
 ):
 
-    result = chat_service.chat(request.message)
+    history = [
+        history_message.model_dump()
+        for history_message in request.history
+    ]
+
+    result = chat_service.chat(
+        message=request.message,
+        history=history,
+    )
 
     return ChatResponse(**result)
 

@@ -11,18 +11,50 @@ class ChatService:
         self.retriever = Retriever()
         self.prompt_builder = PromptBuilder()
 
-    def chat(self, message: str) -> dict:
+    @staticmethod
+    def _build_retrieval_query(
+        message: str,
+        history: list[dict[str, str]],
+    ) -> str:
+        previous_user_messages = [
+            history_message["content"]
+            for history_message in history
+            if history_message.get("role") == "user"
+            and history_message.get("content")
+        ]
+
+        if not previous_user_messages:
+            return message
+
+        recent_user_messages = previous_user_messages[-2:]
+
+        return "\n".join([
+            *recent_user_messages,
+            message,
+        ])
+
+    def chat(
+        self,
+        message: str,
+        history: list[dict[str, str]] | None = None,
+    ) -> dict:
+        conversation_history = history or []
 
         logger.info(
             "Mensaje recibido: %s",
             message,
         )
 
+        retrieval_query = self._build_retrieval_query(
+            message=message,
+            history=conversation_history,
+        )
+
         logger.info(
             "Buscando contexto en ChromaDB..."
         )
 
-        results = self.retriever.search(message)
+        results = self.retriever.search(retrieval_query)
 
         logger.info(
             "Contexto recuperado correctamente"
@@ -33,8 +65,9 @@ class ChatService:
         )
 
         prompt = self.prompt_builder.build(
-            message,
-            results,
+            question=message,
+            retrieval_result=results,
+            history=conversation_history,
         )
 
         logger.info(
