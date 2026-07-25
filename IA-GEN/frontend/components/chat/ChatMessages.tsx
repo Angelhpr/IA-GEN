@@ -1,3 +1,4 @@
+import MarkdownMessage from "./MarkdownMessage";
 import { useEffect, useRef } from "react";
 
 import type { Message } from "../../types/message";
@@ -111,9 +112,13 @@ export default function ChatMessages({
                   }
                 `}
               >
-                <p className="whitespace-pre-wrap break-words">
-                  {message.content}
-                </p>
+                {isUser ? (
+                  <p className="whitespace-pre-wrap break-words">
+                    {message.content}
+                  </p>
+                ) : (
+                  <MarkdownMessage content={message.content} />
+                )}
               </div>
             </div>
           </div>
