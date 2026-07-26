@@ -38,11 +38,12 @@ class IngestionPipeline:
 
         embeddings = []
 
-        for chunk in chunks:
-            vector = self.embedding.generate(
+        embeddings = self.embedding.generate_batch(
+            [
                 chunk.page_content
-            )
-            embeddings.append(vector)
+                for chunk in chunks
+            ]
+        )
 
         logger.info(
             "Embeddings creados: %s",
