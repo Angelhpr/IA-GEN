@@ -8,7 +8,7 @@
 
 **Proyecto:** IA-GEN
 
-**Versión actual:** **v0.6.0**
+**Versión actual:** **v0.7.0-dev**
 
 **Estado:** 🟢 Desarrollo activo
 
@@ -29,7 +29,7 @@ La plataforma estará compuesta por:
 - Sistema RAG basado en Gemini
 - Base de datos PostgreSQL
 - Base de datos vectorial ChromaDB
-- Despliegue profesional en Oracle Cloud Infrastructure
+- Despliegue actual en Vercel y Render, con evolución cloud futura
 
 ---
 
@@ -45,10 +45,11 @@ La plataforma estará compuesta por:
 | Ingestión automática | ✅ Completado |
 | API REST             | ✅ Completado |
 | Frontend             | ✅ Completado |
+| Integración Front/Back | ✅ Completado |
 | PostgreSQL           | ⏳ Pendiente  |
 | Autenticación        | ⏳ Pendiente  |
-| Docker               | ⏳ Pendiente  |
-| Oracle Cloud         | ⏳ Pendiente  |
+| Docker               | ✅ Completado |
+| Producción Vercel/Render | ✅ Completado |
 
 ---
 
@@ -434,7 +435,7 @@ IA-GEN funcionará como una plataforma educativa completa impulsada por Intelige
 
 ### Objetivo
 
-Publicar IA-GEN en producción utilizando Oracle Cloud Infrastructure.
+Consolidar IA-GEN como una plataforma educativa completa, fortalecer su operación en producción y mantener Oracle Cloud Infrastructure como una opción de evolución futura.
 
 ### Infraestructura
 
@@ -444,12 +445,13 @@ Publicar IA-GEN en producción utilizando Oracle Cloud Infrastructure.
 - HTTPS.
 - Certificados SSL.
 
-### Oracle Cloud
+### Operación cloud
 
-- Máquina virtual.
-- Despliegue automático.
-- Variables de entorno.
-- Firewall.
+- Frontend desplegado en Vercel.
+- Backend desplegado en Render.
+- Variables de entorno protegidas.
+- HTTPS administrado por las plataformas.
+- Evaluación futura de Oracle Cloud Infrastructure.
 - Monitorización.
 
 ### Optimización
@@ -530,12 +532,13 @@ Convertir IA-GEN en una aplicación Full Stack completamente funcional.
 
 Las siguientes metas son:
 
-- Integración del chatbot IA.
-- Consumo de APIs desde el Frontend.
 - Persistencia con PostgreSQL.
-- Autenticación mediante JWT.
+- Autenticación y autorización.
 - Panel del estudiante.
-- Despliegue en Oracle Cloud Infrastructure.
+- Gestión dinámica de cursos.
+- Observabilidad y alertas.
+- CI/CD y endurecimiento de producción.
+- Evaluación futura de Oracle Cloud Infrastructure.
 
 ---
 
@@ -572,7 +575,7 @@ El proyecto incluirá:
 - Panel del estudiante.
 - Cursos dinámicos.
 - Chat inteligente.
-- Despliegue en Oracle Cloud Infrastructure.
+- Despliegue profesional y monitorizado, con infraestructura cloud evolutiva.
 
 ---
 
@@ -587,25 +590,27 @@ Backend                    ✅ 100%
 Sistema RAG                ✅ 100%
 API REST                   ✅ 100%
 Frontend                   ✅ 100%
+Integración Front + Back   ✅ 100%
+Docker                     ✅ 100%
+Producción inicial         ✅ 100%
 
-Integración Front + Back   🚧 0%
 PostgreSQL                 ⏳
 Autenticación              ⏳
 Panel del alumno           ⏳
-Despliegue OCI             ⏳
+Evolución cloud            ⏳
 ```
 
 ---
 
 # Próximo hito
 
-🎯 **Frontend v1 finalizado**
+🎯 **Persistencia y autenticación**
 
-El siguiente objetivo consiste en conectar toda la infraestructura Backend desarrollada previamente con la interfaz creada en Next.js para que IA-GEN se convierta en una plataforma completamente funcional.
+El siguiente objetivo consiste en incorporar persistencia con PostgreSQL, autenticación de usuarios y el panel del estudiante sobre la plataforma Full Stack que ya se encuentra integrada y publicada.
 
 ---
 
 > **"La IA no llegó a reemplazarte, sino a ayudarte a crear lo imposible."**
 
 **Proyecto IA-GEN**  
-Desarrollado con ❤️ utilizando Next.js, FastAPI, Gemini, ChromaDB y Oracle Cloud.
+Desarrollado con ❤️ utilizando Next.js, FastAPI, Gemini, ChromaDB, Docker, Vercel y Render.
