@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     INGESTION_SOURCE_PATH: Path = Path(
         "data/documentos"
     )
+    AUTO_INGEST_ON_STARTUP: bool = False
 
     model_config = SettingsConfigDict(
         env_file=BACKEND_ROOT / ".env",

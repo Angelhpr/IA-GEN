@@ -16,6 +16,7 @@ RUN groupadd --gid 10001 app \
 
 COPY --chown=app:app app ./app
 COPY --chown=app:app data/documentos ./data/documentos
+COPY --chown=app:app data/vector_db_seed ./data/vector_db
 
 RUN mkdir -p /app/data/vector_db \
     && chown -R app:app /app/data
