@@ -12,13 +12,35 @@ La aplicación integra un frontend moderno, una API REST, Google Gemini, ChromaD
 
 ## Aplicación en producción
 
-| Servicio           | Dirección                          |
-| ------------------ | ---------------------------------- |
-| Aplicación web     | https://ia-gen-frontend.vercel.app |
-| API Backend        | https://ia-gen.onrender.com        |
-| Estado de la API   | https://ia-gen.onrender.com/health |
+| Servicio         | Dirección                          |
+| ---------------- | ---------------------------------- |
+| Aplicación web   | https://ia-gen-frontend.vercel.app |
+| API Backend      | https://ia-gen.onrender.com        |
+| Estado de la API | https://ia-gen.onrender.com/health |
 
 El backend utiliza el plan gratuito de Render. El primer acceso puede tardar algunos segundos mientras el servicio se activa.
+
+---
+
+## Captura de la aplicación
+
+La siguiente captura muestra IA-GEN ejecutándose públicamente en producción y generando una respuesta mediante el asistente conectado con Google Gemini y el sistema RAG.
+
+<p align="center">
+  <a href="https://ia-gen-frontend.vercel.app" target="_blank">
+    <img
+      src="IA-GEN/Docs/images/ia-gen-aplicacion-produccion.png"
+      alt="Aplicación IA-GEN ejecutándose en producción con el asistente de inteligencia artificial"
+      width="100%"
+    />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://ia-gen-frontend.vercel.app">
+    Abrir la aplicación IA-GEN
+  </a>
+</p>
 
 ---
 
